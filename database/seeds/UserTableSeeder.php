@@ -17,7 +17,7 @@ class UserTableSeeder extends Seeder
         
         $admin = User::firstOrCreate([
             "name"  =>  "Administrador",
-            "email" =>  "admin@brdsoft.com.br",
+            "email" =>  "contato@fladermorais.com.br",
             "password"  =>  bcrypt("Mudar123@"),
             ]
         );
