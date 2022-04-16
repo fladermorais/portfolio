@@ -1,0 +1,68 @@
+
+
+/*------------------------------------------------------------------
+[Master Stylesheet]
+
+Project:	X-Sport
+Version:	1.0
+Last change:	17/11/2014 [fixed minor bugs]
+Assigned to:	Alex Zaymund
+Primary use:	Xtreme Sport
+-------------------------------------------------------------------*/
+
+
+/* MAIN CSS */
+@import url('bootstrap.css');
+@import url('theme.css');
+@import url('hover-min.css');
+@import url('shop.css');
+@import url('blog.css');
+@import url('animate.css');
+@import url('debugging.css');
+@import url('custom.css'); 
+@import url('responsive.css');
+@import url('animatedbg.css'); 
+
+/* FONTS*/
+
+@import url('../webfontkit/stylesheet.css');
+@import url('../plugins/icomoon/style.css');
+@import url('../plugins/simple/simple-line-icons.css');
+
+
+
+/* PLUGIN CSS */
+
+@import url('../plugins/font-awesome/css/font-awesome.min.css');
+@import url('../plugins/yamm3/yamm/yamm.css');
+@import url('../plugins/bootstrap-vertical-tabs-master/bootstrap.vertical-tabs.min.css');
+@import url('../plugins/isotope/isotope.css');
+@import url('../plugins/magnific/magnific-popup.css');
+@import url('../plugins/prettyphoto/css/prettyPhoto.css');
+@import url('../plugins/bxslider/jquery.bxslider.css');
+@import url('../plugins/selectbox/jquery.selectbox.css');
+@import url('../plugins/nouislider/jquery.nouislider.css');
+@import url('../plugins/points/points.css');
+@import url('../plugins/flexslider/flexslider.css');
+@import url('../plugins/smart-menu/smart-menu.css');
+@import url('../plugins/loader/css/loader.css');
+@import url('../plugins/newsletter/newsletter.css');
+@import url('../plugins/bio/css/bio.css');
+@import url('../plugins/iview/css/iview.css');
+@import url('../plugins/iview/css/skin/style.css');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
