@@ -1,0 +1,56 @@
+/* Configuração de margin para container principal do painel de admin */
+.content-wrapper {
+    max-width: 100%;
+    padding: 5px;
+}
+
+/* Container principal do Site de Admin */
+.box-site {
+    margin: 10px; padding: 5px;
+}
+
+/* Botao para ações de cadastro e atualização */
+.btn-cadastro {
+    margin: 20px auto;
+}
+
+.img-canhoto {
+    border: 2px solid #ccc;
+    width: 100%;
+    height: 100px;
+}
+.img-canhoto img {
+    display: block;
+    height: 100%;
+    margin: 0 auto;
+}
+
+h1{
+    font-size: 14px;
+}
+.text-center {
+    display: block;
+    width: 100%; 
+    text-align: center;
+    color: #ccc;
+    background: #000;
+}
+
+.search_resultado {
+    border-bottom: 2px solid #ccc;
+    padding: 5px;
+    margin: 10px auto;
+    background: #fff;
+    text-align: center;
+    font-size: 10px;
+}
+
+table th, table td {
+    font-size: 9px;
+    border: 1px solid #ccc;
+}
+
+table {
+    margin-top: 50px;
+    width: 100%;
+}
