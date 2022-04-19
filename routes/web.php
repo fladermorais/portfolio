@@ -109,13 +109,13 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'auth
         Route::delete('/delete/{id}', 'ProdutoController@delete')->name('produtos.delete');
     });
 
-    Route::group(['prefix' => 'recursos'], function() {
-        Route::get('/', 'RecursoController@index')->name('recursos.index');
-        Route::get('/create', 'RecursoController@create')->name('recursos.create');
-        Route::post('/store', 'RecursoController@store')->name('recursos.store');
-        Route::get('/edit/{id}', 'RecursoController@edit')->name('recursos.edit');
-        Route::put('/update/{id}', 'RecursoController@update')->name('recursos.update');
-        Route::delete('/delete/{id}', 'RecursoController@delete')->name('recursos.delete');
+    Route::group(['prefix' => 'dicas'], function() {
+        Route::get('/', 'RecursoController@index')->name('dicas.index');
+        Route::get('/create', 'RecursoController@create')->name('dicas.create');
+        Route::post('/store', 'RecursoController@store')->name('dicas.store');
+        Route::get('/edit/{id}', 'RecursoController@edit')->name('dicas.edit');
+        Route::put('/update/{id}', 'RecursoController@update')->name('dicas.update');
+        Route::delete('/delete/{id}', 'RecursoController@delete')->name('dicas.delete');
     });
 
     Route::group(['prefix' => 'clientes'], function() {

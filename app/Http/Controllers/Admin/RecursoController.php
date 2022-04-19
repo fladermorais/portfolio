@@ -17,8 +17,8 @@ class RecursoController extends Controller
         if(Gate::denies('recursos.edit')){
             abort(403, "Não Autorizado");
         }
-        $recursos = Recurso::orderBy('titulo')->get();
-        return view('Admin.recursos.index', compact('recursos'));
+        $dicas = Recurso::orderBy('titulo')->get();
+        return view('Admin.dicas.index', compact('dicas'));
     }
 
     public function create()
@@ -27,7 +27,7 @@ class RecursoController extends Controller
             abort(403, "Não Autorizado");
         }
         $produtos = Produto::orderBy('titulo')->get();
-        return view('Admin.recursos.create', compact('produtos'));
+        return view('Admin.dicas.create', compact('produtos'));
     }
 
     public function store(RecursoRequest $request)
@@ -41,7 +41,7 @@ class RecursoController extends Controller
         $response = $recurso->newInfo($data);
         if($response){
             flash('Salvo com sucesso!')->success();
-            return redirect()->route('recursos.index');
+            return redirect()->route('dicas.index');
         }
     }
 
@@ -56,7 +56,7 @@ class RecursoController extends Controller
             return back();
         }
         $produtos = Produto::orderBy('titulo')->get();
-        return view('Admin.recursos.edit', compact('info', 'produtos'));
+        return view('Admin.dicas.edit', compact('info', 'produtos'));
     }
 
     public function update(RecursoRequest $request, $id)
@@ -74,7 +74,7 @@ class RecursoController extends Controller
         $response = $recurso->updateInfo($data);
         if($response){
             flash('Item atualizado com sucesso!')->success();
-            return redirect()->route('recursos.index');
+            return redirect()->route('dicas.index');
         }
     }
 

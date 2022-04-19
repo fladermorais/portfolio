@@ -3,8 +3,8 @@
 <div class="box">
     <div class="box-header">
         <div class="flex-row">
-            <h3>Recursos</h3>
-            <a class="btn btn-primary" href="{{route('recursos.create')}}">Recursos</a>
+            <h3>Dicas</h3>
+            <a class="btn btn-primary" href="{{route('dicas.create')}}">Dicas</a>
         </div>
     </div>
 </div>
@@ -21,14 +21,14 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($recursos as $recurso)
+                    @foreach($dicas as $recurso)
                     <tr>
                         <td><i class="{{ $recurso->icone }}"></i></td>
                         <td>{{ $recurso->titulo }}</td>
                         <td>{{ $recurso->descricao }}</td>
                         <td class="flex-row">
-                            <a class="btn btn-primary btn-sm" href="{{route('recursos.edit', $recurso->id)}}" title="Editar"><i class="fas fa-edit"></i></a>
-                            <form action="{{ route('recursos.delete', $recurso->id) }}" method="post">
+                            <a class="btn btn-primary btn-sm" href="{{route('dicas.edit', $recurso->id)}}" title="Editar"><i class="fas fa-edit"></i></a>
+                            <form action="{{ route('dicas.delete', $recurso->id) }}" method="post">
                                 @csrf
                                 @method('DELETE')
                                 <button class="btn btn-sm btn-danger" title="Excluir" type="submit"><i class="fas fa-edit"></i></button>

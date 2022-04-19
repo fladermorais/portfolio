@@ -60,7 +60,7 @@
                 </li>
                 
                 @can('recursos.index')
-                <li><a href="{{ route('recursos.index') }}"><i class="fa fa-puzzle-piece"></i> Recursos</a></li>
+                <li><a href="{{ route('dicas.index') }}"><i class="fa fa-puzzle-piece"></i> Dicas </a></li>
                 @endcan
                 
                 @can('clientes.index')
