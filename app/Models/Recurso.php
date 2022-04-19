@@ -7,22 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Recurso extends Model
 {
     protected $table = 'recursos';
-    protected $fillable = ['produto_id', 'titulo', 'descricao', 'icone'];
-
-    public function produtos()
-    {
-        return $this->belongsTo(Produto::class, 'produto_id');
-    }
-
-    public function rules()
-    {
-        return [
-            'produto_id'    => "required",
-            'titulo'        => "required",
-            'descricao'     => "required",
-            'icone'         => "required",
-        ];
-    }
+    protected $fillable = ['titulo', 'descricao', 'icone'];
 
     public function newInfo($data)
     {

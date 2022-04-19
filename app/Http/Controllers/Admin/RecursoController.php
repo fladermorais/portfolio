@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\RecursoRequest;
 use App\Models\Produto;
 use App\Models\Recurso;
 use Illuminate\Http\Request;
@@ -29,18 +30,13 @@ class RecursoController extends Controller
         return view('Admin.recursos.create', compact('produtos'));
     }
 
-    public function store(Request $request)
+    public function store(RecursoRequest $request)
     {
         if(Gate::denies('recursos.create')){
             abort(403, "Não Autorizado");
         }
         $data = $request->all();
         $recurso = new Recurso;
-        $validator = Validator::make($data, $recurso->rules());
-        if($validator->fails()){
-            flash('Atente-se ao formulário')->warning();
-            return back()->withInput()->withErrors($validator);
-        }
 
         $response = $recurso->newInfo($data);
         if($response){
@@ -63,7 +59,7 @@ class RecursoController extends Controller
         return view('Admin.recursos.edit', compact('info', 'produtos'));
     }
 
-    public function update(Request $request, $id)
+    public function update(RecursoRequest $request, $id)
     {
         if(Gate::denies('recursos.edit')){
             abort(403, "Não Autorizado");
@@ -74,12 +70,6 @@ class RecursoController extends Controller
             return back();
         }
         $data = $request->all();
-        
-        $validator = Validator::make($data, $recurso->rules());
-        if($validator->fails()){
-            flash('Atente-se ao formulário')->warning();
-            return back()->withInput()->withErrors($validator);
-        }
         
         $response = $recurso->updateInfo($data);
         if($response){
