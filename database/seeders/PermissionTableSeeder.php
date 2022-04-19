@@ -1,5 +1,7 @@
 <?php
 
+namespace Database\Seeders;
+
 use Illuminate\Database\Seeder;
 use App\Permission;
 
@@ -161,5 +163,28 @@ class PermissionTableSeeder extends Seeder
             "description"   =>  "excluir títulos do site",
             ]
         );
+
+         // Eventos
+         Permission::firstOrCreate([
+            "name"  =>  "eventos.create",
+            "description"   =>  "Eventos - Criar",
+            ]
+        );
+        Permission::firstOrCreate([
+            "name"  =>  "eventos.delete",
+            "description"   =>  "Eventos - Deletar",
+            ]
+        );
+        Permission::firstOrCreate([
+            "name"  =>  "eventos.edit",
+            "description"   =>  "Eventos - Editar",
+            ]
+        );
+        Permission::firstOrCreate([
+            "name"  =>  "eventos.index",
+            "description"   =>  "Eventos - Listar",
+            ]
+        );
+
     }
 }
