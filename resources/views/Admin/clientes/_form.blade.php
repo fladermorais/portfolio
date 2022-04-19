@@ -34,4 +34,16 @@
     </div>
   </div>
   
+  <div class="form-row">
+    <div class="col-sm-12">
+      <label for="descricao">Descrição</label><br>
+      <input class='form-control' type="text" name="descricao" value="{{ (isset($info->descricao) ? $info->descricao : old('descricao')) }}">
+      @if($errors->has('descricao'))
+      @foreach($errors->get('descricao') as $e)
+      <span class="error">{{$e}}</span>
+      @endforeach
+      @endif
+    </div>
+  </div>
+  
 </div>

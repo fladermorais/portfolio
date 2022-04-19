@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ClienteStoreRequest;
+use App\Http\Requests\ClientesUpdateRequest;
 use App\Models\Cliente;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
@@ -27,18 +29,13 @@ class ClienteController extends Controller
         return view('Admin.clientes.create');
     }
 
-    public function store(Request $request)
+    public function store(ClienteStoreRequest $request)
     {
         if(Gate::denies('clientes.create')){
             abort(403, "Não Autorizado");
         }
         $data = $request->all();
         $cliente = new Cliente;
-        $validator = Validator::make($data, $cliente->rules());
-        if($validator->fails()){
-            flash('Atente-se ao formulário')->warning();
-            return back()->withInput()->withErrors($validator);
-        }
 
         $response = $cliente->newInfo($data);
         if($response){
@@ -61,7 +58,7 @@ class ClienteController extends Controller
         return view('Admin.clientes.edit', compact('info'));
     }
 
-    public function update(Request $request, $id)
+    public function update(ClientesUpdateRequest $request, $id)
     {
         if(Gate::denies('clientes.edit')){
             abort(403, "Não Autorizado");
@@ -73,11 +70,6 @@ class ClienteController extends Controller
         }
 
         $data = $request->all();
-        $validator = Validator::make($data, $cliente->rulesUpdate());
-        if($validator->fails()){
-            flash('Atente-se ao formulário')->warning();
-            return back()->withInput()->withErrors($validator);
-        }
 
         $response = $cliente->updateInfo($data);
 

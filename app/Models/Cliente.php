@@ -7,24 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Cliente extends Model
 {
     protected $table = "clientes";
-    protected $fillable = ['nome', 'imagem', 'link'];
-
-    public function rules()
-    {
-        return [
-            "nome"      =>  "required",
-            "arquivo"   =>  "required",
-            "link"      =>  "required"
-        ];
-    }
-
-    public function rulesUpdate()
-    {
-        return [
-            "nome"      =>  "required",
-            "link"      =>  "required"
-        ];
-    }
+    protected $fillable = ['nome', 'imagem', 'link', 'descricao'];
 
     public function newInfo($data)
     {
