@@ -64,6 +64,10 @@
                 @endcan
                 
                 @can('clientes.index')
+                <li><a href="{{ route('eventos.index') }}"><i class="fa fa-users"></i> <span>Eventos</span></a></li>
+                @endcan
+                
+                @can('clientes.index')
                 <li><a href="{{ route('clientes.index') }}"><i class="fa fa-users"></i> <span>Clientes</span></a></li>
                 @endcan
                 

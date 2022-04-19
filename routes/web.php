@@ -118,6 +118,8 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'auth
         Route::delete('/delete/{id}', 'RecursoController@delete')->name('dicas.delete');
     });
 
+    Route::resource('eventos', EventoController::class);
+
     Route::group(['prefix' => 'clientes'], function() {
         Route::get('/', 'ClienteController@index')->name('clientes.index');
         Route::get('/create', 'ClienteController@create')->name('clientes.create');

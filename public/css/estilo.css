@@ -63,3 +63,19 @@
 .table td:last-child, .table th:last-child {
     width: 200px;
 }
+
+.status {
+    display: inline-block;
+    width: 10px;
+    height: 20px;
+    background: #ccc;
+    border-radius: 5px;
+}
+
+.status.inativo {
+    background-color: red;
+}
+
+.status.ativo {
+    background-color: green;
+}
