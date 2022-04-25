@@ -14,7 +14,7 @@
         <table class="table table-striped">
             <thead class="thead-dark">
                 <tr>
-                    <th>Ícone</th>
+                    <th>Imagem</th>
                     <th>Titulo</th>
                     <th>Categoria</th>
                     <th>Ações</th>
@@ -24,7 +24,7 @@
                 
                 @forelse($produtos as $produto)
                 <tr>
-                    <td><span> <i class="{{ $produto->icone }}"></i> </span></td>
+                    <td><img class="logo-info" src="{{ asset('/storage/produtos/' . $produto->imagem) }}" alt=""></td>
                     <td>{{$produto->titulo}}</td>
                     <td>{{$produto->categorias->nome}}</td>
                     <td class="flex-row">

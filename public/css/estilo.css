@@ -19,8 +19,9 @@
 }
 
 .logo-info {
-    width: 100%;
-    max-width: 150px;
+    /* width: 100%; */
+    /* max-width: 150px; */
+    max-height: 30px;
 }
 
 .imagem-noticia {

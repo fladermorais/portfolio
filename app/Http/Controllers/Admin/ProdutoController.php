@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ProdutoStoreRequest;
+use App\Http\Requests\ProdutoUpdateRequest;
 use App\Models\CategoriaProduto;
 use App\Models\Produto;
 use Illuminate\Http\Request;
@@ -63,7 +64,7 @@ class ProdutoController extends Controller
         return view('Admin.produtos.edit', compact('categorias', 'info'));
     }
     
-    public function update(ProdutoStoreRequest $request, $id)
+    public function update(ProdutoUpdateRequest $request, $id)
     {
         if(Gate::denies('produtos.edit')){
             abort(403, "Não Autorizado");

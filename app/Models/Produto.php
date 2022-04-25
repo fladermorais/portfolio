@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Produto extends Model
 {
     protected $table = "produtos";
-    protected $fillable = ['titulo', 'categoria_id', 'descricao', 'link', 'imagem', 'status', 'previa', 'alias', 'seo_titulo', 'seo_descricao', 'seo_canonical', 'seo_keywords', 'icone', 'destaque', 'preco'];
+    protected $fillable = ['titulo', 'categoria_id', 'descricao', 'link', 'imagem', 'status', 'previa', 'alias', 'seo_titulo', 'seo_descricao', 'seo_canonical', 'seo_keywords', 'icone', 'destaque', 'preco', 'informacoes', 'view'];
     
     public function categorias(){
         return $this->belongsTo(CategoriaProduto::class, 'categoria_id');
@@ -22,11 +22,12 @@ class Produto extends Model
     {
         $data['alias']      = $this->getAlias($data['titulo']);
         $data['user_id']    = auth()->user()->id;
-        $data['preco'] = $this->convertCommaToDot($data['preco']); 
+        $data['preco']      = $this->convertCommaToDot($data['preco']); 
+        $data['icone']      = 1;
         if(isset($data['arquivo'])){
             $data['imagem']     = $this->uploadArquivo($data['arquivo'], $data['alias']);
         }
-        $data['views']      = 0;
+        $data['view']      = 0;
         $data['seo_canonical'] = route('produto', $data['alias']);
         $info = $this->create($data);
         return $info;

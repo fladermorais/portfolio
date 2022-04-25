@@ -20,10 +20,10 @@
     </div>
     
     <div class="col-sm-2">
-      <label for="icone">Icone</label><br>
-      <input class='form-control' type="text" id="icone" name="icone"  value="{{ (isset($info->icone) ? $info->icone : old('icone')) }}" >
-      @if($errors->has('icone'))
-      @foreach($errors->get('icone') as $e)
+      <label for="arquivo">Imagem Principal</label><br>
+      <input class='form-control' type="file" id="arquivo" name="arquivo"  value="{{ (isset($info->arquivo) ? $info->arquivo : old('arquivo')) }}" >
+      @if($errors->has('arquivo'))
+      @foreach($errors->get('arquivo') as $e)
       <span class="error">{{$e}}</span>
       @endforeach
       @endif
@@ -76,6 +76,18 @@
       <textarea class="form-control" name="descricao" id="descricao" cols="30" rows="10">{{ (isset($info->descricao) ? $info->descricao : old('descricao')) }}</textarea>
       @if($errors->has('descricao'))
       @foreach($errors->get('descricao') as $e)
+      <span class="error">{{$e}}</span>
+      @endforeach
+      @endif
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="col-sm-12">
+      <label for="informacoes">Informações Adicionais</label><br>
+      <textarea class="form-control" name="informacoes" id="informacoes" cols="30" rows="10">{{ (isset($info->informacoes) ? $info->informacoes : old('informacoes')) }}</textarea>
+      @if($errors->has('informacoes'))
+      @foreach($errors->get('informacoes') as $e)
       <span class="error">{{$e}}</span>
       @endforeach
       @endif
