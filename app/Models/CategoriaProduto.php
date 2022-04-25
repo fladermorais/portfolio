@@ -24,7 +24,8 @@ class CategoriaProduto extends Model
     
     public function newInfo($data)
     {
-        $data['alias'] = $this->getAlias($data['nome']);
+        $data['alias']  = $this->getAlias($data['nome']);
+        $data['icone']  =   1;
         $info = $this->create($data);
         return $info;
     }

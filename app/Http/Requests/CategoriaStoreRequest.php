@@ -25,7 +25,6 @@ class CategoriaStoreRequest extends FormRequest
     {
         return [
             "nome"      =>  "required",
-            "icone"     =>  "required",
             "previa"    =>  "required",
             "descricao" =>  "required",
         ];
