@@ -59914,6 +59914,7 @@ var app = new Vue({
 });
 $(document).ready(function () {
   $('#descricao').summernote();
+  $('#informacoes').summernote();
 });
 
 /***/ }),
@@ -60132,8 +60133,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /var/www/html/brdvoz/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /var/www/html/brdvoz/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /home/flademir/Projetos/bike/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /home/flademir/Projetos/bike/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

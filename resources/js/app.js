@@ -35,4 +35,5 @@ const app = new Vue({
 
 $(document).ready(function() {
     $('#descricao').summernote();
+    $('#informacoes').summernote();
 });
