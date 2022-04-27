@@ -39,6 +39,8 @@
                             <button class="btn btn-danger btn-sm" title="Excluir"><i class="fas fa-trash"></i></button>
                         </form>
                         @endcan
+
+                        <a class="btn btn-warning btn-sm" href="{{ route('medias.byProduto', $produto->id) }}"><i class="fas fa-image"></i></a>
                     </td>
                     @empty
                     <td>Nenhum Produto até o momento</td>

@@ -43,7 +43,13 @@
     justify-content: space-between !important;
     flex-direction: row;
     align-items: center;
+    flex-wrap: wrap;
 }
+
+.flex-row-strech {
+    align-items: stretch;
+}
+
 .flex-row h3 {
     display: block;
     text-align: left;
@@ -80,3 +86,28 @@
 .status.ativo {
     background-color: green;
 }
+
+.galeria-form {
+    width: 100%;
+    max-width: 200px;
+    margin: 5px 20px;
+    display: grid;
+    grid-template-columns: 90% 10%;
+}
+
+.galeria-img {
+    display: block;
+    padding: 10px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.galeria-btn {
+    background-color: rgb(244, 88, 88);
+    border: none;
+    color: #fff;
+    border-radius: 50%;
+    height: 30px;
+    width: 30px;
+}
+

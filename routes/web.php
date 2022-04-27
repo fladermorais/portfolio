@@ -1,6 +1,9 @@
 <?php
 
 // Authentication Routes...
+
+use App\Http\Controllers\Admin\GaleriaController;
+
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
 Route::post('login', 'Auth\LoginController@login');
 Route::post('logout', 'Auth\LoginController@logout')->name('logout');
@@ -107,6 +110,12 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'auth
         Route::get('/edit/{id}', 'ProdutoController@edit')->name('produtos.edit');
         Route::put('/update/{id}', 'ProdutoController@update')->name('produtos.update');
         Route::delete('/delete/{id}', 'ProdutoController@delete')->name('produtos.delete');
+    });
+
+    Route::group(['prefix' => "medias"], function() {
+        Route::get('/{id}', [GaleriaController::class, 'byProduto'])->name('medias.byProduto');
+        Route::post('/{id}', [GaleriaController::class, 'UpdateByProduto'])->name('medias.UpdateByProduto');
+        Route::delete('/{id}', [GaleriaController::class, 'DeleteByProduto'])->name('medias.DeleteByProduto');
     });
 
     Route::group(['prefix' => 'dicas'], function() {
