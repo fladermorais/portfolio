@@ -12,9 +12,11 @@ use App\Models\CategoriaProduto;
 use App\Models\Cliente;
 use App\Models\Config;
 use App\Models\Contato;
+use App\Models\Evento;
 use App\Models\Noticia;
 use App\Models\Produto;
 use App\Models\QuemSomos;
+use App\Models\Recurso;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
@@ -32,11 +34,15 @@ class SiteController extends Controller
         // ->add(route('sobre'))
         // ->writeToFile(public_path('sitemap.xml'));
         
-        $plataformas = Produto::where('categoria_id', 1)->get();
-        $numeracoes = Produto::where('categoria_id', 2)->get();
-        $terminacoes = Produto::where('categoria_id', 3)->get();
-        $banner = Banner::orderBy('nome')->first();
-        $clientes = Cliente::orderBy('nome')->get();
+        $banners = Banner::orderBy('nome')->get();
+        $parceiros = Cliente::orderBy('nome')->get();
+        $quemsomos = QuemSomos::first();
+        $dicas = Recurso::get();
+        $eventos = Evento::where('status', 'ativo')->get();
+        $produtos = Produto::where('status', 'ativo')->where('destaque', 'sim')->get();
+
+
+        // dd($banner, $clientes);
         
         $keywords = config('app.empresas.seoKeywords');
         $keywords = str_replace(' ', '', $keywords);
@@ -58,7 +64,7 @@ class SiteController extends Controller
         SEOTools::addImages(asset('storage/logo/'. config('app.empresas.logo')));
         SEOMeta::setKeywords($newKeywords);
         
-        return view('Site.welcome', compact('plataformas', 'numeracoes', 'terminacoes', 'banner', 'clientes'));
+        return view('Site.welcome', compact('banners', 'parceiros', 'quemsomos', 'dicas', 'eventos', 'produtos'));
     }
     
     public function sobre()
