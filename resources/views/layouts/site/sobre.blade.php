@@ -18,11 +18,9 @@
                     <div class="tab-content">
                         
                         <div class="tab-pane active" id="about1">
-                            <blockquote class="blockquote-title"> OUR MISSION STATEMENT </blockquote>
+                            <blockquote class="blockquote-title"> {{ $quemsomos->titulo }} </blockquote>
                             <blockquote class="blockquote-quote"> <i class="fa fa-quote-left"></i>
-                                <p>Pellentesque eu lacus. Vivamus lorem arcu semper eget uldel
-                                    corper ut blandit sed nisa Phasellus conse quated Inte ger vel tortor. Sed hendrerit. In magna leo fermentum sed iacu lisnw interdum et elit. </p>
-                                    <p>Pellentesque felis nunc interdum vitae pretium acbib egndum vel velit. Etiam proin luctus sodales elit. Vestibulum eros nunc pellentesque quis viverra.</p>
+                                {!! $quemsomos->descricao !!}
                                 </blockquote>
                             </div>
                             
@@ -36,20 +34,20 @@
                             <ul class="nav nav-tabs about-tabs">
                                 <li class="active"><a href="#about1"  data-toggle="tab"><img src="media/tab1.jpg" width="170" height="280" alt="Missão"></a>
                                     <div class="tab-li-content">
-                                        <h4> Nossa Missão <strong>Xtreme Sports Club </strong></h4>
-                                        <p>Fusce ut odio eget elit eleifend tincidunt Vestibulum fringil lal rsus in metus. Sep interd eli Aliquam scelerisque. Donec congue pede egu lacus. Vestibulum fringilla nullda ultricies sem.Aliquam nudnc urnai ornare sed, tincidunt quis, posuere d justo. Intemetus eros volutpat leo, id auctor eit ore eu orci. </p>
+                                        <h4> Nossa Missão <strong>{{ config('app.empresas.nome') }} </strong></h4>
+                                        <p>{{ $quemsomos->missao }}</p>
                                     </div>
                                 </li>
                                 <li><a href="#about2"  data-toggle="tab"><img src="media/tab2.jpg" width="170" height="280" alt="Visão"></a>
                                     <div class="tab-li-content">
-                                        <h4> Nossa Visão <strong>Xtreme Sports Club </strong></h4>
-                                        <p>Fusce ut odio eget elit eleifend tincidunt Vestibulum fringil lal rsus in metus. Sep interd eli Aliquam scelerisque. Donec congue pede egu lacus. </p>
+                                        <h4> Nossos Objetivos <strong>{{ config('app.empresas.nome') }} </strong></h4>
+                                        <p>{{ $quemsomos->objetivos }} </p>
                                     </div>
                                 </li>
                                 <li><a href="#about3"  data-toggle="tab"><img src="media/tab3.jpg" width="170" height="280" alt="Valores"></a>
                                     <div class="tab-li-content">
-                                        <h4> Nossos Valores <strong>Xtreme Sports Club </strong></h4>
-                                        <p>Fusce ut odio eget elit eleifend tincidunt Vestibulum fringil lal rsus in metus. Sep interd eli Aliquam scelerisque. Donec congue pede egu lacus. Vestibulum fringilla nullda ultricies sem.Aliquam nudnc urnai ornare sed, tincidunt quis, posuere d justo. Integer consectetu erd lacus sit amet aliquet con sequati metus eros volutpat leo, id auctor eit ore eu orci. </p>
+                                        <h4> Nossos Valores <strong>{{ config('app.empresas.nome') }} </strong></h4>
+                                        <p>{{ $quemsomos->valores }} </p>
                                     </div>
                                 </li>
                             </ul>
