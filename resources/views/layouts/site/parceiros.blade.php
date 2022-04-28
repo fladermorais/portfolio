@@ -9,42 +9,15 @@
             </div>
         </div>
         <div class="row text-center">
+            @foreach($parceiros as $parceiro)
             <div class="col-md-3">
                 <div class="service-item animated"    data-animation="bounceInUp"  >
-                    <div class="service-icon"> <img src="img/iconic/01.png" alt="icon"/></div>
-                    <h4 class="service-heading">AMAZING EXPERIENCE</h4>
-                    <p>Ut eu diam vel leo aliquam consectetu Proin torto elit rutrum donec rhoncu. Cras erad
-                        est cursus sed dignissim sed euismod
-                    </p>
+                    <div class="service-icon"> <img src="{{ asset('storage/clientes/' . $parceiro->imagem) }}" alt="icon"/></div>
+                    <a target="_blank" href="{{ $parceiro->link }}"><h4 class="service-heading">{{ $parceiro->nome }}</h4></a>
+                    <p>{{ $parceiro->descricao }}</p>
                 </div>
             </div>
-            <div class="col-md-3">
-                <div class="service-item animated"    data-animation="bounceInUp"  >
-                    <div class="service-icon"> <img src="img/iconic/02.png" alt="icon"/></div>
-                    <h4 class="service-heading">TALENTED STAFF</h4>
-                    <p>Ut eu diam vel leo aliquam consectetu Proin torto elit rutrum donec rhoncu. Cras erad
-                        est cursus sed dignissim sed euismod
-                    </p>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="service-item animated"    data-animation="bounceInUp"  >
-                    <div class="service-icon"> <img src="img/iconic/03.png" alt="icon"/></div>
-                    <h4 class="service-heading">MEDALS WON</h4>
-                    <p>Ut eu diam vel leo aliquam consectetu Proin torto elit rutrum donec rhoncu. Cras erad
-                        est cursus sed dignissim sed euismod
-                    </p>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="service-item animated"    data-animation="bounceInUp"  >
-                    <div class="service-icon"> <img src="img/iconic/04.png" alt="icon"/></div>
-                    <h4 class="service-heading">REGISTER TODAY</h4>
-                    <p>Ut eu diam vel leo aliquam consectetu Proin torto elit rutrum donec rhoncu. Cras erad
-                        est cursus sed dignissim sed euismod
-                    </p>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
 </section>
