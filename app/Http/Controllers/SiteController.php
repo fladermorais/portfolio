@@ -17,6 +17,7 @@ use App\Models\Noticia;
 use App\Models\Produto;
 use App\Models\QuemSomos;
 use App\Models\Recurso;
+use App\Models\Redes;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
@@ -40,6 +41,7 @@ class SiteController extends Controller
         $dicas = Recurso::get();
         $eventos = Evento::where('status', 'ativo')->get();
         $produtos = Produto::where('status', 'ativo')->where('destaque', 'sim')->get();
+        $redes = Redes::get();
 
 
         // dd($banner, $clientes);
@@ -64,7 +66,7 @@ class SiteController extends Controller
         SEOTools::addImages(asset('storage/logo/'. config('app.empresas.logo')));
         SEOMeta::setKeywords($newKeywords);
         
-        return view('Site.welcome', compact('banners', 'parceiros', 'quemsomos', 'dicas', 'eventos', 'produtos'));
+        return view('Site.welcome', compact('banners', 'parceiros', 'quemsomos', 'dicas', 'eventos', 'produtos', 'redes'));
     }
     
     public function sobre()

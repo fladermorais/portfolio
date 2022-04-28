@@ -11,55 +11,19 @@
             <div class=" xcarousel-1 animated"  data-animation="bounceInUp" >
                 <div class="x-frame" >
                     <ul class="x-slider">
+                        @foreach($redes as $rede)
                         <li>
                             <div class="x-item-wrap">
                                 <div class="avatar"> 
-                                    <img src="media/xcarousel/ftcarousel1.jpg" width="198" height="120" alt="img">
-                                    <h4>EXTREME LEVEL OF SPORTS</h4>
+                                    {{-- <i class="{{ $rede->icone }}"></i> --}}
+                                    <a target="_blank" href="{{ $rede->link }}" class="fa-box-arrow"> <i class="{{ $rede->icone }}"></i> <h4>{{ $rede->titulo }}</h4> </a> 
                                 </div>
                                 <div class="details">
-                                    <h4>EXTREME LEVEL OF SPORTS</h4>
-                                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's </p>
-                                    <a href="#" class="fa-box-arrow"> <i class="fa fa-chevron-right"></i></a> 
+                                    <a target="_blank" href="{{ $rede->link }}" class="fa-box-arrow"> <i class="{{ $rede->icone }}"></i> <h4>{{ $rede->titulo }}</h4> </a> 
                                 </div>
                             </div>
                         </li>
-                        <li>
-                            <div data-animation="fadeIn" class="x-item-wrap">
-                                <div class="avatar"> <img src="media/xcarousel/ftcarousel2.jpg" width="198" height="120" alt="img">
-                                    <h4>EXTREME LEVEL OF SPORTS</h4>
-                                </div>
-                                <div class="details">
-                                    <h4>EXTREME LEVEL OF SPORTS</h4>
-                                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's </p>
-                                    <a href="#" class="fa-box-arrow"> <i class="fa fa-chevron-right"></i></a> 
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div data-animation="fadeIn" class="x-item-wrap">
-                                <div class="avatar"> <img src="media/xcarousel/ftcarousel3.jpg" width="198" height="120" alt="img">
-                                    <h4>EXTREME LEVELOF SPORTS</h4>
-                                </div>
-                                <div class="details">
-                                    <h4>EXTREME LEVEL OF SPORTS</h4>
-                                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's </p>
-                                    <a href="#" class="fa-box-arrow"> <i class="fa fa-chevron-right"></i></a> 
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div data-animation="fadeIn" class="x-item-wrap">
-                                <div class="avatar"> <img src="media/xcarousel/ftcarousel4.jpg" width="198" height="120" alt="img">
-                                    <h4>EXTREME LEVEL OF SPORTS</h4>
-                                </div>
-                                <div class="details">
-                                    <h4>EXTREME LEVEL OF SPORTS</h4>
-                                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's </p>
-                                    <a href="#" class="fa-box-arrow"> <i class="fa fa-chevron-right"></i></a> 
-                                </div>
-                            </div>
-                        </li>
+                        @endforeach
                     </ul>
                 </div>
                 <div class="x-navigation navigation"> <a class="btn slider-direction prev-page" href="javascript:void(0);"><i class="icomoon-arrow-left2"></i></a> <a class="btn  slider-direction next-page" href="javascript:void(0);"><i class="icomoon-arrow-right2"></i></a> 
