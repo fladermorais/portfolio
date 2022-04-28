@@ -9,41 +9,16 @@
     </ul>
     <div class="container">
         <div class="row">
+            @foreach($dicas as $dica)
             <div class="col-lg-4  col-md-4  col-xs-12  text-center " >
                 <div class="ft-box animated"   data-animation="bounceInUp">
-                    <div class="ft-icon-box "> <img src="{{ asset('Front/img/iconic/05.png') }}"  alt="img"/></div>
+                    <div class="ft-icon-box "> <i class="{{ $dica->icone }}"></i> </div>
                     <hr style="max-width:30px;">
-                    <h4> XTREME SPORTS</h4>
-                    <p>Fusce ut odio get eleifend tincidunt vestibulum fring
-                        al rsus in metus. Sep interd umli uam scelerisque.
-                        Nam odiodui vestibulum amolestie pulvinar
-                    </p>
+                    <h4> {{ $dica->titulo }} </h4>
+                    <p> {{ $dica->descricao }} </p>
                 </div>
             </div>
-            <div class="col-lg-4  col-md-4  col-xs-12  text-center  animated"   data-animation="bounceUp" >
-                <div class="ft-box animated"   data-animation="bounceInUp">
-                    <div class="ft-icon-box "> <img src="{{ asset('Front/img/iconic/06.png') }}"  alt="img"/></div>
-                    <hr style="max-width:30px;">
-                    <h4>ACHIEVEMENTS</h4>
-                    <p>Fusce ut odio get eleifend tincidunt vestibulum fring
-                        al rsus in metus. Sep interd umli uam scelerisque.
-                        Nam odiodui vestibulum amolestie pulvinar
-                    </p>
-                </div>
-            </div>
-            <div class="col-lg-4  col-md-4  col-xs-12  text-center">
-                <div class="ft-box animated"   data-animation="bounceInUp">
-                    <div class="ft-icon-box "> 
-                        <img src="{{ asset('Front/img/iconic/07.png') }}"  alt="img"/>
-                    </div>
-                    <hr style="max-width:30px;">
-                    <h4>OUR TARGETS</h4>
-                    <p>Fusce ut odio get eleifend tincidunt vestibulum fring
-                        al rsus in metus. Sep interd umli uam scelerisque.
-                        Nam odiodui vestibulum amolestie pulvinar
-                    </p>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
     <div class="container">
