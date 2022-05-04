@@ -1,4 +1,4 @@
-<section class="no-bg-color-parallax parallax-black home-section text-center" style="background-image:url(media/bg/6.jpg)" >
+<section class="no-bg-color-parallax parallax-black home-section text-center" style="background-image:url(media/bg/6.jpg)" id="contato">
     <ul class="bg-slideshow">
         <li>
             <div class="bg-slide" style="background-image:url(media/bg/6.jpg)"></div>
@@ -18,28 +18,29 @@
             </div>
         </div>
         <div class="col-lg-12">
-            <form name="sentMessage animated" data-animation="bounceInUp" id="contactForm" novalidate>
+            <form name="ssentMessage aanimated" data-animation="bounceInUpee" id="contactForm" novalidate action="{{ route('contatoForm') }}" method="post">
+                @csrf
                 <div class="row">
                     <div class="col-md-3">
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Your Name *" id="name" required data-validation-required-message="Please enter your name.">
+                            <input type="text" class="form-control" placeholder="Nome *" name="nome" id="name" required data-validation-required-message="Seu Nome">
                             <p class="help-block text-danger"></p>
                         </div>
                         <div class="form-group">
-                            <input type="email" class="form-control" placeholder="Your Email *" id="email" required data-validation-required-message="Please enter your email address.">
+                            <input type="email" class="form-control" placeholder="Email *" name="email" id="email" required data-validation-required-message="Email">
                             <p class="help-block text-danger"></p>
                         </div>
                         <div class="form-group">
-                            <input type="tel" class="form-control" placeholder="Your Phone *" id="phone" required data-validation-required-message="Please enter your phone number.">
+                            <input type="tel" class="form-control" placeholder="Telefone *" name="telefone" id="phone" required data-validation-required-message="Telefone">
                             <p class="help-block text-danger"></p>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group form-group-text">
-                            <textarea class="form-control" placeholder="Your Message *" id="message" required data-validation-required-message="Please enter a message."></textarea>
+                            <textarea class="form-control" placeholder="Messagem *" id="message" name="mensagem" required data-validation-required-message="Mensagem."></textarea>
                             <p class="help-block text-danger"></p>
                             <div id="success"></div>
-                            <button type="submit" class="btn btn-xl  hang">Send Message</button>
+                            <button type="submit" class="btn btn-xl  hang">Enviar Mensagem</button>
                         </div>
                     </div>
                     <div class="col-md-3">
@@ -47,27 +48,26 @@
                             <li>
                                 <div class="icon-set-wrap">
                                     <div class="icon-set"><a><i class="fa fa-map-marker   "></i></a></div>
-                                    <div class="content-icon-set">121 King Street, Melbourne 
-                                        Victoria 3000 Australia </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="icon-set-wrap">
-                                        <div class="icon-set"><a><i class="fa   fa-envelope   "></i></a></div>
-                                        <div class="content-icon-set"><a href="mailto:info@xtremesp.org">info@xtremesp.org</a> <a href="mailto:support@xtremesp.org">support@xtremesp.org</a></div>
+                                    <div class="content-icon-set">{{ config('app.empresas.cidade') }}</div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="icon-set-wrap">
+                                    <div class="icon-set"><a><i class="fa   fa-envelope   "></i></a></div>
+                                    <div class="content-icon-set">
+                                        <a href="mailto:{{ config('app.empresas.email') }}">{{ config('app.empresas.email') }}</a></div>
                                     </div>
                                 </li>
                                 <li>
                                     <div class="icon-set-wrap">
                                         <div class="icon-set"><a><i class="fa  fa-phone "></i></a></div>
-                                        <div class="content-icon-set">0800 123 4567
-                                            +1 234 56789-0</div>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
+                                        <div class="content-icon-set">{{ config('app.empresas.telefone') }}</div>
+                                    </div>
+                                </li>
+                            </ul>
                         </div>
-                    </form>
-                </div>
+                    </div>
+                </form>
             </div>
-        </section>
+        </div>
+    </section>

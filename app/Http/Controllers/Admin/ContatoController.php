@@ -8,6 +8,7 @@ use App\Models\Contato;
 use Exception;
 use App\Models\Config;
 use App\Mail\ContatoMail;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 
 class ContatoController extends Controller
@@ -26,17 +27,14 @@ class ContatoController extends Controller
     public function store(ContatoRequest $request)
     {
         $data = $request->all();
-
-        try {
-
-            $contato = new Contato($data);
-            $contato->save();
-            flash('Mensagem enviada com sucesso. Em breve entraremos em contato!')->success();
-            return redirect()->back();
-
-        } catch (Exception $e) {
-            flash('Ocorreu um erro ao enviar a mensagem')->error();
-            return redirect()->back();
+        $contato = new Contato;
+        $response = $contato->newInfo($data);
+        if($response){
+            flash('Mensagem enviada com sucesso!')->success();
+            return back();
+        } else {
+            flash('Erro ao enviar a mensagem, tente novamente')->warning();
+            return back();
         }
 
     }

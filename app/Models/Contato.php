@@ -7,4 +7,17 @@ use Illuminate\Database\Eloquent\Model;
 class Contato extends Model
 {
     protected $fillable = ['nome', 'telefone', 'whatsapp', 'email', 'assunto', 'mensagem'];
+
+    protected $table = "contatos";
+
+    public function newInfo($data)
+    {
+        $data['whatsapp'] = ".";
+        $data['assunto'] = ".";
+
+        // dd($data);
+
+        $info = $this->create($data);
+        return $info;
+    }
 }

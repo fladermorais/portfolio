@@ -24,13 +24,12 @@ class ContatoRequest extends FormRequest
     public function rules()
     {
         return [
-            'nome'      => 'required|max:60',
-            'assunto'   => 'required|max:100',
-            'email'     => 'required|email',
-            'telefone'  => 'required|max:11',
-            'mensagem'  => 'required|max:300',
-            'whatsapp'  => 'max:11',
-            'g-recaptcha-response' => 'required|recaptcha',
+            'nome'      => 'required',
+            'email'     => 'required',
+            'telefone'  => 'required',
+            'mensagem'  => 'required',
+            
+            // 'g-recaptcha-response' => 'required|recaptcha',
         ];
     }
 

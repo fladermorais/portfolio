@@ -1,3 +1,4 @@
+/*
 $(function() {
 
     $("input,textarea").jqBootstrapValidation({
@@ -18,7 +19,7 @@ $(function() {
                 firstName = name.split(' ').slice(0, -1).join(' ');
             }
             $.ajax({
-                url: "././mail/contact_me.php",
+                url: "././contato",
                 type: "POST",
                 data: {
                     name: name,
@@ -63,8 +64,10 @@ $(function() {
     });
 });
 
+*/
+
 
 /*When clicking on Full hide fail/success boxes */
-$('#name').focus(function() {
-    $('#success').html('');
-});
+// $('#name').focus(function() {
+//     $('#success').html('');
+// });
