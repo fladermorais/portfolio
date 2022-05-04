@@ -3,8 +3,8 @@
         <div class="row">
             <div class="col-lg-12 text-center">
                 <div class="heading-wrap animated"   data-animation="bounceInUp" >
-                    <h2 class="section-heading">Principais Parceiros</h2>
-                    <h3 class="section-subheading hang hang">WE’RE ALL ABOUT XTREME SPORTS</h3>
+                    <h2 class="section-heading"> {{ $titulos['parceiros']->titulo }}</h2>
+                    <h3 class="section-subheading hang">{{ $titulos['parceiros']->descricao }}</h3>
                 </div>
             </div>
         </div>

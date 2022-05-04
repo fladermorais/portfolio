@@ -9,11 +9,11 @@ return [
          * The default configurations to be used by the meta generator.
          */
         'defaults'       => [
-            'title'        => "BRDVoz", // set false to total remove
+            'title'        => "Bike Brothers", // set false to total remove
             'titleBefore'  => false, // Put defaults.title before page title, like 'It's Over 9000! - Dashboard'
-            'description'  => 'Soluções de Voz para você ou sua empresa', // set false to total remove
+            'description'  => 'Bike Brothers ', // set false to total remove
             'separator'    => ' - ',
-            'keywords'     => ["telefonia", 'pabx', 'dids', 'brdvoz', 'voip', ''],
+            'keywords'     => ["bike", "mtb", 'bicicleta', 'roupa esportiva'],
             'canonical'    => null, // Set null for using Url::current(), set false to total remove
             'robots'       => false, // Set to 'all', 'none' or any combination of index/noindex and follow/nofollow
         ],
@@ -36,8 +36,8 @@ return [
          * The default configurations to be used by the opengraph generator.
          */
         'defaults' => [
-            'title'       => 'BrdVoz!', // set false to total remove
-            'description' => 'Soluções de Voz para você ou sua empresa', // set false to total remove
+            'title'       => 'Bike Brothers!', // set false to total remove
+            'description' => 'Bike Brothers ', // set false to total remove
             'url'         => false, // Set null for using Url::current(), set false to total remove
             'type'        => false,
             'site_name'   => false,
@@ -58,8 +58,8 @@ return [
          * The default configurations to be used by the json-ld generator.
          */
         'defaults' => [
-            'title'       => 'BRDVoz!', // set false to total remove
-            'description' => 'Soluções de Voz para você ou sua empresa', // set false to total remove
+            'title'       => 'Bike Brothers!', // set false to total remove
+            'description' => 'Bike Brothers ', // set false to total remove
             'url'         => false, // Set null for using Url::current(), set false to total remove
             'type'        => 'WebPage',
             'images'      => [],

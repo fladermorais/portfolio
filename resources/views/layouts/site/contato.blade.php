@@ -11,9 +11,8 @@
         <div class="row">
             <div class="col-lg-12 text-center">
                 <div class="heading-wrap animated"  data-animation="bounceInUp" >
-                    <h2 class="section-heading"> Entre em Contato</h2>
-                    <h3 class="section-subheading hang">WE’RE ALL ABOUT XTREME SPORTS</h3>
-                    <p>Lacus sit amet aliquet cons equate metus eros volutpat leo id ms auctor elit lorem eu orci. Suspendisse ante. Cras pedey Mauris lectus quam facilisis ad condimentum sit amet condm entum eudel justo. Sed eget nulla at quam.</p>
+                    <h2 class="section-heading"> {{ $titulos['contato']->titulo }}</h2>
+                    <h3 class="section-subheading hang">{{ $titulos['contato']->descricao }}</h3>
                 </div>
             </div>
         </div>
