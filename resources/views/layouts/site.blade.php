@@ -93,13 +93,15 @@ $rota = explode('.', $route);
       
       <!-- SECTION -->
       
-      @include('layouts.site.redes_sociais')
+      {{-- @include('layouts.site.redes_sociais') --}}
       
       <!-- SECTION -->
       
       {{-- @include('layouts.site.galeria') --}}
       
       <!-- SECTION -->
+      
+      @include('layouts.site.divisoria')
       
       @include('layouts.site.eventos')
       

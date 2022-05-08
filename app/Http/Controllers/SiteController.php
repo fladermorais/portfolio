@@ -31,6 +31,7 @@ class SiteController extends Controller
 {
     public function index()
     {   
+        // dd(config('app.categorias'));
         // Sitemap::create()
         // ->add(route('home'))
         // ->add(route('sobre'))
@@ -75,36 +76,6 @@ class SiteController extends Controller
         return view('Site.welcome', compact('banners', 'parceiros', 'quemsomos', 'dicas', 'eventos', 'produtos', 'redes', 'titulos'));
     }
     
-    public function sobre()
-    {
-        // Sitemap::create('http://brdvoz.com.br')
-        // // ->getSitemap()
-        // ->add(route('sobre'))
-        // ->writeToFile(public_path('sitemap.xml'));
-        
-        $sobre = QuemSomos::first();
-        
-        $keywords = str_replace(' ', '', $sobre->seo_keywords);
-        $keywords = explode(",", $keywords);
-        $newKeywords = "";
-        foreach($keywords as $value){
-            $newKeywords .= "'".$value."',";
-        }
-        $newKeywords = substr($newKeywords, 0, strlen($newKeywords) -1); 
-        
-        SEOTools::metatags();
-        SEOTools::twitter();
-        SEOTools::opengraph();
-        SEOTools::jsonLd();
-        
-        SEOTools::setTitle($sobre->seo_titulo);
-        SEOTools::setDescription($sobre->seo_descricao);
-        SEOTools::setCanonical(URL::current());
-        SEOTools::addImages(asset('storage/quemsomos/'.$sobre->imagem));
-        SEOMeta::setKeywords($newKeywords);
-        
-        return view('Site.sobre', compact('sobre'));
-    }
     
     public function produto($alias)
     {
@@ -113,7 +84,8 @@ class SiteController extends Controller
         // ->add(route('produto', $alias))
         // ->writeToFile(public_path('sitemap.xml'));
         
-        $produto = Produto::where('alias', $alias)->with('recursos')->first();
+        $produto = Produto::where('alias', $alias)->with('galerias')->first();
+        // dd($produto);
         if(!isset($produto)){
             return back();
         }
@@ -136,7 +108,7 @@ class SiteController extends Controller
         SEOMeta::setKeywords($newKeywords);
         
         
-        $referencias = Produto::where('id', '!=', $produto->id)->inRandomOrder()->limit(3)->get();
+        $referencias = Produto::where('id', '!=', $produto->id)->inRandomOrder()->limit(4)->get();
         return view('Site.produto', compact('produto', 'referencias'));
     }
     

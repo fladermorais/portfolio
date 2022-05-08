@@ -10,49 +10,16 @@
     </ul>
     <div class="container">
       <div class="row">
-        <div class="col-lg-4 col-sm-4 col-xs-12">
-          <h3 class="fot-title">CLUB OPENING HOURS</h3>
-          <table>
-            <tr>
-              <th>MONDAY</th>
-              <td>09:00 AM  -  06:00 PM </td>
-            </tr>
-            <tr>
-              <th>TUESDAY</th>
-              <td>09:00 AM  -  06:00 PM </td>
-            </tr>
-            <tr>
-              <th>WEDNESDAY</th>
-              <td>09:00 AM  -  06:00 PM </td>
-            </tr>
-            <tr>
-              <th>THURSDAY</th>
-              <td>09:00 AM  -  06:00 PM </td>
-            </tr>
-            <tr>
-              <th>FRIDAY</th>
-              <td>09:00 AM  -  06:00 PM </td>
-            </tr>
-            <tr>
-              <th> SATURDAY</th>
-              <td>09:00 AM  -  06:00 PM </td>
-            </tr>
-          </table>
-        </div>
-        <div class="col-lg-4 col-sm-4 col-xs-12">
-          <div class="big-logo"> <img src="img/big-logo.png" width="225" height="178" alt="img"/> </div>
+        
+        <div class="col-lg-12 col-sm-4 col-xs-12">
+          <div class="big-logo"> <img src="{{ asset('storage/logo/' . config('app.empresas.logo')) }}" width="225" height="178" alt="img"/> </div>
           <ul class="social-links">
-            <li><a href="https://www.facebook.com/" target="_blank"><i class="icomoon-facebook"></i></a></li>
-            <li class=""><a href="https://twitter.com/" target="_blank"><i class="icomoon-twitter"></i></a></li>
-            <li><a href="https://www.google.com/" target="_blank"><i class="icomoon-googleplus"></i></a></li>
-            <li><a href="https://www.pinterest.com/" target="_blank"><i class="icomoon-pinterest"></i></a></li>
+            @foreach(config('app.redes') as $redes)
+            <li><a href="{{ $redes->link }}" target="_blank" title="{{ $redes->titulo }}"><i class="{{ $redes->icone }}"></i></a></li>
+            @endforeach  
           </ul>
         </div>
-        <div class="col-lg-4 col-sm-4 col-xs-12">
-          <h3 class="fot-title"> PHOTOS FROM FLICKR</h3>
-          <ul id="flickr-feed" class="flickr-feed">
-          </ul>
-        </div>
+        
       </div>
     </div>
   </section>

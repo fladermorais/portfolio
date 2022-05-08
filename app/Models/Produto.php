@@ -13,9 +13,9 @@ class Produto extends Model
         return $this->belongsTo(CategoriaProduto::class, 'categoria_id');
     }
     
-    public function recursos()
+    public function galerias()
     {
-        return $this->hasMany(Recurso::class);
+        return $this->hasMany(Galeria::class);
     }
     
     public function newInfo($data)

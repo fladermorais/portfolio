@@ -25,8 +25,8 @@
                   <div class="btn-action-item"> 
                     <a href="{{ asset('storage/produtos/' . $produto->imagem) }}" class="magnific" title="{{ $produto->titulo }}"> <i class="icomoon-eye-open"></i></a> 
                   </div>
-                  <a href="product.html"> <img src="{{ asset('storage/produtos/' . $produto->imagem) }}" width="600" height="700" alt="{{ $produto->titulo }}"/></a> 
-                  <a href="product.html"> <img  class="b-lazy slider_img"  src="{{ asset('storage/produtos/' . $produto->imagem) }}" width="600" height="700" alt="{{ $produto->titulo }}"/></a> 
+                  <a href="{{ route('produto', $produto->alias) }}"> <img src="{{ asset('storage/produtos/' . $produto->imagem) }}" width="600" height="700" alt="{{ $produto->titulo }}"/></a> 
+                  <a href="{{ route('produto', $produto->alias) }}"> <img  class="b-lazy slider_img"  src="{{ asset('storage/produtos/' . $produto->imagem) }}" width="600" height="700" alt="{{ $produto->titulo }}"/></a> 
                 </div>
                 <div class="product-bottom">
                   <h3 class="product-name x-hover"><span class="x-hover-text">{{ $produto->titulo }}</span></h3>
