@@ -55,6 +55,8 @@ $rota = explode('.', $route);
 <body>
     <body class="animated-all">
         
+        @include('layouts.site.topo')
+        
         @include('layouts.site.menu_superior')
         
         <div class="header shop-header">
