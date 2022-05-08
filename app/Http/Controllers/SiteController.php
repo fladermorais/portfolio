@@ -76,7 +76,13 @@ class SiteController extends Controller
         return view('Site.welcome', compact('banners', 'parceiros', 'quemsomos', 'dicas', 'eventos', 'produtos', 'redes', 'titulos'));
     }
     
-    
+    public function produtos(Request $request)
+    {
+        $categorias = CategoriaProduto::orderBy('nome', 'asc')->get();
+        $produtos = Produto::where('status', 'ativo')->orderBy('titulo', 'asc')->paginate(6);
+        return view('Site.produtos', compact('categorias', 'produtos'));
+    }
+
     public function produto($alias)
     {
         // SitemapGenerator::create(public_path('sitemap.xml'))
