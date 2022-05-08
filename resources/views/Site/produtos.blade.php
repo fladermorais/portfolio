@@ -9,8 +9,9 @@
                     <div class="widget widget-category">
                         <h3 class="widget-title"><span>categories</span></h3>
                         <ul class="category-list unstyled clearfix">
+                            <li><a href="{{ route('produtos', 'alls') }}">Todas</a></li>
                             @foreach($categorias as $categoria)
-                            <li><a href="#">{{ $categoria->nome }}</a></li>
+                            <li><a href="{{ route('produtos', $categoria->alias) }}">{{ $categoria->nome }}</a></li>
                             @endforeach
                         </ul>
                     </div>
@@ -26,7 +27,7 @@
                             <li>
                                 <div class="product-container">
                                     <div class="product-image"> 
-                                        <span class="label-sale">sale</span>
+                                        {{-- <span class="label-sale">sale</span> --}}
                                         <div class="btn-action-item"> 
                                             <a href="{{ asset('storage/produtos/' . $produto->imagem) }}" class="magnific" title="{{ $produto->titulo }}"> <i class="icomoon-eye-open"></i></a> 
                                         </div>

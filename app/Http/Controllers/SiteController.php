@@ -76,10 +76,17 @@ class SiteController extends Controller
         return view('Site.welcome', compact('banners', 'parceiros', 'quemsomos', 'dicas', 'eventos', 'produtos', 'redes', 'titulos'));
     }
     
-    public function produtos(Request $request)
+    public function produtos($alias)
     {
         $categorias = CategoriaProduto::orderBy('nome', 'asc')->get();
-        $produtos = Produto::where('status', 'ativo')->orderBy('titulo', 'asc')->paginate(6);
+        $query = Produto::where('status', 'ativo');
+        if($alias != "all"){ 
+            $categoria = CategoriaProduto::where('alias', $alias)->first();
+            if(isset($categoria)){
+                $query->where('categoria_id', $categoria->id);
+            }
+        }
+        $produtos = $query->orderBy('titulo', 'asc')->paginate(6);
         return view('Site.produtos', compact('categorias', 'produtos'));
     }
 
