@@ -72,7 +72,7 @@ $rota = explode('.', $route);
 
     {{-- @include('layouts.site.header') --}}
     
-    @include('layouts.site.menu_superior')
+    @include('layouts.site.menu_suspenso')
     <div class="header header-home">
       
       @include('layouts.site.banner')
