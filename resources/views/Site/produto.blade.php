@@ -15,8 +15,8 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
-        <div class="pull-left"> <a href="shop.html" class="btn-arrow"> Voltar para Categoria</a> </div>
-        <div class="pull-right"> <a href="#" class="btn btn-arrow-left"><span class="icomoon-arrow-left"></span></a><a class="btn btn-arrow-right" href="#"><span class="icomoon-arrow-right"></span></a> </div>
+        <div class="pull-left"> <a href="{{ route('produtos', $produto->categorias->alias) }}" class="btn-arrow"> Voltar para Categoria</a> </div>
+        {{-- <div class="pull-right"> <a href="#" class="btn btn-arrow-left"><span class="icomoon-arrow-left"></span></a><a class="btn btn-arrow-right" href="#"><span class="icomoon-arrow-right"></span></a> </div> --}}
       </div>
     </div>
   </div>
@@ -33,16 +33,24 @@
                 <div class="clearfix" id="image-block">
                   <div id="slider-product" class="flexslider">
                     <ul class="slides">
+                      @if(count($produto->galerias) > 0)
                       @foreach($produto->galerias as $galeria)
                       <li> <a  href="{{ asset('storage/galeria/'. $galeria->name) }}"> <img src="{{ asset('storage/galeria/'. $galeria->name) }}" width="600" height="700" alt="img"/></a> </li>
                       @endforeach
+                      @else
+                      <li> <img src="{{ asset('storage/produtos/'. $produto->imagem) }}" width="600" height="700" alt="img"/> </li>
+                      @endif
                     </ul>
                   </div>
                   <div id="carousel" class="flexslider">
                     <ul class="slides">
+                      @if(count($produto->galerias) > 0)
                       @foreach($produto->galerias as $galeria)
                       <li> <img src="{{ asset('storage/galeria/'. $galeria->name) }}" width="600" height="700" alt="img"/> </li>
                       @endforeach
+                      @else
+                      <li> <img src="{{ asset('storage/produtos/'. $produto->imagem) }}" width="600" height="700" alt="img"/> </li>
+                      @endif
                     </ul>
                   </div>
                 </div>
@@ -52,18 +60,21 @@
             <div class="col-md-7">
               <div class="product-right animated" data-animation="bounceInUp">
                 <h3 class="product-title">{{ $produto->titulo }}</h3>
-                <div class="product-desc">The Corsair Gaming Series GS600 is the ideal price/performance choice for mid-spec gaming PC</div>
+                {{-- <div class="product-desc">The Corsair Gaming Series GS600 is the ideal price/performance choice for mid-spec gaming PC</div> --}}
                 <hr>
                 <div class="price-box"> <span class="price-regular-single">R$ {{ str_replace('.', ',', $produto->preco) }}</span> <span class="price-old">{{ (isset($produto->old) ? $produto->old : "") }}</span> </div>
                 <hr>
                 <div class="product-button-group">
                   
                   <div class="shorty-desc">
+                    
                     <p> {{ $produto->previa }}</p>
+                    <br>
+                    <p><a target="_blank" href="{{ $produto->link }}">Para Comprar clique aqui</a></p>
                   </div>
-                  <hr>
+                  {{-- <hr> --}}
                   <div class="footer-panel">
-                    <hr>
+                    {{-- <hr>
                     <div class="social-box">
                       <h4>COMPARTILHE</h4>
                       <ul class="social-links">
@@ -72,7 +83,7 @@
                         <li><a href="https://www.google.com/" target="_blank"><i class="icomoon-googleplus"></i></a></li>
                         <li><a href="https://www.pinterest.com/" target="_blank"><i class="icomoon-pinterest"></i></a></li>
                       </ul>
-                    </div>
+                    </div> --}}
                   </div>
                   <div class="product-label"> <img src="{{asset('storage/produtos/' . $produto->imagem) }}" width="600" height="500" alt="img"/> </div>
                 </div>
@@ -162,17 +173,6 @@
                       <span class="price-regular">R$ {{ str_replace('.', ",", $produto->preco) }}</span> 
                       {{-- <span class="price-old">$200.00</span>  --}}
                     </div>
-                    <div class="only-list-view">
-                      <div class="product-desc">
-                        <p>Quod satis pecuniae sempiternum. Ut sciat oportet motum. Nunquam invenies eum. Hic de tabula. Ego vivere, ut debui, et nunc fiant. Istuc quod opus non est. Lorem ipsum occurrebat pragmaticam semper ut, si quis ita velim tibi bene recognoscere. Quorum duo te mihi videtur. </p>
-                      </div>
-                      <div class="btn-group">
-                        <button type="button" class="btn btn-danger"> Add to cart </button>
-                      </div>
-                      <div class="btn-group"> 
-                        <a class="btn "  href="#product.html">View more</a> 
-                      </div>
-                    </div>
                   </div>
                 </div>
               </li>
@@ -180,7 +180,7 @@
               
             </ul>
           </div>
-          <div class="x-navigation navigation"> <a href="javascript:void(0);" class="btn slider-direction prev-page disabled"><i class="icomoon-arrow-left2"></i></a> <a href="javascript:void(0);" class="btn  slider-direction next-page"><i class="icomoon-arrow-right2"></i></a> </div>
+          {{-- <div class="x-navigation navigation"> <a href="javascript:void(0);" class="btn slider-direction prev-page disabled"><i class="icomoon-arrow-left2"></i></a> <a href="javascript:void(0);" class="btn  slider-direction next-page"><i class="icomoon-arrow-right2"></i></a> </div> --}}
         </section>
       </div>
     </div>
