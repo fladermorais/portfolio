@@ -21,7 +21,7 @@
             <li>
               <div class="product-container">
                 <div class="product-image"> 
-                  <span class="label-sale">sale</span>
+                  {{-- <span class="label-sale">sale</span> --}}
                   <div class="btn-action-item"> 
                     <a href="{{ asset('storage/produtos/' . $produto->imagem) }}" class="magnific" title="{{ $produto->titulo }}"> <i class="icomoon-eye-open"></i></a> 
                   </div>
