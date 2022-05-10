@@ -70,7 +70,7 @@ $rota = explode('.', $route);
   
   <body class="animated-all">
 
-    {{-- @include('layouts.site.header') --}}
+    @include('layouts.site.header')
     
     @include('layouts.site.menu_suspenso')
     <div class="header header-home">
