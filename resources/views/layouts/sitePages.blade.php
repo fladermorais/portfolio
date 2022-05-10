@@ -55,6 +55,8 @@ $rota = explode('.', $route);
 <body>
     <body class="animated-all">
         
+        @include('layouts.site.menu_suspenso')
+        
         @include('layouts.site.topo')
         
         @include('layouts.site.menu_superior')
