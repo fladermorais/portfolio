@@ -22,45 +22,28 @@
               <div class="entry-thumbnail">
                 <div class="sticky-post"><i class="icon-pin"></i></div>
                 <div class="post-type-media type-image"><i class="icon-picture"></i></div>
-                <div class="img-overlay "> <a  href="media/830x400/1.jpg" class="link-view-more magnific"></a> </div>
-                <a   href="media/830x400/1.jpg"><img src="media/830x400/1.jpg" width="830" height="400" alt=""/></a> 
+                <div class="img-overlay "> <a  href="{{ asset('storage/noticias/' . $noticia->imagem ) }}" class="link-view-more magnific"></a> </div>
+                <a   href="{{ asset('storage/noticias/' . $noticia->imagem ) }}"><img src="{{ asset('storage/noticias/' . $noticia->imagem ) }}" width="830" height="400" alt=""/></a> 
               </div>
             </div>
             <div class="entry-main">
-              <h3 class="entry-title"> <a href="post.html" data-hover="ALIQUAM MOLLIS NEQUE UT ULLAMCORPER TEMPOR DOLOR TORTOR VARIUS">ALIQUAM MOLLIS NEQUE UT ULLAMCORPER TEMPOR DOLOR TORTOR VARIUS</a> </h3>
+              <h3 class="entry-title"> <a href="#" data-hover="ALIQUAM MOLLIS NEQUE UT ULLAMCORPER TEMPOR DOLOR TORTOR VARIUS">{{ $noticia->nome }}</a> </h3>
               <div class="entry-content">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sodales dapibus dui, sed iaculis metus facilisis sed. Etiam scelerisque molestie purus vel mollis. Mauris dapibus quam id turpis dignissim rutrum. Phasellus placerat nunc in nulla pretium pellentesque. Aliquam erat volutpat. In nec enim dui, in hendrerit enim. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae Vivamus at tortor at est mattis aliquam non id est. Quisque pretium suscipit faucibus. Fusce vestibulum mollis interdum. Duis a nibh at odio aliquet varius. Pellentesque feugiat nulla nec ipsum suscipit ut varius elit posuere. Nunc tellus urna, viverra ac porta ac, commodo et libero. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Pellentesque ullamcorper nisl id justo ultrices hendrerit. Vivamus dignissim ultrices erat, vitae placerat ligula lacinia non. In arcu nunc, aliquet a condimentum et </p>
-                <blockquote>
-                  <p>Duis dapibus aliquam mi, eget euismod sem scelerisque ut. Vivamus at elit quis urna adipiscing iaculis. Curabitur vitae velit in neque dictum blandit. Proin in iaculis neque. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Curabitur vitae velit in neque dictum blandit. Proin in iaculis neque. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas</p>
-                </blockquote>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sodales dapibus dui, sed iaculis metus facilisis sed. Etiam scelerisque molestie purus vel mollis. Mauris dapibus quam id turpis dignissim rutrum. Phasellus placerat nunc in nulla pretium pellentesque. Aliquam erat volutpat. In nec enim dui, in hendrerit enim. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae Vivamus at tortor at est mattis aliquam non id est. Quisque pretium suscipit faucibus. Fusce vestibulum mollis interdum. Duis a nibh at odio aliquet varius. Pellentesque feugiat nulla nec ipsum suscipit ut varius elit posuere. Nunc tellus urna, viverra ac porta ac, commodo et libero. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Pellentesque ullamcorper nisl id justo ultrices hendrerit. Vivamus dignissim ultrices erat, vitae placerat ligula lacinia non. In arcu nunc, aliquet a condimentum et </p>
-                
-                
+                {!! $noticia->descricao !!}
               </div>
             </div>
             
-            <div class="footer-panel">  
-              
+            {{-- <div class="footer-panel">  
               <div class="social-box">
-                
-                
-                <h4>SHARE THIS STORY</h4>  
-                
-                
+                <h4>Compartilhe</h4>  
                 <ul class="social-links">
                   <li><a target="_blank" href="https://www.facebook.com/"><i class="icomoon-facebook"></i></a></li>
                   <li class=""><a target="_blank" href="https://twitter.com/"><i class="icomoon-twitter"></i></a></li>
                   <li><a target="_blank" href="https://www.google.com/"><i class="icomoon-googleplus"></i></a></li>
                   <li><a target="_blank" href="https://www.pinterest.com/"><i class="icomoon-pinterest"></i></a></li>
                 </ul>
-                
-                
               </div>
-              
-              
-            </div>
-            
-            
+            </div> --}}
             
           </article>
         </section>
