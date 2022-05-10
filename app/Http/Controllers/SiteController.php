@@ -125,48 +125,16 @@ class SiteController extends Controller
         return view('Site.produto', compact('produto', 'referencias'));
     }
     
-    public function servicos()
-    {
-        $categorias = CategoriaProduto::orderBy('nome')->with('produtos')->get();
-        
-        return view('Site.servicos', compact('categorias'));
-    }
-    
     public function contato()
     {
         return view('Site.contato');
     }
     
-    // public function contatoForm(Request $request)
-    // {
-    //     $data = $request->all();
-        
-    //     $mensagem = new Contato();
-    //     $mensagem->nome     =   $data['nome'];
-    //     $mensagem->telefone =   $data['telefone'];
-    //     $mensagem->whatsapp =   $data['telefone'];
-    //     $mensagem->email    =   $data['email'];
-    //     $mensagem->assunto  =   $data['assunto'];
-    //     $mensagem->mensagem =   $data['mensagem'];
-    //     $mensagem->save();
-        
-    //     flash('Mensagem enviada com sucesso. Em breve entraremos em contato!')->success();
-    //     return redirect()->back();
-    // }
-    
-    // public function mensagens()
-    // {
-    //     if(Gate::denies('mensagens')){
-    //         abort(403, "Não Autorizado");
-    //     }
-    //     $mensagens = Contato::orderBy('lido', 'desc')->orderBy('created_at', 'desc')->get();
-    //     return view('Site.mensagens', compact('mensagens'));
-    // }
-    
     public function noticias()
     {
+        setlocale(LC_TIME, 'pt_BR', 'pt_BR.utf-8', 'pt_BR.utf-8', 'portuguese');
         $categorias = Categoria::orderBy('created_at', 'asc')->get();
-        $noticias = Noticia::orderBy('created_at', 'desc')->paginate(6);
+        $noticias = Noticia::orderBy('created_at', 'desc')->paginate(4);
         return view('Site.noticias', compact('noticias', 'categorias'));
     }
     

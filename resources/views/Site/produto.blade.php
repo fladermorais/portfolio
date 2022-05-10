@@ -6,7 +6,7 @@
   <div class="container">
     <h3 class="page-title float-left">Produto</h3>
     <ol class="breadcrumb float-right">
-      <li><a href="#">Produto</a></li>
+      <li><a href="{{ route('produtos', $produto->categorias->alias) }}">{{ $produto->categorias->nome }}</a></li>
       <li class="active">{{ $produto->titulo }}</li>
     </ol>
   </div>

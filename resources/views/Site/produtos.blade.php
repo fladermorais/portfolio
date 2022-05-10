@@ -1,6 +1,16 @@
 @extends('layouts.sitePages')
 @section('content')
 
+<div class="page-header">
+    <div class="container">
+        <h3 class="page-title float-left">Produtos</h3>
+        <ol class="breadcrumb float-right">
+            {{-- <li><a href="#">Notícias</a></li> --}}
+            {{-- <li class="active">Post</li> --}}
+        </ol>
+    </div>
+</div>
+
 <main class="section layout-col-2" id="main">
     <div class="container">
         <div class="row">
