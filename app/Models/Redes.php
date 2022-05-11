@@ -33,11 +33,13 @@ class Redes extends Model
     public function getIcons()
     {
         $icones = [
-            "Facebook" => "fab fa-facebook-f",
-            "Instagram" => "fab fa-instagram",
-            "Linkedin" => "fab fa-linkedin-in",
-            "Pinterest" => "fab fa-pinterest-p",
-            "Twitter" => "fab fa-twitter",
+            "Facebook"  =>  "fab fa-facebook-f",
+            "Instagram" =>  "fab fa-instagram",
+            "Linkedin"  =>  "fab fa-linkedin-in",
+            "Pinterest" =>  "fab fa-pinterest-p",
+            "Twitter"   =>  "fab fa-twitter",
+            "Youtube"   =>  "fab fa-youtube",
+            "Strava"    =>  "fab fa-strava"
         ];
         return $icones;
     }
