@@ -53,9 +53,10 @@
         <aside class="sidebar">
           <div class="widget widget-search ">
             <h3 class="widget-title"><span>Pesquisar</span></h3>
-            <form role="search" method="get" id="searchform" class="searchform" action="/">
+            <form role="search" method="post" id="searchform" class="searchform" action="{{ route('noticiasSearch') }}">
+              @csrf
               <input type="text" placeholder="Search" value="" name="s"  >
-              <button> <i class="fa fa-search"></i> </button>
+              <button type="submit"> <i class="fa fa-search"></i> </button>
             </form>
           </div>
           

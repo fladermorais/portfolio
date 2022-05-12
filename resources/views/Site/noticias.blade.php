@@ -4,11 +4,14 @@
 <div class="page-header">
     <div class="container">
         <h3 class="page-title float-left">Notícias</h3>
-        <ol class="breadcrumb float-right">
-            {{-- <li><a href="#">Notícias</a></li> --}}
-            {{-- <li class="active">Post</li> --}}
-        </ol>
     </div>
+    @if(isset($data) && count($data) > 0)
+    <div class="container bg-warning" style="padding: 20px">
+        
+        <span>Texto pesquisado: <b>{{ $data['s'] }}</b></span>
+        
+    </div>
+    @endif
 </div>
 
 <main class="section" id="main">
@@ -55,9 +58,10 @@
                 <aside class="sidebar ">
                     <div class="widget widget-search ">
                         <h3 class="widget-title"><span>Pesquisar</span></h3>
-                        <form role="search" method="get" id="searchform" class="searchform" action="/">
+                        <form role="search" method="post" id="searchform" class="searchform" action="{{ route('noticiasSearch') }}">
+                            @csrf
                             <input type="text" placeholder="Search" value="" name="s"  >
-                            <button> <i class="fa fa-search"></i> </button>
+                            <button type="submit"> <i class="fa fa-search"></i> </button>
                         </form>
                     </div>
                     

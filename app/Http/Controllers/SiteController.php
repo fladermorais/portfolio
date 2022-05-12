@@ -82,7 +82,7 @@ class SiteController extends Controller
         $parceiros = Cliente::where('status', 'ativo')->where('paginas', 'sim')->orderBy('nome')->inRandomOrder()->get();
         return view('Site.produtos', compact('categorias', 'produtos', 'parceiros'));
     }
-
+    
     public function produto($alias)
     {
         // SitemapGenerator::create(public_path('sitemap.xml'))
@@ -123,13 +123,21 @@ class SiteController extends Controller
         return view('Site.contato');
     }
     
-    public function noticias()
+    public function noticias(Request $request)
     {
-        setlocale(LC_TIME, 'pt_BR', 'pt_BR.utf-8', 'pt_BR.utf-8', 'portuguese');
+        $data = $request->all();
+        $query = Noticia::orderBy('created_at', 'desc');
+        if(count($data) > 0){
+            $query->where(function ($q) use($data){
+                $q->orWhere('nome', 'like', "%" . $data['s'] . "%")
+                ->orWhere('descricao', 'like', "%" . $data['s'] . "%");
+            });
+        }
+        
         $categorias = Categoria::orderBy('created_at', 'asc')->get();
-        $noticias = Noticia::orderBy('created_at', 'desc')->paginate(4);
+        $noticias = $query->paginate(4);
         $parceiros = Cliente::where('status', 'ativo')->where('paginas', 'sim')->orderBy('nome')->inRandomOrder()->get();
-        return view('Site.noticias', compact('noticias', 'categorias', 'parceiros'));
+        return view('Site.noticias', compact('noticias', 'categorias', 'parceiros', 'data'));
     }
     
     public function noticia($alias)

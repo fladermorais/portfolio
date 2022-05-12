@@ -18,11 +18,12 @@ Route::get('email/resend', 'Auth\VerificationController@resend')->name('verifica
 
 Route::get('/', 'SiteController@index')->name('home');
 Route::get('/sobre', 'SiteController@sobre')->name('sobre');
-Route::get('/servicos', 'SiteController@servicos')->name('servicos');
-Route::get('/galeria', 'SiteController@galeria')->name('galeria');
+
 Route::get('/noticias', 'SiteController@noticias')->name('noticias');
+Route::post('/noticias', 'SiteController@noticias')->name('noticiasSearch');
 Route::get('/categorias/{alias}', 'SiteController@categorias')->name('categorias');
 Route::get('/noticia/{alias}', 'SiteController@noticia')->name('noticia');
+
 Route::get('/contato', 'SiteController@contato')->name('contato');
 Route::post('/contato', 'Admin\ContatoController@store')->name('contatoForm');
 
