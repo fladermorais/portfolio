@@ -68,19 +68,29 @@ class SiteController extends Controller
         return view('Site.welcome', compact('banners', 'parceiros', 'quemsomos', 'dicas', 'eventos', 'produtos', 'redes'));
     }
     
-    public function produtos($alias)
+    public function produtos(Request $request, $alias)
     {
-        $categorias = CategoriaProduto::orderBy('nome', 'asc')->get();
+        $data = $request->all();
+        
         $query = Produto::where('status', 'ativo');
+        $categorias = CategoriaProduto::orderBy('nome', 'asc')->get();
+        
         if($alias != "all"){ 
             $categoria = CategoriaProduto::where('alias', $alias)->first();
             if(isset($categoria)){
                 $query->where('categoria_id', $categoria->id);
             }
+        } else {
+            if(count($data) > 0){
+                $query->where(function ($q) use($data){
+                    $q->orWhere('titulo', 'like', "%" . $data['s'] . "%")
+                    ->orWhere('descricao', 'like', "%" . $data['s'] . "%");
+                });
+            }
         }
-        $produtos = $query->orderBy('titulo', 'asc')->paginate(6);
+        $produtos = $query->orderBy('titulo', 'asc')->paginate(12);
         $parceiros = Cliente::where('status', 'ativo')->where('paginas', 'sim')->orderBy('nome')->inRandomOrder()->get();
-        return view('Site.produtos', compact('categorias', 'produtos', 'parceiros'));
+        return view('Site.produtos', compact('categorias', 'produtos', 'parceiros', 'data'));
     }
     
     public function produto($alias)

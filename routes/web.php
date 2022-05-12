@@ -28,6 +28,7 @@ Route::get('/contato', 'SiteController@contato')->name('contato');
 Route::post('/contato', 'Admin\ContatoController@store')->name('contatoForm');
 
 Route::get('produtos/{alias}', 'SiteController@produtos')->name('produtos');
+Route::post('produtos/{alias}', 'SiteController@produtos')->name('produtosSearch');
 Route::get('/produto/{alias}', 'SiteController@produto')->name('produto');
 
 

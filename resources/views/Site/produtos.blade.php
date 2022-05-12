@@ -9,6 +9,14 @@
             {{-- <li class="active">Post</li> --}}
         </ol>
     </div>
+    
+    @if(isset($data) && count($data) > 0)
+    <div class="container bg-warning" style="padding: 20px">
+        
+        <span>Texto pesquisado: <b>{{ $data['s'] }}</b></span>
+        
+    </div>
+    @endif
 </div>
 
 <main class="section layout-col-2" id="main">
@@ -19,12 +27,22 @@
                     <div class="widget widget-category">
                         <h3 class="widget-title"><span>categories</span></h3>
                         <ul class="category-list unstyled clearfix">
-                            <li><a href="{{ route('produtos', 'alls') }}">Todas</a></li>
+                            <li><a href="{{ route('produtos', 'all') }}">Todas</a></li>
                             @foreach($categorias as $categoria)
                             <li><a href="{{ route('produtos', $categoria->alias) }}">{{ $categoria->nome }}</a></li>
                             @endforeach
                         </ul>
                     </div>
+                    
+                    <div class="widget widget-search ">
+                        <h3 class="widget-title"><span>Pesquisar</span></h3>
+                        <form role="search" method="post" id="searchform" class="searchform" action="{{ route('produtosSearch', 'all') }}">
+                            @csrf
+                            <input type="text" placeholder="Search" value="" name="s"  >
+                            <button type="submit"> <i class="fa fa-search"></i> </button>
+                        </form>
+                    </div>
+                    
                 </aside>
             </div>
             
