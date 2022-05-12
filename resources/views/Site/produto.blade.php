@@ -186,6 +186,6 @@
     </div>
   </section>
   
-  
+  @include('layouts.site.parceiros')
   
   @endsection

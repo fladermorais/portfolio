@@ -3,8 +3,8 @@
         <div class="row">
             <div class="col-lg-12 text-center">
                 <div class="heading-wrap animated"   data-animation="bounceInUp" >
-                    <h2 class="section-heading"> {{ $titulos['parceiros']->titulo }}</h2>
-                    <h3 class="section-subheading hang">{{ $titulos['parceiros']->descricao }}</h3>
+                    <h2 class="section-heading"> {{ session('titulos')['parceiros']->titulo }}</h2>
+                    <h3 class="section-subheading hang">{{ session('titulos')['parceiros']->descricao }}</h3>
                 </div>
             </div>
         </div>

@@ -68,4 +68,7 @@
         </div>
     </div>
 </main>
+
+@include('layouts.site.parceiros')
+
 @endsection

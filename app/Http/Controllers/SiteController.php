@@ -38,20 +38,12 @@ class SiteController extends Controller
         // ->writeToFile(public_path('sitemap.xml'));
         
         $banners = Banner::orderBy('nome')->get();
-        $parceiros = Cliente::orderBy('nome')->get();
+        $parceiros = Cliente::where('status', 'ativo')->where('home', 'sim')->orderBy('nome')->get();
         $quemsomos = QuemSomos::first();
         $dicas = Recurso::get();
         $eventos = Evento::where('status', 'ativo')->get();
         $produtos = Produto::where('status', 'ativo')->where('destaque', 'sim')->get();
         $redes = Redes::get();
-        $titulo = Titulo::all();
-        $titulos = [];
-        foreach($titulo as $value){
-            $titulos[$value->referencia] = $value;
-        }
-
-
-        // dd($banner, $clientes);
         
         $keywords = config('app.empresas.seoKeywords');
         $keywords = str_replace(' ', '', $keywords);
@@ -73,7 +65,7 @@ class SiteController extends Controller
         SEOTools::addImages(asset('storage/logo/'. config('app.empresas.logo')));
         SEOMeta::setKeywords($newKeywords);
         
-        return view('Site.welcome', compact('banners', 'parceiros', 'quemsomos', 'dicas', 'eventos', 'produtos', 'redes', 'titulos'));
+        return view('Site.welcome', compact('banners', 'parceiros', 'quemsomos', 'dicas', 'eventos', 'produtos', 'redes'));
     }
     
     public function produtos($alias)
@@ -87,7 +79,8 @@ class SiteController extends Controller
             }
         }
         $produtos = $query->orderBy('titulo', 'asc')->paginate(6);
-        return view('Site.produtos', compact('categorias', 'produtos'));
+        $parceiros = Cliente::where('status', 'ativo')->where('paginas', 'sim')->orderBy('nome')->inRandomOrder()->get();
+        return view('Site.produtos', compact('categorias', 'produtos', 'parceiros'));
     }
 
     public function produto($alias)
@@ -120,9 +113,9 @@ class SiteController extends Controller
         SEOTools::setCanonical(URL::current());
         SEOMeta::setKeywords($newKeywords);
         
-        
+        $parceiros = Cliente::where('status', 'ativo')->where('paginas', 'sim')->orderBy('nome')->inRandomOrder()->get();
         $referencias = Produto::where('id', '!=', $produto->id)->inRandomOrder()->limit(4)->get();
-        return view('Site.produto', compact('produto', 'referencias'));
+        return view('Site.produto', compact('produto', 'referencias', 'parceiros'));
     }
     
     public function contato()
@@ -135,7 +128,8 @@ class SiteController extends Controller
         setlocale(LC_TIME, 'pt_BR', 'pt_BR.utf-8', 'pt_BR.utf-8', 'portuguese');
         $categorias = Categoria::orderBy('created_at', 'asc')->get();
         $noticias = Noticia::orderBy('created_at', 'desc')->paginate(4);
-        return view('Site.noticias', compact('noticias', 'categorias'));
+        $parceiros = Cliente::where('status', 'ativo')->where('paginas', 'sim')->orderBy('nome')->inRandomOrder()->get();
+        return view('Site.noticias', compact('noticias', 'categorias', 'parceiros'));
     }
     
     public function noticia($alias)
@@ -162,7 +156,8 @@ class SiteController extends Controller
         SEOTools::addImages(asset('storage/noticias/'.$noticia->imagem));
         SEOMeta::setKeywords($newKeywords);
         
-        return view('Site.noticia', compact('noticia', 'categorias'));
+        $parceiros = Cliente::where('status', 'ativo')->where('paginas', 'sim')->orderBy('nome')->inRandomOrder()->get();
+        return view('Site.noticia', compact('noticia', 'categorias', 'parceiros'));
     }
     
     public function categorias($alias)
@@ -170,6 +165,7 @@ class SiteController extends Controller
         $categoria = Categoria::where('alias', $alias)->first();
         $categorias = Categoria::orderBy('created_at', 'asc')->get();
         $noticias = Noticia::where('categoria_id', $categoria->id)->orderBy('created_at', 'desc')->paginate(6);
-        return view('Site.noticias', compact('noticias', 'categorias', 'categoria'));
+        $parceiros = Cliente::where('status', 'ativo')->where('paginas', 'sim')->orderBy('nome')->inRandomOrder()->get();
+        return view('Site.noticias', compact('noticias', 'categorias', 'categoria', 'parceiros'));
     }
 }

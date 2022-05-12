@@ -5,8 +5,8 @@
             <div class="col-lg-12 text-center">
                 <div class="heading-wrap animated"  data-animation="bounceInUp"  >
                     <div class="small-logo"><img width="106" height="36" alt="logo" src="{{ asset('Front/img/logo-black.png') }}"></div>
-                    <h2 class="section-heading"> {{ $titulos['quem_somos']->titulo }}</h2>
-                    <h3 class="section-subheading hang">{{ $titulos['quem_somos']->descricao }}</h3>
+                    <h2 class="section-heading"> {{ session('titulos')['quem_somos']->titulo }}</h2>
+                    <h3 class="section-subheading hang">{{ session('titulos')['quem_somos']->descricao }}</h3>
                 </div>
             </div>
         </div>

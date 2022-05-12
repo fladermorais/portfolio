@@ -50,16 +50,12 @@ class AlteraConfig
             session()->put(['categoriaProdutos' => $categoriaProdutos]);
         }
 
-        $titulos = Titulo::all();
-
-        if (!session()->has('nossosServicos')) {
-            foreach ($titulos as $t) {
-                if ($t->referencia == 'Serviços') {
-                    session()->put(['nossosServicos' => $t]);
-                    break;
-                }
-            }
+        $titulo = Titulo::all();
+        $titulos = [];
+        foreach($titulo as $value){
+            $titulos[$value->referencia] = $value;
         }
+        session()->put(['titulos' => $titulos]);
 
         return $next($request);
     }
