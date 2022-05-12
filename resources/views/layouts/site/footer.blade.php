@@ -1,5 +1,5 @@
 <footer class="footer">
-  <section class="no-bg-color-parallax parallax-black home-section text-center" style="background-image:url(media/bg/5.jpg)">
+  <section class="no-bg-color-parallax parallax-black home-section text-center" >
     <ul class="bg-slideshow">
       <li>
         <div class="bg-slide" style="background-image:url(media/bg/5.jpg)"></div>
@@ -12,7 +12,7 @@
       <div class="row">
         
         <div class="col-lg-12 col-sm-4 col-xs-12">
-          <div class="big-logo"> <img src="{{ asset('storage/logo/' . config('app.empresas.logo')) }}" width="225" height="178" alt="img"/> </div>
+          {{-- <div class="big-logo"> <img src="{{ asset('storage/logo/' . config('app.empresas.logo')) }}" width="225" height="178" alt="img"/> </div> --}}
           <ul class="social-links">
             @foreach(config('app.redes') as $redes)
             <li><a href="{{ $redes->link }}" target="_blank" title="{{ $redes->titulo }}"><i class="{{ $redes->icone }}"></i></a></li>
