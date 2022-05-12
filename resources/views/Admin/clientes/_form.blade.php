@@ -23,6 +23,33 @@
   </div>  
   
   <div class="form-row">
+    <div class="col-sm-4">
+      <label for="status">Status</label><br>
+      <select name="status" id="status" class="form-control">
+        <option value="ativo" {{ (isset($info->status) && $info->status == "ativo" ? "selected" : "") }}>Ativo</option>
+        <option value="inativo" {{ (isset($info->status) && $info->status == "inativo" ? "selected" : "") }}>Inativo</option>
+      </select>
+    </div>
+
+    <div class="col-sm-4">
+      <label for="home">Exibir na Home</label><br>
+      <select name="home" id="home" class="form-control">
+        <option value="sim" {{ (isset($info->home) && $info->home == "sim" ? "selected" : "") }}>Sim</option>
+        <option value="nao" {{ (isset($info->home) && $info->home == "nao" ? "selected" : "") }}>Nao</option>
+      </select>
+    </div>
+
+    <div class="col-sm-4">
+      <label for="paginas">Exibir nas Páginas</label><br>
+      <select name="paginas" id="paginas" class="form-control">
+        <option value="sim" {{ (isset($info->paginas) && $info->paginas == "sim" ? "selected" : "") }}>Sim</option>
+        <option value="nao" {{ (isset($info->paginas) && $info->paginas == "nao" ? "selected" : "") }}>Nao</option>
+      </select>
+    </div>
+
+  </div>
+
+  <div class="form-row">
     <div class="col-sm-12">
       <label for="link">Link Externo</label><br>
       <input class='form-control' type="text" id="link" name="link" value="{{ (isset($info->link) ? $info->link : old('link')) }}">

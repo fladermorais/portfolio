@@ -16,7 +16,9 @@
                 <tr>
                     <th>Imagem</th>
                     <th>Titulo</th>
-                    <th>Link</th>
+                    <th>Status</th>
+                    <th>Home</th>
+                    <th>Páginas</th>
                     <th>Ações</th>
                 </tr>
             </thead>
@@ -26,7 +28,9 @@
                 <tr>
                     <td><img class="imagem-noticia" src="{{ asset('storage/clientes/'.$produto->imagem) }}"></td>
                     <td>{{$produto->nome}}</td>
-                    <td>{{$produto->link}}</td>
+                    <td><span class="status {{ $produto->status == "ativo" ? "ativo" : "inativo" }}"></span>     {{$produto->status}}</td>
+                    <td>{{$produto->home}}</td>
+                    <td>{{$produto->paginas}}</td>
                     <td class="flex-row">
                         @can('clientes.edit')
                         <a class="btn btn-primary btn-sm" href="{{route('clientes.edit', $produto->id)}}" title="Editar"><i class="fas fa-edit"></i></a>

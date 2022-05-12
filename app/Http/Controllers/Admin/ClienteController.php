@@ -17,7 +17,7 @@ class ClienteController extends Controller
         if(Gate::denies('clientes.index')){
             abort(403, "Não Autorizado");
         }
-        $clientes = Cliente::orderBy('nome')->get();
+        $clientes = Cliente::orderBy('status')->orderBy('nome')->get();
         return view('Admin.clientes.index', compact('clientes'));
     }
 

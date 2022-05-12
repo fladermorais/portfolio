@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Cliente extends Model
 {
     protected $table = "clientes";
-    protected $fillable = ['nome', 'imagem', 'link', 'descricao'];
+    protected $fillable = ['nome', 'imagem', 'link', 'descricao', 'status', 'home', 'paginas'];
 
     public function newInfo($data)
     {
