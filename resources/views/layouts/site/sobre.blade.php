@@ -32,19 +32,19 @@
                         
                         <!-- Nav tabs -->
                         <ul class="nav nav-tabs about-tabs">
-                            <li class="active"><a href="#about1"  data-toggle="tab"><img src="media/tab1.jpg" width="170" height="280" alt="Missão"></a>
+                            <li class="active"><a href="#about1"  data-toggle="tab"><img src="{{ asset('img/_missao.png') }}" width="120" height="135" alt="Missão"></a>
                                 <div class="tab-li-content">
                                     <h4> Nossa Missão <strong>{{ config('app.empresas.nome') }} </strong></h4>
                                     <p>{{ $quemsomos->missao }}</p>
                                 </div>
                             </li>
-                            <li><a href="#about2"  data-toggle="tab"><img src="media/tab2.jpg" width="170" height="280" alt="Visão"></a>
+                            <li><a href="#about2"  data-toggle="tab"><img src="{{ asset('img/_visao.png') }}" width="120" height="135" alt="Visão"></a>
                                 <div class="tab-li-content">
                                     <h4> Nossos Objetivos <strong>{{ config('app.empresas.nome') }} </strong></h4>
                                     <p>{{ $quemsomos->objetivos }} </p>
                                 </div>
                             </li>
-                            <li><a href="#about3"  data-toggle="tab"><img src="media/tab3.jpg" width="170" height="280" alt="Valores"></a>
+                            <li><a href="#about3"  data-toggle="tab"><img src="{{ asset('img/_valores.png') }}" width="120" height="135" alt="Valores"></a>
                                 <div class="tab-li-content">
                                     <h4> Nossos Valores <strong>{{ config('app.empresas.nome') }} </strong></h4>
                                     <p>{{ $quemsomos->valores }} </p>

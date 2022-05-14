@@ -71,7 +71,7 @@ $rota = explode('.', $route);
   <body class="animated-all">
 
     {{-- Carrega o loading da página --}}
-    {{-- @include('layouts.site.header') --}}
+    @include('layouts.site.header')
     
     @include('layouts.site.menu_suspenso')
     <div class="header header-home">
