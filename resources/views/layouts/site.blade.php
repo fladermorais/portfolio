@@ -56,20 +56,16 @@ $rota = explode('.', $route);
   <link rel="alternate stylesheet" type="text/css" href="{{ asset('Front/plugins/switcher/css/yellow.css') }}" title="yellow" media="all" />
   
   <link rel="stylesheet" type="text/css" href="{{ asset('Front/css/geral.css') }}" title="Geral" media="all" />
-
+  
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
   
   <!-- Switcher Only -->
 </head>
 <body>
   
-  {{-- @include('layouts.site.header')
-  @yield('content')
-  @include('layouts.site.footer') --}}
-  
   
   <body class="animated-all">
-
+    
     {{-- Carrega o loading da página --}}
     @include('layouts.site.header')
     
@@ -78,57 +74,26 @@ $rota = explode('.', $route);
       
       @include('layouts.site.banner')
       
-      <!-- SECTION -->
-      {{-- @include('layouts.site.sobre') --}}
-      
-      
-      <!-- SECTION -->
       
       @include('layouts.site.parceiros')
       
-      <!-- SECTION --> 
-      
-      <!-- SECTION -->
       
       @include('layouts.site.esportes')
       
-      <!-- SECTION -->
-      
-      {{-- @include('layouts.site.redes_sociais') --}}
-      
-      <!-- SECTION -->
-      
-      {{-- @include('layouts.site.galeria') --}}
-      
-      <!-- SECTION -->
-      
-      @include('layouts.site.divisoria')
-      
-      @include('layouts.site.eventos')
-      
-      <!-- SECTION --> 
-      
-      <!-- SECTION -->
-      
-      {{-- @include('layouts.site.depoimentos') --}}
-      
-      <!-- SECTION -->
       
       @include('layouts.site.produtos')
       
-      <!-- SECTION -->
+      @include('layouts.site.eventos')
       
       
+      @include('layouts.site.noticias')
       
-      <!-- SECTION -->
       
       @include('layouts.site.contato')
       
-      
-      <!-- SECTION -->
-      {{-- @include('layouts.site.divisoria') --}}
       
       @include('layouts.site.footer')
     </body>
   </body>
   </html>
+  

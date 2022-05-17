@@ -44,6 +44,7 @@ class SiteController extends Controller
         $eventos = Evento::where('status', 'ativo')->get();
         $produtos = Produto::where('status', 'ativo')->where('destaque', 'sim')->get();
         $redes = Redes::get();
+        $noticias = Noticia::orderBy('created_at', 'desc')->limit(4)->get();
         
         $keywords = config('app.empresas.seoKeywords');
         $keywords = str_replace(' ', '', $keywords);
@@ -65,7 +66,7 @@ class SiteController extends Controller
         SEOTools::addImages(asset('storage/logo/'. config('app.empresas.logo')));
         SEOMeta::setKeywords($newKeywords);
         
-        return view('Site.welcome', compact('banners', 'parceiros', 'quemsomos', 'dicas', 'eventos', 'produtos', 'redes'));
+        return view('Site.welcome', compact('banners', 'parceiros', 'quemsomos', 'dicas', 'eventos', 'produtos', 'redes', 'noticias'));
     }
 
     public function sobre()
