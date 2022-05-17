@@ -82,4 +82,6 @@
 
 @include('layouts.site.parceiros')
 
+@include('layouts.site.contato')
+
 @endsection

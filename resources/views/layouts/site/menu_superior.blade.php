@@ -3,5 +3,5 @@
     <li ><a href="{{ route('sobre') }}">Quem somos</a></li>
     <li ><a href="{{ route('produtos', 'all') }}">Produtos</a></li>
     <li><a href="{{ route('noticias') }}">Notícias</a></li>
-    <li ><a href="{{ route('home') }}/#contato">Contato</a></li>
+    <li ><a href="#contato">Contato</a></li>
 </ul>
