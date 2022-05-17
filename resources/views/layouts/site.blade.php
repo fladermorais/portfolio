@@ -79,7 +79,7 @@ $rota = explode('.', $route);
       @include('layouts.site.banner')
       
       <!-- SECTION -->
-      @include('layouts.site.sobre')
+      {{-- @include('layouts.site.sobre') --}}
       
       
       <!-- SECTION -->
@@ -126,7 +126,7 @@ $rota = explode('.', $route);
       
       
       <!-- SECTION -->
-      @include('layouts.site.divisoria')
+      {{-- @include('layouts.site.divisoria') --}}
       
       @include('layouts.site.footer')
     </body>

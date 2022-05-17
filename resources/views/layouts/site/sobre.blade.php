@@ -1,5 +1,5 @@
-<section class="no-bg-color-parallax  parallax-white  home-section" style="background-image:url(media/bg/1.jpg)"    >
-    
+{{-- <section class="no-bg-color-parallax  parallax-white  home-section" style="background-image:url(media/bg/1.jpg)"    > --}}
+    <section>
     <div  class="container">
         <div class="row">
             <div class="col-lg-12 text-center">

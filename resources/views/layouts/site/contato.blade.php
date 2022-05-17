@@ -54,19 +54,20 @@
                                 <div class="icon-set-wrap">
                                     <div class="icon-set"><a><i class="fa   fa-envelope   "></i></a></div>
                                     <div class="content-icon-set">
-                                        <a href="mailto:{{ config('app.empresas.email') }}">{{ config('app.empresas.email') }}</a></div>
+                                        <a href="mailto:{{ config('app.empresas.email') }}">{{ config('app.empresas.email') }}</a>
                                     </div>
-                                </li>
-                                <li>
-                                    <div class="icon-set-wrap">
-                                        <div class="icon-set"><a><i class="fa  fa-phone "></i></a></div>
-                                        <div class="content-icon-set">{{ config('app.empresas.telefone') }}</div>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="icon-set-wrap">
+                                    <div class="icon-set"><a><i class="fa  fa-phone "></i></a></div>
+                                    <div class="content-icon-set">{{ config('app.empresas.telefone') }}</div>
+                                </div>
+                            </li>
+                        </ul>
                     </div>
-                </form>
-            </div>
+                </div>
+            </form>
         </div>
-    </section>
+    </div>
+</section>

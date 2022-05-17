@@ -67,6 +67,43 @@ class SiteController extends Controller
         
         return view('Site.welcome', compact('banners', 'parceiros', 'quemsomos', 'dicas', 'eventos', 'produtos', 'redes'));
     }
+
+    public function sobre()
+    {   
+        // dd(config('app.categorias'));
+        // Sitemap::create()
+        // ->add(route('home'))
+        // ->add(route('sobre'))
+        // ->writeToFile(public_path('sitemap.xml'));
+        
+        $parceiros = Cliente::where('status', 'ativo')->where('home', 'sim')->orderBy('nome')->get();
+        $produtos = Produto::where('status', 'ativo')->where('destaque', 'sim')->get();
+        $quemsomos = QuemSomos::first();
+        
+        $redes = Redes::get();
+        
+        $keywords = config('app.empresas.seoKeywords');
+        $keywords = str_replace(' ', '', $keywords);
+        $keywords = explode(",", $keywords);
+        $newKeywords = "";
+        foreach($keywords as $value){
+            $newKeywords .= "'".$value."',";
+        }
+        $newKeywords = substr($newKeywords, 0, strlen($newKeywords) -1);
+        
+        SEOTools::metatags();
+        SEOTools::twitter();
+        SEOTools::opengraph();
+        SEOTools::jsonLd();
+        
+        SEOTools::setTitle(config('app.empresas.seoTitle'));
+        SEOTools::setDescription(config('app.empresas.seoDescription'));
+        SEOTools::setCanonical(URL::current());
+        SEOTools::addImages(asset('storage/logo/'. config('app.empresas.logo')));
+        SEOMeta::setKeywords($newKeywords);
+        
+        return view('Site.sobre', compact('parceiros', 'quemsomos', 'produtos', 'redes'));
+    }
     
     public function produtos(Request $request, $alias)
     {
