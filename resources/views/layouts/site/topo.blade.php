@@ -7,7 +7,10 @@
             
             <div class="col-md-6  col-xs-12 mobile-center">
                 <div class="input-group top-search">
-                    <div class="input-group-btn search-panel">
+                    <h1>{{ config('app.empresas.nome') }}</h1>
+                    <p>{{ config('app.empresas.slogan') }}</p>
+                    
+                    {{-- <div class="input-group-btn search-panel">
                         <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"> <span id="search_concept">Filter by</span> <span class="caret"></span> </button>
                         <ul class="dropdown-menu" role="menu">
                             <li><a href="#contains">Contains</a></li>
@@ -22,8 +25,12 @@
                     <input type="text" class="form-control" name="x" placeholder="Search term...">
                     <span class="input-group-btn">
                         <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
-                    </span> 
+                    </span>  --}}
                 </div>
+            </div>
+            
+            <div class="col-md-3 col-md-12 col-xs-12 mobile-center">
+                <div class="blog-logo text-right"><a href="{{ route('home') }}"> <img height="100px" src="{{ asset('/storage/logo/' . config('app.empresas.logo')) }}"  alt="logo"/></a></div>
             </div>
         </div>
     </div>
