@@ -15,3 +15,22 @@
     border: 2px solid red;
     width: 100%;
 }
+
+@media only screen and (max-device-width : 1000px) {
+    #menu-navegacao {
+        border: 2px solid blue;
+        display: none !important;
+    }
+    
+    .slogan {
+        display: none !important;
+        border: 2px solid red !important;
+    }
+
+    #iview{
+        display: block !important;
+    }
+    .blog-logo{
+        display: none !important;
+    }
+}

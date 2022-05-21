@@ -5,7 +5,7 @@
                 <div class="blog-logo text-left"><a href="{{ route('home') }}"> <img height="100px" src="{{ asset('/storage/logo/' . config('app.empresas.logo')) }}"  alt="logo"/></a></div>
             </div>
             
-            <div class="col-md-6  col-xs-12 mobile-center">
+            <div class="col-md-6  col-xs-12 mobile-center slogan ">
                 <div class="input-group top-search">
                     <h1>{{ config('app.empresas.nome') }}</h1>
                     <p>{{ config('app.empresas.slogan') }}</p>
@@ -29,7 +29,7 @@
                 </div>
             </div>
             
-            <div class="col-md-3 col-md-12 col-xs-12 mobile-center">
+            <div class="col-md-3 col-md-12 col-xs-12 mobile-center slogan">
                 <div class="blog-logo text-right"><a href="{{ route('home') }}"> <img height="100px" src="{{ asset('/storage/logo/' . config('app.empresas.logo')) }}"  alt="logo"/></a></div>
             </div>
         </div>

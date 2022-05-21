@@ -1,6 +1,6 @@
 
 <div class="container">
-    <div class="blog-logo text-left"><a href="{{ route('home') }}"> <img width="292" height="150" alt="logo" src="{{ asset('storage/logo/' . config('app.empresas.logo')) }}"></a></div>
+    <div class="blog-logo text-left"><a href="{{ route('home') }}"> <img width="292" height="100" alt="logo" src="{{ asset('storage/logo/' . config('app.empresas.logo')) }}"></a></div>
 </div>
 <div id="iview">
     @foreach($banners as $banner)
