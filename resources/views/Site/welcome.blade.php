@@ -9,8 +9,9 @@
 
 @include('layouts.site.esportes')
 
-
+@if(config('app.empresas.ativaProdutos') == "sim")
 @include('layouts.site.produtos')
+@endif
 
 @include('layouts.site.eventos')
 
