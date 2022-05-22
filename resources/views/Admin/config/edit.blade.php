@@ -138,8 +138,8 @@
                     </div>
 
                     <div class="form-row">
-                        <div class="col-sm-6">
-                            <label for="slogan">Título(banner hospedagem)</label><br>
+                        <div class="col-sm-8">
+                            <label for="slogan">Slogan</label><br>
                             <input class='form-control' type="text" id="slogan" name="slogan"
                                 value="{{ $info->slogan }}">
                             @if ($errors->has('slogan'))
@@ -148,7 +148,7 @@
                                 @endforeach
                             @endif
                         </div>
-                        <div class="col-sm-6">
+                        {{-- <div class="col-sm-6">
                             <label for="subtitulo">Subtítulo(banner hospedagem)</label><br>
                             <input class='form-control' type="text" id="subtitulo" name="subtitulo"
                                 value="{{ $info->subtitulo }}">
@@ -157,9 +157,9 @@
                                     <span class="error">{{ $e }}</span>
                                 @endforeach
                             @endif
-                        </div>
-                    </div>
-                    <div class="form-row">
+                        </div> --}}
+                    {{-- </div>
+                    <div class="form-row"> --}}
                         <div class="col-sm-4">
                             <label for="ativaBlog">Exibir Blog no Menu?</label><br>
                             <select name="ativaBlog" id="ativaBlog" class="form-control">
