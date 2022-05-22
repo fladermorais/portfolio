@@ -31,6 +31,9 @@ class SiteController extends Controller
 {
     public function index()
     {   
+
+        return view('Site.construcao');
+        
         // dd(config('app.categorias'));
         // Sitemap::create()
         // ->add(route('home'))
