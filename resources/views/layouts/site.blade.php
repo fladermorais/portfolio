@@ -61,39 +61,20 @@ $rota = explode('.', $route);
   
   <!-- Switcher Only -->
 </head>
-<body>
+
+
+
+<body class="animated-all">
   
+  {{-- Carrega o loading da página --}}
+  @include('layouts.site.header')
   
-  <body class="animated-all">
+  @include('layouts.site.menu_suspenso')
+  <div class="header header-home">
     
-    {{-- Carrega o loading da página --}}
-    @include('layouts.site.header')
+    @yield('content')
     
-    @include('layouts.site.menu_suspenso')
-    <div class="header header-home">
-      
-      @include('layouts.site.banner')
-      
-      
-      @include('layouts.site.parceiros')
-      
-      
-      @include('layouts.site.esportes')
-      
-      
-      @include('layouts.site.produtos')
-      
-      @include('layouts.site.eventos')
-      
-      
-      @include('layouts.site.noticias')
-      
-      
-      @include('layouts.site.contato')
-      
-      
-      @include('layouts.site.footer')
-    </body>
-  </body>
-  </html>
+  </div>
   
+</body>
+</html>
