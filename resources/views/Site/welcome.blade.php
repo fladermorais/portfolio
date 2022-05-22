@@ -14,9 +14,11 @@
 
 @include('layouts.site.eventos')
 
-
+@if(config('app.empresas.ativaBlog') == "sim")
 @include('layouts.site.noticias')
-
+@else
+@include('layouts.site.divisoria')
+@endif
 
 @include('layouts.site.contato')
 
