@@ -15,7 +15,7 @@
         <div class="box-body">
             <div class="form-group">
                 <div class="form-row">
-                    <div class="col-sm-8">
+                    <div class="col-sm-6">
                         <label for="nome">Nome</label><br>
                         <input class='form-control' type="text" id="nome" name="nome" value="{{ $info->nome }}">
                         @if ($errors->has('nome'))
@@ -25,11 +25,24 @@
                         @endif
                     </div>
                     
-                    <div class="col-sm-4">
+                    <div class="col-sm-3">
                         <label for="arquivo">Logo</label><br>
                         <input class='form-control' type="file" id="arquivo" name="arquivo">
                         @if ($errors->has('arquivo'))
                         @foreach ($errors->get('arquivo') as $e)
+                        <span class="error">{{ $e }}</span>
+                        @endforeach
+                        @endif
+                    </div>
+                    
+                    <div class="col-sm-3">
+                        <label for="emConstrucao">Site em Construção?</label><br>
+                        <select name="emConstrucao" id="emConstrucao" class="form-control">
+                            <option {{ isset($info['emConstrucao']) && $info['emConstrucao'] == 'sim' ? 'selected' : '' }} value="sim">Sim</option>
+                            <option {{ isset($info['emConstrucao']) && $info['emConstrucao'] == 'nao' ? 'selected' : '' }} value="nao">Não</option>
+                        </select>
+                        @if ($errors->has('emConstrucao'))
+                        @foreach ($errors->get('emConstrucao') as $e)
                         <span class="error">{{ $e }}</span>
                         @endforeach
                         @endif

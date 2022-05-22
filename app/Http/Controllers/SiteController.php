@@ -31,8 +31,9 @@ class SiteController extends Controller
 {
     public function index()
     {   
-
-        return view('Site.construcao');
+        if(config('app.empresas.emConstrucao') == "sim"){
+            return view('Site.construcao');
+        }
         
         // dd(config('app.categorias'));
         // Sitemap::create()
@@ -71,7 +72,7 @@ class SiteController extends Controller
         
         return view('Site.welcome', compact('banners', 'parceiros', 'quemsomos', 'dicas', 'eventos', 'produtos', 'redes', 'noticias'));
     }
-
+    
     public function sobre()
     {   
         // dd(config('app.categorias'));
