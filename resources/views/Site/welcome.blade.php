@@ -13,7 +13,9 @@
 @include('layouts.site.produtos')
 @endif
 
+@if(isset($eventos) && count($eventos) >0)
 @include('layouts.site.eventos')
+@endif
 
 @if(config('app.empresas.ativaBlog') == "sim")
 @include('layouts.site.noticias')
