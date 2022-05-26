@@ -32,34 +32,42 @@
                         
                         <!-- Nav tabs -->
                         <ul class="nav nav-tabs about-tabs">
+                            @if(isset($quemsomos->missao))
                             <li class="active"><a href="#about1"  data-toggle="tab"><img src="{{ asset('img/_missao.png') }}" width="120" height="135" alt="Missão"></a>
                                 <div class="tab-li-content">
                                     <h4> Nossa Missão <strong>{{ config('app.empresas.nome') }} </strong></h4>
                                     <p>{{ $quemsomos->missao }}</p>
                                 </div>
                             </li>
+                            @endif
+
+                            @if(isset($quemsomos->objetivos))
                             <li><a href="#about2"  data-toggle="tab"><img src="{{ asset('img/_visao.png') }}" width="120" height="135" alt="Visão"></a>
                                 <div class="tab-li-content">
                                     <h4> Nossos Objetivos <strong>{{ config('app.empresas.nome') }} </strong></h4>
                                     <p>{{ $quemsomos->objetivos }} </p>
                                 </div>
                             </li>
+                            @endif
+
+                            @if(isset($quemsomos->valores))
                             <li><a href="#about3"  data-toggle="tab"><img src="{{ asset('img/_valores.png') }}" width="120" height="135" alt="Valores"></a>
                                 <div class="tab-li-content">
                                     <h4> Nossos Valores <strong>{{ config('app.empresas.nome') }} </strong></h4>
                                     <p>{{ $quemsomos->valores }} </p>
                                 </div>
                             </li>
+                            @endif
                         </ul>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="container">
+    {{-- <div class="container">
         <div class="section-footer">
             <div class="sf-left" style="background-color:#f4f4f4"></div>
             <div class="sf-right"  style="background-color:#f4f4f4" ></div>
         </div>
-    </div>
+    </div> --}}
 </section>
