@@ -1,0 +1,1 @@
+[14-May-2022 09:33:35 America/Fortaleza] PHP Fatal error:  Composer detected issues in your platform: Your Composer dependencies require a PHP version ">= 7.4.0". You are running 7.3.33. in /home2/flade415/bike.fladermorais.com.br/bikebrothers/vendor/composer/platform_check.php on line 24

@@ -1,0 +1,113 @@
+/* Configuração de margin para container principal do painel de admin */
+.content-wrapper {
+    max-width: 100%;
+    padding: 5px;
+}
+
+.container {
+    width: 100%;
+}
+
+/* Container principal do Site de Admin */
+.box-site {
+    margin: 10px; padding: 5px;
+}
+
+/* Botao para ações de cadastro e atualização */
+.btn-cadastro {
+    margin: 20px auto;
+}
+
+.logo-info {
+    /* width: 100%; */
+    /* max-width: 150px; */
+    max-height: 30px;
+}
+
+.imagem-noticia {
+    height: 50px;
+}
+
+.error {
+    font-weight: bold;
+    color: red;
+}
+
+.login {
+    border: 2px solid red;
+    
+}
+
+.flex-row {
+    display: flex;
+    justify-content: space-between !important;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.flex-row-strech {
+    align-items: stretch;
+}
+
+.flex-row h3 {
+    display: block;
+    text-align: left;
+    flex: 1;
+}
+.flex-row a {
+}
+
+.login-logo {
+    padding: 10px;
+}
+
+.login-logo img{
+    display: block;
+    width: 100%;
+}
+
+.table td:last-child, .table th:last-child {
+    width: 200px;
+}
+
+.status {
+    display: inline-block;
+    width: 10px;
+    height: 20px;
+    background: #ccc;
+    border-radius: 5px;
+}
+
+.status.inativo {
+    background-color: red;
+}
+
+.status.ativo {
+    background-color: green;
+}
+
+.galeria-form {
+    width: 100%;
+    max-width: 200px;
+    margin: 5px 20px;
+    display: grid;
+    grid-template-columns: 90% 10%;
+}
+
+.galeria-img {
+    display: block;
+    padding: 10px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.galeria-btn {
+    background-color: rgb(244, 88, 88);
+    border: none;
+    color: #fff;
+    border-radius: 50%;
+    height: 30px;
+    width: 30px;
+}
+
