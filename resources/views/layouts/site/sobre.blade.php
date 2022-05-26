@@ -32,62 +32,43 @@
                         
                         <!-- Nav tabs -->
                         <ul class="nav nav-tabs about-tabs">
-<<<<<<< HEAD
-=======
                             @if(isset($quemsomos->missao))
->>>>>>> 1b0f9f00a61affa4abfcf9446671392e6ca1de61
                             <li class="active"><a href="#about1"  data-toggle="tab"><img src="{{ asset('img/_missao.png') }}" width="120" height="135" alt="Missão"></a>
                                 <div class="tab-li-content">
                                     <h4> Nossa Missão <strong>{{ config('app.empresas.nome') }} </strong></h4>
                                     <p>{{ $quemsomos->missao }}</p>
                                 </div>
                             </li>
-<<<<<<< HEAD
-=======
                             @endif
 
                             @if(isset($quemsomos->objetivos))
->>>>>>> 1b0f9f00a61affa4abfcf9446671392e6ca1de61
                             <li><a href="#about2"  data-toggle="tab"><img src="{{ asset('img/_visao.png') }}" width="120" height="135" alt="Visão"></a>
                                 <div class="tab-li-content">
                                     <h4> Nossos Objetivos <strong>{{ config('app.empresas.nome') }} </strong></h4>
                                     <p>{{ $quemsomos->objetivos }} </p>
                                 </div>
                             </li>
-<<<<<<< HEAD
-=======
                             @endif
 
                             @if(isset($quemsomos->valores))
->>>>>>> 1b0f9f00a61affa4abfcf9446671392e6ca1de61
                             <li><a href="#about3"  data-toggle="tab"><img src="{{ asset('img/_valores.png') }}" width="120" height="135" alt="Valores"></a>
                                 <div class="tab-li-content">
                                     <h4> Nossos Valores <strong>{{ config('app.empresas.nome') }} </strong></h4>
                                     <p>{{ $quemsomos->valores }} </p>
                                 </div>
                             </li>
-<<<<<<< HEAD
-=======
                             @endif
->>>>>>> 1b0f9f00a61affa4abfcf9446671392e6ca1de61
                         </ul>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-<<<<<<< HEAD
-    <div class="container">
-=======
     {{-- <div class="container">
->>>>>>> 1b0f9f00a61affa4abfcf9446671392e6ca1de61
         <div class="section-footer">
             <div class="sf-left" style="background-color:#f4f4f4"></div>
             <div class="sf-right"  style="background-color:#f4f4f4" ></div>
         </div>
-<<<<<<< HEAD
-    </div>
-=======
     </div> --}}
->>>>>>> 1b0f9f00a61affa4abfcf9446671392e6ca1de61
 </section>
+
