@@ -13,7 +13,13 @@
 @include('layouts.site.produtos')
 @endif
 
+<<<<<<< HEAD
 @include('layouts.site.eventos')
+=======
+@if(isset($eventos) && count($eventos) >0)
+@include('layouts.site.eventos')
+@endif
+>>>>>>> 1b0f9f00a61affa4abfcf9446671392e6ca1de61
 
 @if(config('app.empresas.ativaBlog') == "sim")
 @include('layouts.site.noticias')
