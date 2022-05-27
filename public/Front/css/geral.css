@@ -52,6 +52,11 @@
     width: 150px;
     height: 180px;
 }
+
+.blog-logo2 img {
+    width: 60px;
+    height: 70px;
+}
 .caption-text {
     /* border: 2px solid red; */
     width: 100%;

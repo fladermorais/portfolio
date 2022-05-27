@@ -2,14 +2,11 @@
     <div class="container">
         <div class="row">
             <div class="col-md-3 col-md-12 col-xs-12 mobile-center">
-                <div class="blog-logo text-left"><a href="{{ route('home') }}"> <img height="100px" src="{{ asset('/storage/logo/' . config('app.empresas.logo')) }}"  alt="logo"/></a></div>
+                <div class="blog-logo2 text-left"><a href="{{ route('home') }}"> <img src="{{ asset('/storage/logo/' . config('app.empresas.logo')) }}"  alt="logo"/></a></div>
             </div>
             
-            <div class="col-md-6  col-xs-12 mobile-center slogan ">
+            <div class="col-md-6 col-xs-12 mobile-center slogan ">
                 <div class="input-group top-search">
-                    <h1>{{ config('app.empresas.nome') }}</h1>
-                    <p>{{ config('app.empresas.slogan') }}</p>
-                    
                     {{-- <div class="input-group-btn search-panel">
                         <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"> <span id="search_concept">Filter by</span> <span class="caret"></span> </button>
                         <ul class="dropdown-menu" role="menu">
@@ -29,8 +26,12 @@
                 </div>
             </div>
             
-            <div class="col-md-3 col-md-12 col-xs-12 mobile-center slogan">
-                <div class="blog-logo text-right"><a href="{{ route('home') }}"> <img height="100px" src="{{ asset('/storage/logo/' . config('app.empresas.logo')) }}"  alt="logo"/></a></div>
+            <div class="col-md-3">
+                <ul class="social-links">
+                    @foreach(config('app.redes') as $redes)
+                    <li><a href="{{ $redes->link }}" target="_blank" title="{{ $redes->titulo }}"><i class="{{ $redes->icone }}"></i></a></li>
+                    @endforeach  
+                </ul>
             </div>
         </div>
     </div>
