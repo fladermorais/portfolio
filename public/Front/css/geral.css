@@ -16,24 +16,6 @@
     width: 100%;
 }
 
-@media only screen and (max-device-width : 1000px) {
-    #menu-navegacao {
-        border: 2px solid blue;
-        display: none !important;
-    }
-    
-    .slogan {
-        display: none !important;
-        border: 2px solid red !important;
-    }
-    
-    #iview{
-        display: block !important;
-    }
-    .blog-logo{
-        display: none !important;
-    }
-}
 
 .construcao {
     background: #000;
@@ -59,4 +41,89 @@
 .construcao-logo img {
     display: block;
     margin: 0 auto;
+}
+
+.banner-inicial {
+    position: absolute;
+    /* border: 4px solid red; */
+}
+
+.blog-logo img {
+    width: 150px;
+    height: 180px;
+}
+.caption-text {
+    /* border: 2px solid red; */
+    width: 100%;
+    max-width: 600px;
+    max-height: 100px;
+    position: relative;
+    bottom: 150px;
+    left: 60% !important;
+    margin: 0;
+    padding: 0;
+    
+}
+.menu-topo{
+    margin-top: -100px;
+}
+.caption-text p {
+    font-family:'Times New Roman', Times, serif;
+    padding: 15px;
+    text-align: center;
+    color: #fff;
+    font-size: 5rem;
+    font-weight: bold;
+}
+
+@media only screen and (max-device-width : 1200px) {
+    .caption-text {
+        width: 500px
+    }
+    
+    .caption-text p {
+        font-size: 3.5rem;
+    }
+}
+
+@media only screen and (max-device-width : 1000px) {
+    #menu-navegacao {
+        border: 2px solid blue;
+        display: none !important;
+    }
+    
+    .slogan {
+        display: none !important;
+        border: 2px solid red !important;
+    }
+    
+    #iview{
+        display: block !important;
+    }
+    .blog-logo img{
+        /* display: none !important; */
+        width: 80px;
+        height: 100px !important;
+    }
+    .banner-inicial {
+        position: relative;
+    }
+    .caption-text {
+        width: 400px
+    }
+    
+    .caption-text {
+        left: 50% !important;
+    }
+}
+
+@media only screen and (max-device-width : 800px) {
+    .blog-logo img{
+        width: 60px;
+        height: 70px !important;
+    }
+    
+    .caption-text {
+        left: 40% !important;
+    }
 }

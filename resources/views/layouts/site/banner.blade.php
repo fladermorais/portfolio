@@ -1,8 +1,8 @@
 
 <div class="container">
-    <div class="blog-logo text-left"><a href="{{ route('home') }}"> <img width="292" height="100" alt="logo" src="{{ asset('storage/logo/' . config('app.empresas.logo')) }}"></a></div>
+    <div class="blog-logo text-left"><a href="{{ route('home') }}"> <img alt="logo" src="{{ asset('storage/logo/' . config('app.empresas.logo')) }}"></a></div>
 </div>
-<div id="iview">
+<div id="iview" class="banner-inicial">
     @foreach($banners as $banner)
     <div data-iview:thumbnail="{{ asset('storage/banners/' . $banner->imagem) }}" data-iview:image="{{ asset('storage/banners/' . $banner->imagem) }}">
         
@@ -13,10 +13,15 @@
                 <a target="_blank" href="{{ $banner->link }}" class="btn">Mais...</a> </div>
             </div>
         </div>
-        
     </div>
+    
+    
+    <div class="caption-text">
+        <p>BIKE BROTHERS</p>
+    </div>
+    
     @endforeach
-    <div class="navbar yamm navbar-default ">
+    <div class="navbar yamm navbar-default menu-topo">
         <div class="container">
             <nav id="navbar-collapse-1" class="navbar-collapse collapse">
                 @include('layouts.site.menu_superior')
