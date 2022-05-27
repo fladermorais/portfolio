@@ -29,3 +29,4 @@
 @include('layouts.site.footer')
 
 @endsection
+
