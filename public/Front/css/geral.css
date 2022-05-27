@@ -127,3 +127,7 @@
         left: 40% !important;
     }
 }
+
+.loaded .ip-logo {
+    display: none;
+}
