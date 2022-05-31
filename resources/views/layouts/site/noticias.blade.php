@@ -22,8 +22,8 @@
               <div class="product-container">
                 <div class="product-image"> 
                   {{-- <span class="label-sale">sale</span> --}}
-                  <a href="{{ route('noticia', $noticia->alias) }}"> <img src="{{ asset('storage/noticias/' . $noticia->imagem) }}" width="600" height="700" alt="{{ $noticia->titulo }}"/></a> 
-                  <a href="{{ route('noticia', $noticia->alias) }}"> <img  class="b-lazy slider_img"  src="{{ asset('storage/noticias/' . $noticia->imagem) }}" width="600" height="700" alt="{{ $noticia->titulo }}"/></a> 
+                  <a href="{{ route('noticia', $noticia->alias) }}"> <img src="{{ asset('storage/thumb/noticias/' . $noticia->imagem) }}" width="600" height="700" alt="{{ $noticia->titulo }}"/></a> 
+                  <a href="{{ route('noticia', $noticia->alias) }}"> <img  class="b-lazy slider_img"  src="{{ asset('storage/thumb/noticias/' . $noticia->imagem) }}" width="600" height="700" alt="{{ $noticia->titulo }}"/></a> 
                 </div>
                 <div class="product-bottom">
                   <h3 class="product-name x-hover"><span class="x-hover-text">{{ $noticia->nome }}</span></h3>

@@ -101,7 +101,16 @@ class NoticiaController extends Controller
             $path = public_path('/storage/noticias/');
             $file = $noticia->imagem;
             $arquivo = $path.$file;
-            unlink($arquivo);
+            
+            if(file_exists($arquivo)){
+                unlink($arquivo);
+            }
+
+            $path2 = public_path('/storage/thumb/noticias/');
+            $arquivo2 = $path2.$file;
+            if(file_exists($arquivo2)){
+                unlink($arquivo2);
+            }
         }
         
         $noticia->delete();
