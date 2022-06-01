@@ -1,5 +1,6 @@
 @extends('layouts.sitePages')
 @section('content')
+@include('layouts.site.header')
 
 
 @include('layouts.site.banner2')
