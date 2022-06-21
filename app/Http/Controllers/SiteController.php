@@ -42,7 +42,7 @@ class SiteController extends Controller
         // ->writeToFile(public_path('sitemap.xml'));
         
         $banners = Banner::orderBy('nome')->get();
-        $parceiros = Cliente::where('status', 'ativo')->where('home', 'sim')->orderBy('nome')->get();
+        $parceiros = Cliente::where('status', 'ativo')->where('home', 'sim')->orderBy('nome', 'desc')->get();
         $quemsomos = QuemSomos::first();
         $dicas = Recurso::get();
         $eventos = Evento::where('status', 'ativo')->get();

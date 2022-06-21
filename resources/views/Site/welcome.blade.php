@@ -1,7 +1,9 @@
-@extends('layouts.site')
+@extends('layouts.sitePages')
 @section('content')
+@include('layouts.site.header')
 
-@include('layouts.site.banner')
+
+@include('layouts.site.banner2')
 
 
 @include('layouts.site.parceiros')

@@ -12,7 +12,7 @@
             @foreach($parceiros as $parceiro)
             <div class="col-md-3">
                 <div class="service-item animated"    data-animation="bounceInUp"  >
-                    <div class="service-icon"> <img src="{{ asset('storage/clientes/' . $parceiro->imagem) }}" alt="icon"/></div>
+                    <div class="service-icon"> <img src="{{ asset('storage/thumb/clientes/' . $parceiro->imagem) }}" alt="icon"/></div>
                     <a target="_blank" href="{{ $parceiro->link }}"><h4 class="service-heading">{{ $parceiro->nome }}</h4></a>
                     <p>{{ $parceiro->descricao }}</p>
                 </div>
