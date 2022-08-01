@@ -9,23 +9,6 @@ class Banner extends Model
     protected $table = 'banners';
     protected $fillable = ['nome', 'imagem', 'link', 'descricao'];
 
-    public function rules()
-    {
-        return [
-            "nome"      =>  "required",
-            "arquivo"   =>  "required",
-            "link"      =>  "required"
-        ];
-    }
-
-    public function rulesUpdate()
-    {
-        return [
-            "nome"      =>  "required",
-            "link"      =>  "required"
-        ];
-    }
-
     public function newInfo($data)
     {
         $alias          = $this->getAlias($data['nome']);

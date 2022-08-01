@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\BannerStoreRequest;
+use App\Http\Requests\BannerUpdateRequest;
 use App\Models\Banner;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
@@ -27,18 +29,13 @@ class BannersController extends Controller
         return view('Admin.banners.create');
     }
 
-    public function store(Request $request)
+    public function store(BannerStoreRequest $request)
     {
         if(Gate::denies('banners.create')){
             abort(403, "Não Autorizado");
         }
         $data = $request->all();
         $cliente = new Banner;
-        $validator = Validator::make($data, $cliente->rules());
-        if($validator->fails()){
-            flash('Atente-se ao formulário')->warning();
-            return back()->withInput()->withErrors($validator);
-        }
 
         $response = $cliente->newInfo($data);
         if($response){
@@ -61,7 +58,7 @@ class BannersController extends Controller
         return view('Admin.banners.edit', compact('info'));
     }
 
-    public function update(Request $request, $id)
+    public function update(BannerUpdateRequest $request, $id)
     {
         if(Gate::denies('banners.edit')){
             abort(403, "Não Autorizado");
@@ -73,11 +70,6 @@ class BannersController extends Controller
         }
 
         $data = $request->all();
-        $validator = Validator::make($data, $cliente->rulesUpdate());
-        if($validator->fails()){
-            flash('Atente-se ao formulário')->warning();
-            return back()->withInput()->withErrors($validator);
-        }
 
         $response = $cliente->updateInfo($data);
 
