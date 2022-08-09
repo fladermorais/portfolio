@@ -227,6 +227,7 @@
     left: 100px;
     background: rgba(0, 0, 0, 0.6);
     color: #fff;
+    font-size: 2em;
 }
 
 
@@ -252,4 +253,29 @@
 .slide .active {
     opacity: 1;
     position: relative;
+}
+
+@media only screen and (max-device-width : 600px) {
+    .introducao h2 {
+        width: 600px !important;
+        height: 200px;
+        background: rgba(0, 0, 0, 0.6);
+        bottom: 0px;
+        left: 0px;
+        font-size: 2rem;
+    }
+
+    .caption-text {
+        display: none;
+        left: 10% !important;
+        text-align: center;
+    }
+}
+
+@media only screen and (max-device-width : 800px) {
+    .caption-text {
+        left: 40% !important;
+        bottom: 20% !important;
+        text-align: center;
+    }
 }
