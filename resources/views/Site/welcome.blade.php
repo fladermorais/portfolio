@@ -28,7 +28,7 @@
 @include('layouts.site.contato')
 
 
-@include('layouts.site.footer')
+{{-- @include('layouts.site.footer') --}}
 
 @endsection
 
