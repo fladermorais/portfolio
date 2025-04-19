@@ -18,7 +18,8 @@
                 </tr>
             </thead>
             <tbody>
-                @if(isset($info))
+                @if(isset($infos) && count($infos) > 0)
+                @foreach($infos as $info)
                 <tr>
                     <td><img class="imagem-noticia" src="{{ asset('storage/quemsomos/'.$info->imagem) }}"></td>
                     <td>{{$info->titulo}}</td>
@@ -28,6 +29,7 @@
                         @endcan
                     </td>
                 </tr>
+                @endforeach
                 @endif
                 
             </tbody>

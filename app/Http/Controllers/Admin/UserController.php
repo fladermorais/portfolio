@@ -8,8 +8,8 @@ use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rule;
-use App\User;
-use App\Role;
+use App\Models\User;
+use App\Models\Role;
 
 class UserController extends Controller
 {

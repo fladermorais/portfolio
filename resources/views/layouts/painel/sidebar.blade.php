@@ -31,9 +31,6 @@
             </li>
             @endcan
             
-            <li><a href="{{ route('titulos.index') }}"><i class="fa fa-comments"></i> <span>Títulos</span></a></li>
-            
-            
             <li class="treeview">
                 <a href="#">
                     <i class="fa fa-rss-square"></i> <span>Notícias</span>
@@ -51,42 +48,6 @@
                     @endcan
                 </ul>
             </li>
-            
-            <li class="treeview">
-                <a href="#">
-                    <i class="fa fa-shopping-cart"></i> <span>Produtos</span>
-                    <span class="pull-right-container">
-                        <i class="fa fa-angle-left pull-right"></i>
-                    </span>
-                </a>
-                <ul class="treeview-menu">
-                    @can('categoriasProdutos.index')
-                    <li>
-                        <a href="{{ route('categoriasProdutos.index') }}"><i class="fa fa-folder"></i>Categorias</a>
-                    </li>
-                    @endcan
-                    
-                    @can('produtos.index')
-                    <li><a href="{{ route('produtos.index') }}"><i class="fa fa-shopping-cart"></i> Produtos</a></li>
-                    @endcan
-                </ul>
-            </li>
-            
-            @can('recursos.index')
-            <li><a href="{{ route('dicas.index') }}"><i class="fa fa-puzzle-piece"></i> Dicas </a></li>
-            @endcan
-            
-            @can('clientes.index')
-            <li><a href="{{ route('eventos.index') }}"><i class="fa fa-users"></i> <span>Eventos</span></a></li>
-            @endcan
-            
-            @can('clientes.index')
-            <li><a href="{{ route('clientes.index') }}"><i class="fa fa-users"></i> <span>Parceiros</span></a></li>
-            @endcan
-            
-            @can('banners.index')
-            <li><a href="{{ route('banners.index') }}"><i class="fa fa-image"></i> <span>Banners</span></a></li>
-            @endcan
             
             @can('redes.index')
             <li><a href="{{ route('redes.index') }}"><i class="fa fa-share-alt"></i> <span>Redes Sociais</span></a></li>

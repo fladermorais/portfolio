@@ -44,21 +44,6 @@ class AlteraConfig
         $redes = Redes::all();
         config(['app.redes' => $redes]);
 
-        $categorias = CategoriaProduto::with('produtos')->get();
-        config(['app.categorias' => $categorias]);
-
-        if (!session()->has('categoriaProdutos')) {
-            $categoriaProdutos = CategoriaProduto::orderBy('nome')->get();
-            session()->put(['categoriaProdutos' => $categoriaProdutos]);
-        }
-
-        $titulo = Titulo::all();
-        $titulos = [];
-        foreach($titulo as $value){
-            $titulos[$value->referencia] = $value;
-        }
-        session()->put(['titulos' => $titulos]);
-
         return $next($request);
     }
 }

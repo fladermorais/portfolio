@@ -28,11 +28,6 @@ Route::get('/noticia/{alias}', 'SiteController@noticia')->name('noticia');
 Route::get('/contato', 'SiteController@contato')->name('contato');
 Route::post('/contato', 'Admin\ContatoController@store')->name('contatoForm');
 
-Route::get('produtos/{alias}', 'SiteController@produtos')->name('produtos');
-Route::post('produtos/{alias}', 'SiteController@produtos')->name('produtosSearch');
-Route::get('/produto/{alias}', 'SiteController@produto')->name('produto');
-
-
 Route::get('/admin', 'HomeController@logado')->name('logado');
 
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'auth'], function () {
@@ -98,48 +93,10 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'auth
         Route::get('/delete/{id}', 'NoticiaController@delete')->name('noticias.delete');
     });
 
-    Route::group(['prefix' => 'categoriasProdutos'], function() {
-        Route::get('/', 'CategoriaProdutoController@index')->name('categoriasProdutos.index');
-        Route::get('/create', 'CategoriaProdutoController@create')->name('categoriasProdutos.create');
-        Route::post('/store', 'CategoriaProdutoController@store')->name('categoriasProdutos.store');
-        Route::get('/edit/{id}', 'CategoriaProdutoController@edit')->name('categoriasProdutos.edit');
-        Route::put('/update/{id}', 'CategoriaProdutoController@update')->name('categoriasProdutos.update');
-        Route::delete('/delete/{id}', 'CategoriaProdutoController@delete')->name('categoriasProdutos.delete');
-    });
-
-    Route::group(['prefix' => 'produtos'], function() {
-        Route::get('/', 'ProdutoController@index')->name('produtos.index');
-        Route::get('/create', 'ProdutoController@create')->name('produtos.create');
-        Route::post('/store', 'ProdutoController@store')->name('produtos.store');
-        Route::get('/edit/{id}', 'ProdutoController@edit')->name('produtos.edit');
-        Route::put('/update/{id}', 'ProdutoController@update')->name('produtos.update');
-        Route::delete('/delete/{id}', 'ProdutoController@delete')->name('produtos.delete');
-    });
-
     Route::group(['prefix' => "medias"], function() {
         Route::get('/{id}', [GaleriaController::class, 'byProduto'])->name('medias.byProduto');
         Route::post('/{id}', [GaleriaController::class, 'UpdateByProduto'])->name('medias.UpdateByProduto');
         Route::delete('/{id}', [GaleriaController::class, 'DeleteByProduto'])->name('medias.DeleteByProduto');
-    });
-
-    Route::group(['prefix' => 'dicas'], function() {
-        Route::get('/', 'RecursoController@index')->name('dicas.index');
-        Route::get('/create', 'RecursoController@create')->name('dicas.create');
-        Route::post('/store', 'RecursoController@store')->name('dicas.store');
-        Route::get('/edit/{id}', 'RecursoController@edit')->name('dicas.edit');
-        Route::put('/update/{id}', 'RecursoController@update')->name('dicas.update');
-        Route::delete('/delete/{id}', 'RecursoController@delete')->name('dicas.delete');
-    });
-
-    Route::resource('eventos', EventoController::class);
-
-    Route::group(['prefix' => 'clientes'], function() {
-        Route::get('/', 'ClienteController@index')->name('clientes.index');
-        Route::get('/create', 'ClienteController@create')->name('clientes.create');
-        Route::post('/store', 'ClienteController@store')->name('clientes.store');
-        Route::get('/edit/{id}', 'ClienteController@edit')->name('clientes.edit');
-        Route::put('/update/{id}', 'ClienteController@update')->name('clientes.update');
-        Route::delete('/delete/{id}', 'ClienteController@delete')->name('clientes.delete');
     });
 
     Route::group(['prefix' => 'redes'], function() {
@@ -151,15 +108,6 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'auth
         Route::delete('/delete/{id}', 'RedesController@delete')->name('redes.delete');
     });
 
-    Route::group(['prefix' => 'banners'], function() {
-        Route::get('/', 'BannersController@index')->name('banners.index');
-        Route::get('/create', 'BannersController@create')->name('banners.create');
-        Route::post('/store', 'BannersController@store')->name('banners.store');
-        Route::get('/edit/{id}', 'BannersController@edit')->name('banners.edit');
-        Route::put('/update/{id}', 'BannersController@update')->name('banners.update');
-        Route::delete('/delete/{id}', 'BannersController@delete')->name('banners.delete');
-    });
-
     Route::group(['prefix' => 'quemsomos'], function() {
         Route::get('/', 'QuemSomosController@index')->name('quemsomos.index');
         Route::get('/create', 'QuemSomosController@create')->name('quemsomos.create');
@@ -168,17 +116,6 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'auth
         Route::put('/update/{id}', 'QuemSomosController@update')->name('quemsomos.update');
         Route::delete('/delete/{id}', 'QuemSomosController@delete')->name('quemsomos.delete');
     });
-
-    Route::group(['prefix' => 'titulos'], function() {
-        Route::get('/', 'TituloController@index')->name('titulos.index');
-        Route::get('/create', 'TituloController@create')->name('titulos.create');
-        Route::post('/store', 'TituloController@store')->name('titulos.store');
-        Route::get('/edit/{id}', 'TituloController@edit')->name('titulos.edit');
-        Route::put('/update/{id}', 'TituloController@update')->name('titulos.update');
-        Route::delete('/delete/{id}', 'TituloController@delete')->name('titulos.delete');
-    });
-
-
 
     Route::get('/mensagens', 'ContatoController@index')->name('mensagens');
 });

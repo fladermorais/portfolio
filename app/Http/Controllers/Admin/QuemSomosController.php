@@ -11,20 +11,15 @@ class QuemSomosController extends Controller
 {
     public function index()
     {
-        $info = QuemSomos::first();
-        return view('Admin.quemsomos.index', compact('info'));
+        $infos = QuemSomos::orderBy('titulo')->get();
+        return view('Admin.quemsomos.index', compact('infos'));
     }
-
+    
     public function create()
     {
-        $info = QuemSomos::first();
-        if(isset($info)){
-            flash('Impossível')->warning();
-            return back();
-        }
         return view('Admin.quemsomos.create');
     }
-
+    
     public function store(Request $request)
     {
         $data = $request->all();
@@ -40,7 +35,7 @@ class QuemSomosController extends Controller
             return redirect()->route('quemsomos.index');
         }
     }
-
+    
     public function edit($id)
     {
         $info = QuemSomos::find($id);
@@ -50,7 +45,7 @@ class QuemSomosController extends Controller
         }
         return view('Admin.quemsomos.edit', compact('info'));
     }
-
+    
     public function update(Request $request, $id)
     {
         $info = QuemSomos::find($id);
