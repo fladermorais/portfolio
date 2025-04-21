@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class QuemSomos extends Model
 {
     protected $table = "quem_somos";
-    protected $fillable = ['titulo', 'missao', 'valores', 'objetivos', 'descricao', 'imagem', 'seo_titulo', 'seo_descricao', 'seo_canonical', 'seo_keywords' ];
+    protected $fillable = ['titulo', 'descricao', 'imagem', 'ordem'];
     
     public function rules()
     {
@@ -29,10 +29,7 @@ class QuemSomos extends Model
     public function newInfo($data)
     {
         $data['alias']      = $this->getAlias($data['titulo']);
-        $data['user_id']    = auth()->user()->id;
         $data['imagem']     = $this->uploadArquivo($data['arquivo'], $data['alias']);
-        $data['views']      = 0;
-        $data['seo_canonical'] = route('sobre');
 
         $info = $this->create($data);
         return $info;
