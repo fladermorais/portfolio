@@ -2,18 +2,11 @@
 @section('content')
 @include('layouts.site.header')
 
-
 @include('layouts.site.banner2')
-
 
 @include('layouts.site.parceiros')
 
-
 @include('layouts.site.esportes')
-
-@if(config('app.empresas.ativaProdutos') == "sim")
-@include('layouts.site.produtos')
-@endif
 
 @if(isset($eventos) && count($eventos) >0)
 @include('layouts.site.eventos')

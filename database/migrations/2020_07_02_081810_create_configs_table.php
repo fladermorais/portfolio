@@ -21,11 +21,20 @@ class CreateConfigsTable extends Migration
             $table->string('bairro');
             $table->string('cidade');
             $table->string('estado');
+            $table->string('pais')->nullable();
             $table->string('telefone');
+            $table->string('telefone2')->nullable();
             $table->string('whatsapp');
             $table->string('email');
             $table->string('logo')->nullable();
             $table->text('descricao');
+            $table->enum('ativaBlog', ['sim', 'nao'])->default('sim');
+            $table->enum('emConstrucao', ['sim', 'nao'])->default('nao');
+            $table->string('subtitulo')->nullable(); 
+            $table->string('slogan')->nullable();
+            $table->string('seo_titulo');
+            $table->longText('seo_descricao');
+            $table->string('seo_keywords');
 
             $table->timestamps();
         });

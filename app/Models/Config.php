@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Config extends Model
 {
     protected $table = "configs";
-    protected $fillable = ['nome', 'endereco', 'numero', 'bairro', 'cidade', 'estado', 'telefone', 'whatsapp', 'email', 'logo', 'descricao', 'telefone2', 'slogan', 'subtitulo', 'pais', 'seo_titulo', 'seo_descricao', 'seo_keywords', 'ativaBlog', 'ativaProdutos', 'emConstrucao' ];
+    protected $fillable = ['nome', 'endereco', 'numero', 'bairro', 'cidade', 'estado', 'telefone', 'whatsapp', 'email', 'logo', 'descricao', 'telefone2', 'slogan', 'subtitulo', 'pais', 'seo_titulo', 'seo_descricao', 'seo_keywords', 'ativaBlog', 'emConstrucao' ];
     
     public function rules()
     {

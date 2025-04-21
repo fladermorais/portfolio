@@ -34,7 +34,6 @@ class AlteraConfig
         config(['app.empresas.pais' => $config->pais]);
         config(['app.empresas.descricao' => $config->descricao]);
         config(['app.empresas.ativaBlog' => $config->ativaBlog]);
-        config(['app.empresas.ativaProdutos' => $config->ativaProdutos]);
         config(['app.empresas.emConstrucao' => $config->emConstrucao]);
 
         config(['app.empresas.seoTitle' => $config->seo_titulo]);

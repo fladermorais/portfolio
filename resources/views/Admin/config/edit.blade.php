@@ -175,19 +175,6 @@
                         @endif
                     </div>
                     
-                    <div class="col-sm-3">
-                        <label for="ativaProdutos">Exibir Produtos no Menu?</label><br>
-                        <select name="ativaProdutos" id="ativaProdutos" class="form-control">
-                            <option {{ isset($info['ativaProdutos']) && $info['ativaProdutos'] == 'sim' ? 'selected' : '' }} value="sim">Sim</option>
-                            <option {{ isset($info['ativaProdutos']) && $info['ativaProdutos'] == 'nao' ? 'selected' : '' }} value="nao">Não</option>
-                        </select>
-                        @if ($errors->has('ativaProdutos'))
-                        @foreach ($errors->get('ativaProdutos') as $e)
-                        <span class="error">{{ $e }}</span>
-                        @endforeach
-                        @endif
-                    </div>
-                    
                 </div>
                 <div class="form-row">
                     <div class="col-sm-12">

@@ -3,7 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use App\Permission;
+use App\Models\Permission;
 
 class PermissionTableSeeder extends Seeder
 {
@@ -186,5 +186,28 @@ class PermissionTableSeeder extends Seeder
             ]
         );
 
+        Permission::firstOrCreate([
+            "name"  =>  "redes.create",
+            "description"   =>  "Redes Sociais - Criar",
+            ]
+        );
+
+        Permission::firstOrCreate([
+            "name"  =>  "redes.index",
+            "description"   =>  "Redes Sociais - Listar",
+            ]
+        );
+
+        Permission::firstOrCreate([
+            "name"  =>  "redes.edit",
+            "description"   =>  "Redes Sociais - Editar",
+            ]
+        );
+
+        Permission::firstOrCreate([
+            "name"  =>  "redes.delete",
+            "description"   =>  "Redes Sociais - Deletar",
+            ]
+        );
     }
 }

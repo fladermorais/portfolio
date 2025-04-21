@@ -30,6 +30,11 @@ class CreateModelsNoticiasTable extends Migration
             $table->enum('status', ['ativo', 'inativo'])->default('inativo');
             $table->integer('views')->nullable();
 
+            $table->string('seo_titulo');
+            $table->longText('seo_descricao');
+            $table->string('seo_canonical');
+            $table->string('seo_keywords');
+            
             $table->timestamps();
         });
     }

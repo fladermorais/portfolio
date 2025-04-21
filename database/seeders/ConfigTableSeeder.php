@@ -18,6 +18,7 @@ class ConfigTableSeeder extends Seeder
             "nome"      =>  "Flader Morais",
             "endereco"  =>  "Rua do endereço",
             "numero"    =>  1234,
+            "logo"      =>  "logo.png",
             "bairro"    =>  "Centro",
             "cidade"    =>  "Itamonte",
             "estado"    =>  "MG",
