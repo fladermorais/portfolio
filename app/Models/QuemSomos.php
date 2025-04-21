@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Helper\Arquivos;
 use Illuminate\Database\Eloquent\Model;
 
 class QuemSomos extends Model
@@ -28,8 +29,8 @@ class QuemSomos extends Model
     
     public function newInfo($data)
     {
-        $data['alias']      = $this->getAlias($data['titulo']);
-        $data['imagem']     = $this->uploadArquivo($data['arquivo'], $data['alias']);
+        $data['alias']      = Arquivos::getAlias($data['titulo']);
+        $data['imagem']     = Arquivos::uploadArquivo($data['arquivo'], $data['alias'], 'quemsomos');
 
         $info = $this->create($data);
         return $info;
@@ -37,12 +38,12 @@ class QuemSomos extends Model
     
     public function updateInfo($data)
     {
-        $data['alias']      = $this->getAlias($data['titulo']);
+        $data['alias']      = Arquivos::getAlias($data['titulo']);
         if(isset($data['arquivo'])){
             if(isset($this->imagem) && $this->imagem != ""){
-                $this->unlinkArquivo($this->imagem);
+                Arquivos::unlinkArquivo($this->imagem, 'quemsomos');
             }
-            $data['imagem'] = $this->uploadArquivo($data['arquivo'], $data['alias']);
+            $data['imagem'] = Arquivos::uploadArquivo($data['arquivo'], $data['alias'], 'quemsomos');
         }
         $info = $this->update($data);
         return $info;
@@ -54,51 +55,11 @@ class QuemSomos extends Model
             $path = public_path('/storage/quemsomos/');
             $file = $this->imagem;
             $arquivo = $path.$file;
-            unlink($arquivo);
+            Arquivos::unlinkArquivo($arquivo, 'quemsomos');
         }
         
         $deleta = $this->delete();
         
         return $deleta;
-    }
-    
-    public function uploadArquivo($arquivo, $alias)
-    {
-        $file = $arquivo;
-        $extensao = $arquivo->getClientOriginalExtension();
-        $nomeArquivo =  $alias. "." .$extensao;
-        $path = public_path('/storage/quemsomos/');
-        
-        $file->move($path, $nomeArquivo);
-        
-        if(!$file){
-            flash('Falha ao fazer o upload do Arquivo')->warning();
-            return redirect()
-            ->back()
-            ->with('error', 'Falha ao fazer upload do Arquivo')
-            ->withInput();
-        }
-        return $nomeArquivo;
-    }
-    
-    public function unlinkArquivo($arquivo)
-    {
-        $path = public_path('/storage/quemsomos/');
-        $file = $arquivo;
-        $arquivo = $path.$file;
-        if(file_exists($arquivo)){
-            unlink($arquivo);
-            return true;
-        }
-    }
-    
-    public function getAlias($string)
-    {
-        $string = str_replace("?", "_", $string);
-        $string = str_replace("!", "_", $string);
-        $string = str_replace(",", "_", $string);
-        $string = str_replace(' ', "_", $string);
-        $string = strtolower($string);
-        return preg_replace(array("/(á|à|ã|â|ä)/","/(Á|À|Ã|Â|Ä)/","/(é|è|ê|ë)/","/(É|È|Ê|Ë)/","/(í|ì|î|ï)/","/(Í|Ì|Î|Ï)/","/(ó|ò|õ|ô|ö)/","/(Ó|Ò|Õ|Ô|Ö)/","/(ú|ù|û|ü)/","/(Ú|Ù|Û|Ü)/","/(ñ)/","/(Ñ)/", "/(ç|Ç)/"),explode(" ","a A e E i I o O u U n N c"),$string);    
     }
 }
