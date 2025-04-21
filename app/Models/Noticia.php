@@ -2,8 +2,8 @@
 
 namespace App\Models;
 
+use App\Helper\Arquivos;
 use Illuminate\Database\Eloquent\Model;
-use Intervention\Image\Facades\Image;
 
 class Noticia extends Model
 {
@@ -16,9 +16,9 @@ class Noticia extends Model
     
     public function newInfo($data)
     {
-        $data['alias']      = $this->getAlias($data['nome']);
+        $data['alias']      = Arquivos::getAlias($data['nome']);
         $data['user_id']    = auth()->user()->id;
-        $data['imagem']     = $this->uploadArquivo($data['arquivo'], $data['alias']);
+        $data['imagem']     = Arquivos::uploadArquivo($data['arquivo'], $data['alias'], 'noticias');
         $data['views']      = 0;
         $data['seo_canonical'] = route('noticia', $data['alias']);
         
@@ -28,66 +28,15 @@ class Noticia extends Model
     
     public function updateInfo($data)
     {
-        $data['alias']      = $this->getAlias($data['nome']);
+        $data['alias']      = Arquivos::getAlias($data['nome']);
         if(isset($data['arquivo'])){
             if(isset($this->imagem) && $this->imagem != ""){
-                $this->unlinkArquivo($this->imagem);
+                Arquivos::unlinkArquivo($this->imagem, 'noticias');
             }
-            $data['imagem'] = $this->uploadArquivo($data['arquivo'], $data['alias']);
+            $data['imagem'] = Arquivos::uploadArquivo($data['arquivo'], $data['alias'], 'noticias');
         }
         $data['seo_canonical'] = route('noticia', $data['alias']);
         $info = $this->update($data);
         return $info;
-    }
-    
-    public function uploadArquivo($arquivo, $alias)
-    {
-        $file = $arquivo;
-        $extensao = $arquivo->getClientOriginalExtension();
-        $nomeArquivo =  $alias. "." .$extensao;
-        $path = public_path('/storage/noticias/');
-        
-        $file->move($path, $nomeArquivo);
-        
-        $image_resize = Image::make($path . $nomeArquivo);
-        $image_resize->resize(400, 250);
-        $image_resize->save(public_path('/storage/thumb/noticias/' . $nomeArquivo));
-        
-        if(!$file){
-            flash('Falha ao fazer o upload do Arquivo')->warning();
-            return redirect()
-            ->back()
-            ->with('error', 'Falha ao fazer upload do Arquivo')
-            ->withInput();
-        }
-        return $nomeArquivo;
-    }
-    
-    public function unlinkArquivo($arquivo)
-    {
-        $path = public_path('/storage/noticias/');
-        $file = $arquivo;
-        $arquivo = $path.$file;
-        
-        $path2 = public_path('/storage/thumb/noticias/');
-        $arquivo2 = $path2.$file;
-        if(file_exists($arquivo2)){
-            unlink($arquivo2);
-        }
-        
-        if(file_exists($arquivo)){
-            unlink($arquivo);
-            return true;
-        }
-    }
-    
-    public function getAlias($string)
-    {
-        $string = str_replace("?", "_", $string);
-        $string = str_replace("!", "_", $string);
-        $string = str_replace(",", "_", $string);
-        $string = str_replace(' ', "_", $string);
-        $string = strtolower($string);
-        return preg_replace(array("/(á|à|ã|â|ä)/","/(Á|À|Ã|Â|Ä)/","/(é|è|ê|ë)/","/(É|È|Ê|Ë)/","/(í|ì|î|ï)/","/(Í|Ì|Î|Ï)/","/(ó|ò|õ|ô|ö)/","/(Ó|Ò|Õ|Ô|Ö)/","/(ú|ù|û|ü)/","/(Ú|Ù|Û|Ü)/","/(ñ)/","/(Ñ)/", "/(ç|Ç)/"),explode(" ","a A e E i I o O u U n N c"),$string);    
     }
 }
