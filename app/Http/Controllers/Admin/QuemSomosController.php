@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\QuemSomosRequest;
 use App\Models\QuemSomos;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -20,18 +21,14 @@ class QuemSomosController extends Controller
         return view('Admin.quemsomos.create');
     }
     
-    public function store(Request $request)
+    public function store(QuemSomosRequest $request)
     {
         $data = $request->all();
         $info = new QuemSomos;
-        $validator = Validator::make($data, $info->rules());
-        if($validator->fails()){
-            flash('Atente-se ao formulário')->warning();
-            return back()->withInput()->withErrors($validator);
-        }
+        
         $response = $info->newInfo($data);
         if($response){
-            flash('Itam salvo com sucesso')->success();
+            flash('ItEm salvo com sucesso')->success();
             return redirect()->route('quemsomos.index');
         }
     }
@@ -46,7 +43,7 @@ class QuemSomosController extends Controller
         return view('Admin.quemsomos.edit', compact('info'));
     }
     
-    public function update(Request $request, $id)
+    public function update(QuemSomosRequest $request, $id)
     {
         $info = QuemSomos::find($id);
         if(!isset($info)){
@@ -54,11 +51,6 @@ class QuemSomosController extends Controller
             return back();
         }
         $data = $request->all();
-        $validator = Validator::make($data, $info->rulesUpdate());
-        if($validator->fails()){
-            flash('Atente-se ao formulário')->warning();
-            return back()->withInput()->withErrors($validator);
-        }
         $response = $info->updateInfo($data);
         if($response){
             flash('Itam atualizado com sucesso')->success();

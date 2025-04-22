@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class QuemSomos extends Model
 {
     protected $table = "quem_somos";
-    protected $fillable = ['titulo', 'descricao', 'imagem', 'ordem'];
+    protected $fillable = ['titulo', 'descricao', 'imagem', 'ordem', 'menu', 'subtitulo'];
     
     public function rules()
     {

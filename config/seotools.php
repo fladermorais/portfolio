@@ -9,11 +9,11 @@ return [
          * The default configurations to be used by the meta generator.
          */
         'defaults'       => [
-            'title'        => "Bike Brothers", // set false to total remove
+            'title'        => "Ana Beatriz Fonseca", // set false to total remove
             'titleBefore'  => false, // Put defaults.title before page title, like 'It's Over 9000! - Dashboard'
-            'description'  => 'Bike Brothers ', // set false to total remove
+            'description'  => 'Ana Beatriz Fonseca - Jornalista', // set false to total remove
             'separator'    => ' - ',
-            'keywords'     => ["bike", "mtb", 'bicicleta', 'roupa esportiva'],
+            'keywords'     => ["jornalista", "ana", 'beatriz', 'beatriz fonseca', 'ufrj'],
             'canonical'    => null, // Set null for using Url::current(), set false to total remove
             'robots'       => false, // Set to 'all', 'none' or any combination of index/noindex and follow/nofollow
         ],
@@ -36,8 +36,8 @@ return [
          * The default configurations to be used by the opengraph generator.
          */
         'defaults' => [
-            'title'       => 'Bike Brothers!', // set false to total remove
-            'description' => 'Bike Brothers ', // set false to total remove
+            'title'       => 'Ana Beatriz Fonseca!', // set false to total remove
+            'description' => 'Ana Beatriz Fonseca ', // set false to total remove
             'url'         => false, // Set null for using Url::current(), set false to total remove
             'type'        => false,
             'site_name'   => false,
@@ -58,8 +58,8 @@ return [
          * The default configurations to be used by the json-ld generator.
          */
         'defaults' => [
-            'title'       => 'Bike Brothers!', // set false to total remove
-            'description' => 'Bike Brothers ', // set false to total remove
+            'title'       => 'Ana Beatriz Fonseca', // set false to total remove
+            'description' => 'Ana Beatriz Fonseca', // set false to total remove
             'url'         => false, // Set null for using Url::current(), set false to total remove
             'type'        => 'WebPage',
             'images'      => [],

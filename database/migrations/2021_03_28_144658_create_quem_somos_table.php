@@ -17,6 +17,8 @@ class CreateQuemSomosTable extends Migration
             $table->bigIncrements('id');
 
             $table->string('titulo');
+            $table->string('subtitulo');
+            $table->string('menu');
             $table->longText('descricao');
             $table->string('imagem');
             $table->integer('ordem')->default(1);

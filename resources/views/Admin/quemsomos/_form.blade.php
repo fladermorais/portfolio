@@ -9,8 +9,20 @@
       @endforeach
       @endif
     </div>
-    
-    <div class="col-sm-4">
+
+    <div class="col-sm-6">
+      <label for="subtitulo">Sub-Título</label><br>
+      <input class='form-control' type="text" id="subtitulo" name="subtitulo" value="{{ (isset($info->subtitulo) ? $info->subtitulo : old('subtitulo')) }}">
+      @if($errors->has('subtitulo'))
+      @foreach($errors->get('subtitulo') as $e)
+      <span class="error"><span class="error">{{$e}}</span></span>
+      @endforeach
+      @endif
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="col-sm-5">
       <label for="arquivo">Imagem</label><br>
       <input class='form-control' type="file" id="arquivo" name="arquivo" >
       @if($errors->has('arquivo'))
@@ -19,11 +31,21 @@
       @endforeach
       @endif
     </div>
+
+    <div class="col-sm-5">
+      <label for="menu">Menu</label><br>
+      <input class='form-control' type="text" id="menu" name="menu" >
+      @if($errors->has('menu'))
+      @foreach($errors->get('menu') as $e)
+      <span class="error">{{$e}}</span>
+      @endforeach
+      @endif
+    </div>
     
     <div class="col-sm-2">
-      <label for="">Orden</label>
+      <label for="">Ordem</label>
       <input type="number" class="form-control" id="ordem" name="ordem" value="{{ (isset($info->ordem) ? $info->ordem : old('ordem')) }}">
-      @if($errors->has('ordemm'))
+      @if($errors->has('ordem'))
       @foreach($errors->get('ordem') as $e)
       <span class="error"><span class="error">{{$e}}</span></span>
       @endforeach
