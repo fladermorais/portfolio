@@ -649,8 +649,8 @@ blockquote {
 
 .fill-block {
   /* background-image: url(../images/sp_photo.jpg); */
-  width: 250px !important;
-  height: 250px !important;
+  width: 300px !important;
+  height: 300px !important;
   overflow: hidden;
 }
 
@@ -665,25 +665,29 @@ blockquote {
   display: flex;
   justify-content: center;
   align-items: center;
+  max-width: 500px;
+  max-height: 500px;
 
 }
 
-.flex-center .fill-block {
+.flex-center .inner-content .fill-block {
   display: flex;
   width: 100% !important;
+  height: 100% !important;
 }
 
 .fill-block {
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 100%;
+  height: 100% !important;
 }
 
-.fill-block img {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  max-width: 200px;
+.flex-center .inner-content .fill-block img {
+  width: 100% !important;
+  height: 100% !important;
+
   
 }
 .section-inner.start-page-full-width .inner-content .fill-block {
