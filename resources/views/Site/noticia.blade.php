@@ -1,4 +1,4 @@
-@extends('layouts.sitePages')
+@extends('layouts.site')
 @section('content')
 
 <div class="page-header">

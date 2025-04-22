@@ -39,14 +39,9 @@ class SiteController extends Controller
         // Sitemap::create()
         // ->add(route('home'))
         // ->add(route('sobre'))
-        // ->writeToFile(public_path('sitemap.xml'));
+        // ->writeToFile(public_path('sitemap.xml')); 
         
-        $banners = Banner::orderBy('nome')->get();
-        $parceiros = Cliente::where('status', 'ativo')->where('home', 'sim')->orderBy('nome', 'desc')->get();
         $quemsomos = QuemSomos::first();
-        $dicas = Recurso::get();
-        $eventos = Evento::where('status', 'ativo')->get();
-        $produtos = Produto::where('status', 'ativo')->where('destaque', 'sim')->get();
         $redes = Redes::get();
         $noticias = Noticia::orderBy('created_at', 'desc')->limit(4)->get();
         
@@ -70,7 +65,7 @@ class SiteController extends Controller
         SEOTools::addImages(asset('storage/logo/'. config('app.empresas.logo')));
         SEOMeta::setKeywords($newKeywords);
         
-        return view('Site.welcome', compact('banners', 'parceiros', 'quemsomos', 'dicas', 'eventos', 'produtos', 'redes', 'noticias'));
+        return view('Site.welcome', compact('quemsomos', 'redes', 'noticias'));
     }
     
     public function sobre()

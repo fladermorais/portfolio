@@ -1,27 +1,18 @@
-@extends('layouts.sitePages')
+@extends('layouts.site')
 @section('content')
-@include('layouts.site.header')
-
-@include('layouts.site.banner2')
-
-@include('layouts.site.parceiros')
-
-@include('layouts.site.esportes')
-
-@if(isset($eventos) && count($eventos) >0)
-@include('layouts.site.eventos')
-@endif
 
 @if(config('app.empresas.ativaBlog') == "sim")
-@include('layouts.site.noticias')
-@else
-@include('layouts.site.divisoria')
+{{-- @include('layouts.site.noticias') --}}
 @endif
 
-@include('layouts.site.contato')
+@include('Site._sobre')
 
+@include('Site._portfolio')
 
-{{-- @include('layouts.site.footer') --}}
+@include('Site._noticias')
+
+@include('Site._contato')
+
 
 @endsection
 

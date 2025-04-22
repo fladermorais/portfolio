@@ -5,76 +5,80 @@ $rota = explode('.', $route);
 @endphp
 <!DOCTYPE html>
 
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+{{-- <html lang="{{ str_replace('_', '-', app()->getLocale()) }}"> --}}
+<html lang="en" class="no-js">
 
 <head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
   
   {!! SEO::generate() !!}
   {!! JsonLd::generate() !!}
-  {!! ReCaptcha::htmlScriptTagJsApi() !!}
+  {{-- {!! ReCaptcha::htmlScriptTagJsApi() !!} --}}
   
   <!-- CSRF Token -->
   <meta name="csrf-token" content="{{ csrf_token() }}">
   
   <title>{{ config('app.name', 'Laravel') }}</title>
   
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <meta name="description" content="">
   <meta name="author" content="">
   
   
-  <script src="{{ asset('Front/js/jquery.min.js') }}"></script>
-  <script src="{{ asset('Front/js/jquery-migrate.min.js') }}"></script>
-  <script src="{{ asset('Front/js/bootstrap.min.js') }}"></script>
-  <script src="{{ asset('Front/js/createjs.min.js') }}"></script>
-  <script src="{{ asset('Front/js/handanimation.js') }}"></script>
-  <script src="{{ asset('Front/js/animation-start.js') }}"></script>
-  <script src="{{ asset('Front/js/main.js') }}"></script>
+  <link rel="stylesheet" href="{{ asset('Site/css/bootstrap.min.css') }}" type="text/css">
+  <link rel="stylesheet" href="{{ asset('Site/css/animate.css') }}" type="text/css">
+  <link rel="stylesheet" href="{{ asset('Site/css/animations.css') }}" type="text/css">
+  <link rel="stylesheet" href="{{ asset('Site/css/owl.carousel.css') }}" type="text/css">
+  <link rel="stylesheet" href="{{ asset('Site/css/magnific-popup.css') }}" type="text/css">
+  <link rel="stylesheet" href="{{ asset('Site/css/main.css') }}" type="text/css">
   
-  <!-- Master CSS -->
-  <link href="{{ asset('Front/css/master.css') }}" rel="stylesheet">
-  
-  <!-- jQuery-->
-  <script src="{{ asset('Front/js/jquery-1.11.1.min.js') }}"></script>
-  <script src="{{ asset('Front/js/jquery-migrate-1.2.1.min.js') }}"></script>
-  <script src="{{ asset('Front/js/jquery-ui.min.js') }}"></script>
-  
-  <!-- Bootstrap Core JavaScript -->
-  <script src="{{ asset('Front/js/bootstrap.min.js') }}"></script>
-  <script src="{{ asset('Front/js/modernizr.js') }}"></script>
-  
-  <!-- Switcher Only -->
-  
-  <link rel="stylesheet" id="switcher-css" type="text/css" href="{{ asset('Front/plugins/switcher/css/switcher.css') }}" media="all" />
-  <link rel="alternate stylesheet" type="text/css" href="{{ asset('Front/plugins/switcher/css/pink.css') }}" title="pink" media="all" />
-  <link rel="alternate stylesheet" type="text/css" href="{{ asset('Front/plugins/switcher/css/purple.css') }}" title="purple" media="all" />
-  <link rel="alternate stylesheet" type="text/css" href="{{ asset('Front/plugins/switcher/css/blue.css') }}" title="blue" media="all" />
-  <link rel="alternate stylesheet" type="text/css" href="{{ asset('Front/plugins/switcher/css/green.css') }}" title="green" media="all" />
-  <link rel="alternate stylesheet" type="text/css" href="{{ asset('Front/plugins/switcher/css/red.css') }}" title="red" media="all" />
-  <link rel="alternate stylesheet" type="text/css" href="{{ asset('Front/plugins/switcher/css/yellow.css') }}" title="yellow" media="all" />
-  
-  <link rel="stylesheet" type="text/css" href="{{ asset('Front/css/geral.css') }}" title="Geral" media="all" />
   
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
   
-  <!-- Switcher Only -->
+  <script src="{{ asset('Site/js/modernizr.custom.js') }}"></script>
+  
 </head>
 
-
-
-<body class="animated-all">
+<body>
   
-  {{-- Carrega o loading da página --}}
-  {{-- @include('layouts.site.header') --}}
-  
-  @include('layouts.site.menu_suspenso')
-  <div class="header header-home">
-    
-    @yield('content')
-    
+  <!-- Loading animation -->
+  <div class="preloader">
+    <div class="preloader-animation">
+      <div class="preloader-spinner">
+      </div>
+    </div>
   </div>
+  
+  <div id="page" class="page one-page-style">
+    @include('layouts.site.header')
+    
+    <!-- Mobile Header -->
+    <div class="mobile-header mobile-visible">
+      <div class="mobile-logo-container">
+        <div class="mobile-header-image">
+          <a href="#">
+            <img src="./include/img/photo.jpg" alt="image">
+          </a>
+        </div>
+        <div class="mobile-site-title"><a href="#">Ana Beatriz Fonseca</a></div>
+      </div>
+      
+      <a class="menu-toggle mobile-visible">
+        <i class="fa fa-bars"></i>
+      </a>
+    </div>
+    
+    <div id="main" class="site-main">
+      <div class="pt-wrapper">
+        <div class="subpages">
+          @yield('content')
+        </div>
+      </div>
+    </div>
+  </div>
+  @include('layouts.site.footer')
   
 </body>
 </html>
