@@ -46,8 +46,9 @@ class SiteController extends Controller
         // dd($quemsomos);
 
         $redes = Redes::get();
-        $noticias = Noticia::orderBy('created_at', 'desc')->limit(4)->get();
+        $noticias = Noticia::orderBy('created_at', 'desc')->limit(6)->get();
         
+        // dd($noticias);
         $keywords = config('app.empresas.seoKeywords');
         $keywords = str_replace(' ', '', $keywords);
         $keywords = explode(",", $keywords);

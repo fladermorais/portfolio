@@ -11,33 +11,28 @@
         <div class="col-xs-12 col-sm-12">
           <div class="blog-masonry two-columns clearfix">
             
-            <!-- Blog Post 1 -->
-            <?php
-            
-            for ($i=0; $i < 6; $i++) { 
-              ?>
-              <div class="item post-1">
-                <div class="blog-card">
-                  <div class="media-block">
-                    <div class="category">
-                      <a href="#" title="View all posts in UI">UI</a>
-                    </div>
-                    <a href="blog-post-1.html">
-                      <img src="./include/img/blog.png" class="size-blog-masonry-image-two-c" alt="Best Practices for Animated Progress Indicators" title="" />
-                      <div class="mask"></div>
-                    </a>
+            <!-- Blog Posts-->
+            @foreach($noticias as $noticia)
+            <div class="item post-1">
+              <div class="blog-card">
+                <div class="media-block">
+                  <div class="category">
+                    <a href="#" title="{{ $noticia->categorias->nome }}">{{ $noticia->categorias->nome }}</a>
                   </div>
-                  <div class="post-info">
-                    <div class="post-date">06 Apr 2018</div>
-                    <a href="blog-post-1.html">
-                      <h4 class="blog-item-title">Best Practices for Animated Progress Indicators</h4>
-                    </a>
-                  </div>
+                  <a href="{{ route('noticia', $noticia->alias) }}">
+                    <img src="{{ asset('storage/noticias/' . $noticia->imagem) }}" class="size-blog-masonry-image-two-c" alt="{{ $noticia->nome }}" title="{{ $noticia->nome }}" />
+                    <div class="mask"></div>
+                  </a>
+                </div>
+                <div class="post-info">
+                  <div class="post-date">{{ date('d/m/Y', strtotime($noticia->created_at)) }}</div>
+                  <a href="{{ route('noticia', $noticia->alias) }}">
+                    <h4 class="blog-item-title">{{ $noticia->nome }}</h4>
+                  </a>
                 </div>
               </div>
-              <?php
-            }
-            ?>
+            </div>
+            @endforeach
             
           </div>
         </div>
