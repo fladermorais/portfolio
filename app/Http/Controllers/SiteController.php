@@ -41,7 +41,10 @@ class SiteController extends Controller
         // ->add(route('sobre'))
         // ->writeToFile(public_path('sitemap.xml')); 
         
-        $quemsomos = QuemSomos::first();
+        $quemsomos = QuemSomos::where('ordem', '!=', 1)->get();
+        $sobre = QuemSomos::where('ordem', '=', 1)->first();
+        // dd($quemsomos);
+
         $redes = Redes::get();
         $noticias = Noticia::orderBy('created_at', 'desc')->limit(4)->get();
         
@@ -65,7 +68,7 @@ class SiteController extends Controller
         SEOTools::addImages(asset('storage/logo/'. config('app.empresas.logo')));
         SEOMeta::setKeywords($newKeywords);
         
-        return view('Site.welcome', compact('quemsomos', 'redes', 'noticias'));
+        return view('Site.welcome', compact('quemsomos', 'redes', 'noticias', 'sobre'));
     }
     
     public function sobre()
