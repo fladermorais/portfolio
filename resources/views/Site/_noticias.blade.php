@@ -19,7 +19,7 @@
                   <div class="category">
                     <a href="#" title="{{ $noticia->categorias->nome }}">{{ $noticia->categorias->nome }}</a>
                   </div>
-                  <a href="{{ route('noticia', $noticia->alias) }}">
+                  <a class="noticias-img" href="{{ route('noticia', $noticia->alias) }}">
                     <img src="{{ asset('storage/noticias/' . $noticia->imagem) }}" class="size-blog-masonry-image-two-c" alt="{{ $noticia->nome }}" title="{{ $noticia->nome }}" />
                     <div class="mask"></div>
                   </a>

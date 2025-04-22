@@ -3533,3 +3533,26 @@ body {
   margin-bottom: 0;
 }
 /* /V2.4 - 03 July 2019 */
+
+
+.media-block {
+  width: 100%;
+  height: 300px;
+}
+
+.media-block .noticias-img {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.media-block .noticias-img img {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
