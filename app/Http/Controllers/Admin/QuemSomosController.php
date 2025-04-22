@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\QuemSomosRequest;
+use App\Http\Requests\QuemSomosUpdateRequest;
 use App\Models\QuemSomos;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -43,7 +44,7 @@ class QuemSomosController extends Controller
         return view('Admin.quemsomos.edit', compact('info'));
     }
     
-    public function update(QuemSomosRequest $request, $id)
+    public function update(QuemSomosUpdateRequest $request, $id)
     {
         $info = QuemSomos::find($id);
         if(!isset($info)){

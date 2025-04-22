@@ -34,7 +34,7 @@
 
     <div class="col-sm-5">
       <label for="menu">Menu</label><br>
-      <input class='form-control' type="text" id="menu" name="menu" >
+      <input class='form-control' type="text" id="menu" name="menu" value="{{ (isset($info->menu) ? $info->menu : old('menu')) }}">
       @if($errors->has('menu'))
       @foreach($errors->get('menu') as $e)
       <span class="error">{{$e}}</span>

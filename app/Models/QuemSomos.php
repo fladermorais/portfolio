@@ -10,23 +10,6 @@ class QuemSomos extends Model
     protected $table = "quem_somos";
     protected $fillable = ['titulo', 'descricao', 'imagem', 'ordem', 'menu', 'subtitulo'];
     
-    public function rules()
-    {
-        return [
-            "titulo"    =>  "required",
-            "descricao" =>  "required",
-            "arquivo"   =>  "required"
-        ];
-    }
-    
-    public function rulesUpdate()
-    {
-        return [
-            "titulo"    =>  "required",
-            "descricao" =>  "required"
-        ];
-    }
-    
     public function newInfo($data)
     {
         $data['alias']      = Arquivos::getAlias($data['titulo']);

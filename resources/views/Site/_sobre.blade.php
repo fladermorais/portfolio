@@ -33,11 +33,11 @@
 
 
 @foreach($quemsomos as $sobre)
-<section class="pt-page" id="radio">
+<section class="pt-page" id="{{ $sobre->menu }}">
     <div class="section-inner custom-page-content">
         <div class="section-title-block second-style">
             <h2 class="section-title">{{ $sobre->titulo }}</h2>
-            <h5 class="section-description">Desde 2025</h5>
+            <h5 class="section-description">{{ $sobre->subtitulo }}</h5>
         </div>
         
         <div class="section-content">
