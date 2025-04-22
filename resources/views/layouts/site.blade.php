@@ -73,6 +73,7 @@ $rota = explode('.', $route);
     <div id="main" class="site-main">
       <div class="pt-wrapper">
         <div class="subpages">
+          @include('flash::message')
           @yield('content')
         </div>
       </div>

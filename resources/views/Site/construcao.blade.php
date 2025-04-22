@@ -11,7 +11,7 @@ $rota = explode('.', $route);
     
     {!! SEO::generate() !!}
     {!! JsonLd::generate() !!}
-    {!! ReCaptcha::htmlScriptTagJsApi() !!}
+    {{-- {!! ReCaptcha::htmlScriptTagJsApi() !!} --}}
     
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">

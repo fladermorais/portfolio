@@ -7,7 +7,7 @@
 
 @include('Site._sobre')
 
-@include('Site._portfolio')
+{{-- @include('Site._portfolio') --}}
 
 @include('Site._noticias')
 

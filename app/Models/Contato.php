@@ -12,11 +12,7 @@ class Contato extends Model
 
     public function newInfo($data)
     {
-        $data['whatsapp'] = ".";
-        $data['assunto'] = ".";
-
-        // dd($data);
-
+        $data['whatsapp'] = $data['telefone'];
         $info = $this->create($data);
         return $info;
     }

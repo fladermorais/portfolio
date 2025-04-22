@@ -26,7 +26,7 @@ class ContatoRequest extends FormRequest
         return [
             'nome'      => 'required',
             'email'     => 'required',
-            'telefone'  => 'required',
+            'assunto'   => 'required',
             'mensagem'  => 'required',
             
             // 'g-recaptcha-response' => 'required|recaptcha',
