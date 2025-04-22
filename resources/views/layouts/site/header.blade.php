@@ -1,50 +1,49 @@
 <header id="site_header" class="header mobile-menu-hide">
-<div class="header-content clearfix">
-<div class="my-photo">
-<img src="./include/img/photo.jpg" alt="image">
-</div>
-
-<div class="site-title-block">
-<div class="site-title">Ana Beatriz Fonseca</div>
-</div>
-
-<!-- Navigation -->
-<div class="site-nav">
-<!-- Main menu -->
-<ul id="nav" class="site-main-menu">
-<li>
-<a class="pt-trigger" href="#sobre">Sobre mim</a><!-- href value = data-id without # of .pt-page. -->
-</li>
-<li>
-<a class="pt-trigger" href="#radio">Rádio UFRJ</a>
-</li>
-<li>
-<a class="pt-trigger" href="#pitacos">Pitacos</a>
-</li>
-<li>
-<a class="pt-trigger" href="#reportagens">Reportagens</a>
-</li>
-<li>
-<a class="pt-trigger" href="#observatorio">Observatório</a>
-</li>
-<li>
-<a class="pt-trigger" href="#contato">Contato</a>
-</li>
-</ul>
-<!-- /Main menu -->
-</div>
-<!-- Navigation -->
-
-<!-- Social Links -->
-<div class="social-links">
-<a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
-<a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
-<a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
-</div>
-<!-- / Social Links -->
-
-<!-- Copyrights -->
-<div class="copyrights">© 2020 All rights reserved.</div>
-<!-- / Copyrights -->
-</div>
+    <div class="header-content clearfix">
+        {{-- <div class="my-photos">
+            <img src="{{ asset('storage/logo/logo.png') }}" alt="image">
+        </div> --}}
+        <div class="site-title-block">
+            <div class="site-title">{{ config('app.empresas.nome') }}</div>
+        </div>
+        
+        <!-- Navigation -->
+        <div class="site-nav">
+            <!-- Main menu -->
+            <ul id="nav" class="site-main-menu">
+                <li>
+                    <a class="pt-trigger" href="#sobre">Sobre mim</a><!-- href value = data-id without # of .pt-page. -->
+                </li>
+                <li>
+                    <a class="pt-trigger" href="#radio">Rádio UFRJ</a>
+                </li>
+                <li>
+                    <a class="pt-trigger" href="#pitacos">Pitacos</a>
+                </li>
+                <li>
+                    <a class="pt-trigger" href="#observatorio">Observatório</a>
+                </li>
+                @if(config('app.empresas.ativaBlog') == "sim")
+                <li>
+                    <a class="pt-trigger" href="#noticias">Notícias</a>
+                </li>
+                @endif
+                <li>
+                    <a class="pt-trigger" href="#contato">Contato</a>
+                </li>
+            </ul>
+            <!-- /Main menu -->
+        </div>
+        <!-- Navigation -->
+        
+        <!-- Social Links -->
+        <div class="social-links">
+            @foreach(config('app.redes') as $rede)
+            <a href="{{ $rede->link }}" title="{{ $rede->titulo }}" target="_blank"><i class="{{ $rede->icone }}"></i></a>
+            @endforeach
+        </div>
+        
+        <!-- Copyrights -->
+        <div class="copyrights">© {{ date('Y') }} Desenvolvido por <a href="https://fladermorais.com.br" target="_blank">Flader Morais</a></div>
+    </div>
 </header>

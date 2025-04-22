@@ -1,5 +1,5 @@
 <!-- Blog Subpage -->
-<section class="pt-page" id="blog">
+<section class="pt-page" id="noticias">
   <div class="section-inner custom-page-content">
     <div class="section-title-block second-style">
       <h2 class="section-title">Reportagens</h2>
