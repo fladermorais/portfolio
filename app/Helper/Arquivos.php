@@ -27,7 +27,7 @@ class Arquivos
     {
         $path = public_path('/storage/' . $dir);
         $file = $arquivo;
-        $arquivo = $path.$file;
+        $arquivo = $path.'/'.$file;
         
         if(file_exists($arquivo)){
             unlink($arquivo);

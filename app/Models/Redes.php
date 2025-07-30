@@ -39,7 +39,8 @@ class Redes extends Model
             "Pinterest" =>  "fab fa-pinterest-p",
             "Twitter"   =>  "fab fa-twitter",
             "Youtube"   =>  "fab fa-youtube",
-            "Strava"    =>  "fab fa-strava"
+            "Strava"    =>  "fab fa-strava",
+            "Mediun"    =>  "fab fa-medium"
         ];
         return $icones;
     }

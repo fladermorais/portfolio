@@ -93,11 +93,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'auth
         Route::get('/delete/{id}', 'NoticiaController@delete')->name('noticias.delete');
     });
 
-    Route::group(['prefix' => "medias"], function() {
-        Route::get('/{id}', [GaleriaController::class, 'byProduto'])->name('medias.byProduto');
-        Route::post('/{id}', [GaleriaController::class, 'UpdateByProduto'])->name('medias.UpdateByProduto');
-        Route::delete('/{id}', [GaleriaController::class, 'DeleteByProduto'])->name('medias.DeleteByProduto');
-    });
+    Route::resource('galeria', GaleriaController::class);
 
     Route::group(['prefix' => 'redes'], function() {
         Route::get('/', 'RedesController@index')->name('redes.index');

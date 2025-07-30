@@ -7,61 +7,47 @@ use App\Http\Requests\GaleriaRequest;
 use App\Models\Galeria;
 use App\Models\Produto;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 
 class GaleriaController extends Controller
 {
-    public function byProduto($id)
+    public function index()
     {
-        $produto = Produto::find($id);
-        if(!isset($produto)){
-            flash('Produto não encontrado no sistema!')->warning();
-            return back();
+        if(Gate::denies('galeria.index')){
+            abort(403, "Não Autorizado");
         }
-        $imagens = Galeria::where('produto_id', $id)->get();
-        return view('Admin.medias.byProduto', compact('produto', 'imagens'));
+        $imagens = Galeria::get();
+        return view('Admin.galeria.index', compact('imagens'));
     }
     
-    public function UpdateByProduto(GaleriaRequest $request, $id)
+    public function create()
     {
-        $produto = Produto::find($id);
-        if(!isset($produto)){
-            flash('Produto não encontrado no sistema!')->warning();
-            return back();
+        if(Gate::denies('galeria.create')){
+            abort(403, "Não Autorizado");
         }
-        
-        $data = $request->all();
-        $count = 0;
-        $error = 0;
-        $media = new Galeria;
-        foreach($data['arquivos'] as $arquivo){
-            $info = [
-                "arquivo"       =>  $arquivo,
-                "produto_id"    =>  $id,
-            ];
-            
-            
-            $response = $media->newInfo($info, $produto, $count);
-            if($response) {
-                $count ++;
-            } else {
-                $error ++;
-            }
-        }
-        if($count > 0){
-            flash("Foi realizado o upload de $count arquivos")->success();
-        }
-        
-        if($error > 0){
-            flash("Houve $error com problemas ao realizar o upload")->warning();
-        }
-        return back();
-        
+        return view('Admin.galeria.create');
     }
-
-    public function DeleteByProduto($id)
+    
+    public function store(Request $request)
     {
-        $imagem = Galeria::find($id);
-        $response = $imagem->deleteInfo();
+        if(Gate::denies('galeria.create')){
+            abort(403, "Não Autorizado");
+        }
+        $data = $request->all();
+        $foto = new Galeria;
+        $request = $foto->newInfo($data);
+        if($request){
+            flash('Imagem carregada com sucesso!')->success();
+            return redirect()->route('galeria.index');
+        }
+    }
+    
+    public function destroy(Galeria $galerium)
+    {
+        if(Gate::denies('galeria.delete')){
+            abort(403, "Não Autorizado");
+        }
+        $response = $galerium->deleteInfo();
         if($response){
             flash('Imagem removida com sucesso!')->success();
             return back();

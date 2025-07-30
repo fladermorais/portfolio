@@ -209,5 +209,24 @@ class PermissionTableSeeder extends Seeder
             "description"   =>  "Redes Sociais - Deletar",
             ]
         );
+
+        // Galeria de Fotos
+        Permission::firstOrCreate([
+            "name"  =>  "galeria.index",
+            "description"   =>  "Galeria de Fotos - Listar",
+            ]
+        );
+
+        Permission::firstOrCreate([
+            "name"  =>  "galeria.create",
+            "description"   =>  "Galeria de Fotos - Criar",
+            ]
+        );
+
+        Permission::firstOrCreate([
+            "name"  =>  "galeria.delete",
+            "description"   =>  "Galeria de Fotos - Deletar",
+            ]
+        );
     }
 }

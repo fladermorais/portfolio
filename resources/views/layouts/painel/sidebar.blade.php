@@ -49,6 +49,10 @@
                 </ul>
             </li>
             
+            @can('galeria.index')
+            <li><a href="{{ route('galeria.index') }}"><i class="fa fa-image"></i> <span>Galeria de Fotos</span></a></li>
+            @endcan
+            
             @can('redes.index')
             <li><a href="{{ route('redes.index') }}"><i class="fa fa-share-alt"></i> <span>Redes Sociais</span></a></li>
             @endcan
