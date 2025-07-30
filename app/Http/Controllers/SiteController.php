@@ -43,7 +43,6 @@ class SiteController extends Controller
         
         $quemsomos = QuemSomos::where('ordem', '!=', 1)->get();
         $sobre = QuemSomos::where('ordem', '=', 1)->first();
-        // dd($quemsomos);
 
         $redes = Redes::get();
         $noticias = Noticia::orderBy('created_at', 'desc')->limit(6)->get();
@@ -186,9 +185,8 @@ class SiteController extends Controller
         }
         
         $categorias = Categoria::orderBy('created_at', 'asc')->get();
-        $noticias = $query->paginate(4);
-        $parceiros = Cliente::where('status', 'ativo')->where('paginas', 'sim')->orderBy('nome')->inRandomOrder()->get();
-        return view('Site.noticias', compact('noticias', 'categorias', 'parceiros', 'data'));
+        $noticias = $query->paginate(6);
+        return view('Site.noticias', compact('noticias', 'categorias', 'data'));
     }
     
     public function noticia($alias)
@@ -221,9 +219,8 @@ class SiteController extends Controller
     public function categorias($alias)
     {
         $categoria = Categoria::where('alias', $alias)->first();
-        $categorias = Categoria::orderBy('created_at', 'asc')->get();
         $noticias = Noticia::where('categoria_id', $categoria->id)->orderBy('created_at', 'desc')->paginate(6);
-        $parceiros = Cliente::where('status', 'ativo')->where('paginas', 'sim')->orderBy('nome')->inRandomOrder()->get();
-        return view('Site.noticias', compact('noticias', 'categorias', 'categoria', 'parceiros'));
+        $categorias = Categoria::orderBy('created_at', 'asc')->get();
+        return view('Site.noticias', compact('noticias', 'categorias', 'categoria'));
     }
 }

@@ -16,7 +16,7 @@
         <div class="col-xs-12 col-sm-12 col-md-8">
           <section class="main-content" role="main">
             <article class="post media-image   format-image animated" data-animation="bounceInUp">
-              
+
               <h3 class="entry-title text-center "> <a href="#" data-hover="{{ $noticia->nome }}">{{ $noticia->nome }}</a> </h3>
               <div class="box-date-post text-right"> <span class="date-1">{{ $noticia->users->name ?? "-" }} </span> | <span class="date-2"> {{ date('d-m-Y', strtotime($noticia->created_at)) }}</span> </div>
               <br>
@@ -31,7 +31,7 @@
                   <img src="{{ asset('storage/noticias/' . $noticia->imagem ) }}" width="830" height="400" alt=""/>
                   <br>
                 </div>
-                
+
               </div>
               <br>
               <br>
@@ -41,13 +41,13 @@
                   {!! $noticia->descricao !!}
                 </div>
               </div>
-              
+
             </article>
           </section>
         </div>
-        
+
         <div class="col-md-1"></div>
-        
+
         <div class="col-xs-12 col-sm-12 col-md-3">
           <aside class="sidebar">
             <div class="widget widget-search ">
@@ -58,9 +58,9 @@
                 <button class="col-md-2" type="submit"> <i class="fa fa-search"></i> </button>
               </form>
             </div>
-            
+
             <br>
-            
+
             <!-- CATEGORY LIST WIDGET -->
             <div class="widget widget-category">
               <h3 class="widget-title"><span>Categorias</span></h3>
@@ -71,7 +71,7 @@
                 @endforeach
               </ul>
             </div>
-            
+
           </aside>
         </div>
       </div>
