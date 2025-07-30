@@ -45,7 +45,7 @@ class SiteController extends Controller
         $sobre = QuemSomos::where('ordem', '=', 1)->first();
 
         $redes = Redes::get();
-        $noticias = Noticia::orderBy('created_at', 'desc')->limit(6)->get();
+        $noticias = Noticia::where('status', 'ativo')->orderBy('created_at', 'desc')->limit(6)->get();
         
         // dd($noticias);
         $keywords = config('app.empresas.seoKeywords');
@@ -176,7 +176,7 @@ class SiteController extends Controller
     public function noticias(Request $request)
     {
         $data = $request->all();
-        $query = Noticia::orderBy('created_at', 'desc');
+        $query = Noticia::where('status', 'ativo')->orderBy('created_at', 'desc');
         if(count($data) > 0){
             $query->where(function ($q) use($data){
                 $q->orWhere('nome', 'like', "%" . $data['s'] . "%")
@@ -219,7 +219,7 @@ class SiteController extends Controller
     public function categorias($alias)
     {
         $categoria = Categoria::where('alias', $alias)->first();
-        $noticias = Noticia::where('categoria_id', $categoria->id)->orderBy('created_at', 'desc')->paginate(6);
+        $noticias = Noticia::where('categoria_id', $categoria->id)->where('status', 'ativo')->orderBy('created_at', 'desc')->paginate(6);
         $categorias = Categoria::orderBy('created_at', 'asc')->get();
         return view('Site.noticias', compact('noticias', 'categorias', 'categoria'));
     }
