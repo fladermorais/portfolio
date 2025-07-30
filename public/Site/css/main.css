@@ -1687,7 +1687,7 @@ blockquote {
 }
 
 .blog-card .media-block:hover img {
-  transform: scale(1.1);
+  /* transform: scale(1.1); */
 }
 
 .blog-card .post-without-f-image {
