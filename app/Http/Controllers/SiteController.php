@@ -215,8 +215,7 @@ class SiteController extends Controller
         SEOTools::addImages(asset('storage/noticias/'.$noticia->imagem));
         SEOMeta::setKeywords($newKeywords);
         
-        $parceiros = Cliente::where('status', 'ativo')->where('paginas', 'sim')->orderBy('nome')->inRandomOrder()->get();
-        return view('Site.noticia', compact('noticia', 'categorias', 'parceiros'));
+        return view('Site.noticia', compact('noticia', 'categorias'));
     }
     
     public function categorias($alias)

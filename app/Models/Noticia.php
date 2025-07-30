@@ -8,7 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Noticia extends Model
 {
     protected $fillable = [ 'categoria_id', 'user_id', 'nome', 'alias', 'descricao', 'imagem', 'referencia', 'status', 'views', 'seo_titulo', 'seo_descricao', 'seo_canonical', 'seo_keywords' ];
-    
+
+    public function users()
+    {
+        return $this->belongsTo(User::class, 'user_id', 'id');
+    }
+
     public function categorias()
     {
         return $this->belongsTo(Categoria::class, 'categoria_id');
