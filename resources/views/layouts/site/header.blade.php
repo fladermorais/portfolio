@@ -12,24 +12,24 @@
             <!-- Main menu -->
             <ul id="nav" class="site-main-menu">
                 <li>
-                    <a class="pt-trigger" href="#sobre">Sobre mim</a><!-- href value = data-id without # of .pt-page. -->
+                    <a class="pt-trigger" href="{{ route('home') }}#sobre">Sobre mim</a><!-- href value = data-id without # of .pt-page. -->
                 </li>
                 <li>
-                    <a class="pt-trigger" href="#radio">Rádio UFRJ</a>
+                    <a class="pt-trigger" href="{{ route('home') }}#radio">Rádio UFRJ</a>
                 </li>
                 <li>
-                    <a class="pt-trigger" href="#pitacos">Pitacos</a>
+                    <a class="pt-trigger" href="{{ route('home') }}#pitacos">Pitacos</a>
                 </li>
                 <li>
-                    <a class="pt-trigger" href="#observatorio">Observatório</a>
+                    <a class="pt-trigger" href="{{ route('home') }}#observatorio">Observatório</a>
                 </li>
                 @if(config('app.empresas.ativaBlog') == "sim")
                 <li>
-                    <a class="pt-trigger" href="#noticias">Notícias</a>
+                    <a class="pt-trigger" href="{{ route('home') }}#noticias">Notícias</a>
                 </li>
                 @endif
                 <li>
-                    <a class="pt-trigger" href="#contato">Contato</a>
+                    <a class="pt-trigger" href="{{ route('home') }}#contato">Contato</a>
                 </li>
             </ul>
             <!-- /Main menu -->
