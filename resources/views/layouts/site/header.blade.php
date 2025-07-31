@@ -29,6 +29,9 @@
                 </li>
                 @endif
                 <li>
+                    <a class="pt-trigger" href="{{ route('home') }}#galeria">Galeria</a>
+                </li>
+                <li>
                     <a class="pt-trigger" href="{{ route('home') }}#contato">Contato</a>
                 </li>
             </ul>

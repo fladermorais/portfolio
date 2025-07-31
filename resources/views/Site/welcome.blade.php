@@ -9,6 +9,8 @@
 @include('Site._noticias')
 @endif
 
+@include('Site._galeria')
+
 @include('Site._contato')
 
 

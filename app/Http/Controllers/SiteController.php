@@ -5,27 +5,16 @@ namespace App\Http\Controllers;
 use SEO;
 use Artesaos\SEOTools\Facades\SEOMeta;
 use Artesaos\SEOTools\Facades\SEOTools;
-use Artesaos\SEOTools\Facades\JsonLd;
-use App\Models\Banner;
 use App\Models\Categoria;
 use App\Models\CategoriaProduto;
 use App\Models\Cliente;
-use App\Models\Config;
-use App\Models\Contato;
-use App\Models\Evento;
+use App\Models\Galeria;
 use App\Models\Noticia;
 use App\Models\Produto;
 use App\Models\QuemSomos;
-use App\Models\Recurso;
 use App\Models\Redes;
-use App\Models\Titulo;
-use Carbon\Carbon;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\URL;
-use Spatie\Sitemap\Sitemap;
-use Spatie\Sitemap\SitemapGenerator;
-use Spatie\Sitemap\SitemapIndex;
 
 class SiteController extends Controller
 {
@@ -47,6 +36,8 @@ class SiteController extends Controller
         $redes = Redes::get();
         $noticias = Noticia::where('status', 'ativo')->orderBy('created_at', 'desc')->limit(6)->get();
         
+        $fotos = Galeria::orderBy('created_at', 'desc')->limit(6)->get();
+
         // dd($noticias);
         $keywords = config('app.empresas.seoKeywords');
         $keywords = str_replace(' ', '', $keywords);
@@ -68,7 +59,7 @@ class SiteController extends Controller
         SEOTools::addImages(asset('storage/logo/'. config('app.empresas.logo')));
         SEOMeta::setKeywords($newKeywords);
         
-        return view('Site.welcome', compact('quemsomos', 'redes', 'noticias', 'sobre'));
+        return view('Site.welcome', compact('quemsomos', 'redes', 'noticias', 'sobre', 'fotos'));
     }
     
     public function sobre()
