@@ -59,6 +59,8 @@
             
             <li><a href="{{ route('mensagens') }}"><i class="fa fa-comments"></i> <span>Mensagens</span></a></li>
             
+            <li><a href="{{ route('menus.index') }}"><i class="fa fa-list"></i> <span>Menus</span></a></li>
+            
             <li><a target="_blank" href="{{ route('home') }}"><i class="fa fa-link"></i> <span>Visualizar Site</span></a></li>
             
         </ul>

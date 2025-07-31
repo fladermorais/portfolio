@@ -3,7 +3,9 @@
 // Authentication Routes...
 
 use App\Http\Controllers\Admin\GaleriaController;
+use App\Http\Controllers\Admin\MenuController;
 use App\Http\Controllers\SiteController;
+use Illuminate\Support\Facades\Route;
 
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
 Route::post('login', 'Auth\LoginController@login');
@@ -118,4 +120,6 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'auth
     });
 
     Route::get('/mensagens', 'ContatoController@index')->name('mensagens');
+
+    Route::resource('menus', MenuController::class);
 });
