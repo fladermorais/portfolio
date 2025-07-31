@@ -27,7 +27,11 @@
             </div>
             @endforeach
             <div class="text-right">
-              <a class="btn btn-primary" href="">Mais fotos</a>
+              @if(Route::currentRouteName() == 'home')
+              <a class="btn btn-primary" href="{{ route('galeria') }}">Mais fotos</a>
+              @else
+              <a class="btn btn-primary" href="{{ route('home') }}#galeria">Voltar</a>
+              @endif
             </div>
           </div>
         </div>

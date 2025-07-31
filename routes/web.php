@@ -3,6 +3,7 @@
 // Authentication Routes...
 
 use App\Http\Controllers\Admin\GaleriaController;
+use App\Http\Controllers\SiteController;
 
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
 Route::post('login', 'Auth\LoginController@login');
@@ -27,6 +28,8 @@ Route::get('/noticia/{alias}', 'SiteController@noticia')->name('noticia');
 
 Route::get('/contato', 'SiteController@contato')->name('contato');
 Route::post('/contato', 'Admin\ContatoController@store')->name('contatoForm');
+
+Route::get('galeria', [SiteController::class, 'galeria'])->name('galeria');
 
 Route::get('/admin', 'HomeController@logado')->name('logado');
 

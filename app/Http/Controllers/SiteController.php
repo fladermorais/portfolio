@@ -214,4 +214,10 @@ class SiteController extends Controller
         $categorias = Categoria::orderBy('created_at', 'asc')->get();
         return view('Site.noticias', compact('noticias', 'categorias', 'categoria'));
     }
+
+    public function galeria()
+    {
+        $fotos = Galeria::orderBy('created_at', 'desc')->get();
+        return view('Site.galeria', compact('fotos'));
+    }
 }
