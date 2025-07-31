@@ -16,4 +16,10 @@ class Contato extends Model
         $info = $this->create($data);
         return $info;
     }
+
+    public function deleteInfo()
+    {
+        $this->delete();
+        return;
+    }
 }

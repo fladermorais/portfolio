@@ -28,6 +28,7 @@ Route::get('/noticia/{alias}', 'SiteController@noticia')->name('noticia');
 
 Route::get('/contato', 'SiteController@contato')->name('contato');
 Route::post('/contato', 'Admin\ContatoController@store')->name('contatoForm');
+Route::delete('/contato/{mensagem}', 'Admin\ContatoController@destroy')->name('contato.delete');
 
 Route::get('galeria', [SiteController::class, 'galeria'])->name('galeria');
 

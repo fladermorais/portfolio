@@ -7,7 +7,7 @@
     
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     
-    <title>E-mail de Teste!</title>
+    <title>Nova mensagem do Site!</title>
     
     
 </head>
@@ -16,9 +16,17 @@
     <div class="container titulo">
         <div class="row">
             <p>
-                Este é um e-mail de Teste, favor desconsiderá-lo
+                Mensagem enviada através do formulário do site!
             </p>
         </div>
+    </div>
+
+    <div class="container">
+        <p><span>Nome: </span>{{ $contato->nome }}</p>
+        <p><span>Telefone: </span>{{ $contato->telefone }}</p>
+        <p><span>Email: </span>{{ $contato->email }}</p>
+        <p><span>Assunto: </span>{{ $contato->assunto }}</p>
+        <p><span>Mensagem: </span>{!! $contato->mensagem !!}</p>
     </div>
     
     

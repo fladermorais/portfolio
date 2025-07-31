@@ -28,7 +28,7 @@ class ContatoMail extends Mailable
      */
     public function build()
     {
-        $this->subject('Contato - BRDSoft');
+        $this->subject('Nova mensagem do site');
         $this->to($this->contato->email, $this->contato->nome);
         return $this->markdown('Site.emailContato', ['contato' => $this->contato]);
     }
