@@ -11,29 +11,43 @@
         <div class="site-nav">
             <!-- Main menu -->
             <ul id="nav" class="site-main-menu">
+                @if($menus[0]['status'] == 'ativo')
                 <li>
-                    <a class="pt-trigger" href="{{ route('home') }}#sobre">Sobre mim</a><!-- href value = data-id without # of .pt-page. -->
-                </li>
-                <li>
-                    <a class="pt-trigger" href="{{ route('home') }}#radio">Rádio UFRJ</a>
-                </li>
-                <li>
-                    <a class="pt-trigger" href="{{ route('home') }}#pitacos">Pitacos</a>
-                </li>
-                <li>
-                    <a class="pt-trigger" href="{{ route('home') }}#observatorio">Observatório</a>
-                </li>
-                @if(config('app.empresas.ativaBlog') == "sim")
-                <li>
-                    <a class="pt-trigger" href="{{ route('home') }}#noticias">Notícias</a>
+                    <a class="pt-trigger" href="{{ route('home') }}#sobre">{{ $menus[0]['alias'] }}</a><!-- href value = data-id without # of .pt-page. -->
                 </li>
                 @endif
+                @if($menus[1]['status'] == 'ativo')
                 <li>
-                    <a class="pt-trigger" href="{{ route('home') }}#galeria">Galeria</a>
+                    <a class="pt-trigger" href="{{ route('home') }}#radio">{{ $menus[1]['alias'] }}</a>
                 </li>
+                @endif
+                @if($menus[2]['status'] == 'ativo')
                 <li>
-                    <a class="pt-trigger" href="{{ route('home') }}#contato">Contato</a>
+                    <a class="pt-trigger" href="{{ route('home') }}#pitacos">{{ $menus[2]['alias'] }}</a>
                 </li>
+                @endif
+                @if($menus[3]['status'] == 'ativo')
+                <li>
+                    <a class="pt-trigger" href="{{ route('home') }}#observatorio">{{ $menus[3]['alias'] }}</a>
+                </li>
+                @endif
+                @if($menus[4]['status'] == 'ativo')
+                @if(config('app.empresas.ativaBlog') == "sim")
+                <li>
+                    <a class="pt-trigger" href="{{ route('home') }}#noticias">{{ $menus[4]['alias'] }}</a>
+                </li>
+                @endif
+                @endif
+                @if($menus[5]['status'] == 'ativo')
+                <li>
+                    <a class="pt-trigger" href="{{ route('home') }}#galeria">{{ $menus[5]['alias'] }}</a>
+                </li>
+                @endif
+                @if($menus[6]['status'] == 'ativo')
+                <li>
+                    <a class="pt-trigger" href="{{ route('home') }}#contato">{{ $menus[6]['alias'] }}</a>
+                </li>
+                @endif
             </ul>
             <!-- /Main menu -->
         </div>

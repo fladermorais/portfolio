@@ -6,11 +6,9 @@ use SEO;
 use Artesaos\SEOTools\Facades\SEOMeta;
 use Artesaos\SEOTools\Facades\SEOTools;
 use App\Models\Categoria;
-use App\Models\CategoriaProduto;
-use App\Models\Cliente;
 use App\Models\Galeria;
+use App\Models\Menu;
 use App\Models\Noticia;
-use App\Models\Produto;
 use App\Models\QuemSomos;
 use App\Models\Redes;
 use Illuminate\Http\Request;
@@ -48,6 +46,8 @@ class SiteController extends Controller
         }
         $newKeywords = substr($newKeywords, 0, strlen($newKeywords) -1);
         
+        $menus = Menu::get()->toArray();
+
         SEOTools::metatags();
         SEOTools::twitter();
         SEOTools::opengraph();
@@ -59,7 +59,7 @@ class SiteController extends Controller
         SEOTools::addImages(asset('storage/logo/'. config('app.empresas.logo')));
         SEOMeta::setKeywords($newKeywords);
         
-        return view('Site.welcome', compact('quemsomos', 'redes', 'noticias', 'sobre', 'fotos'));
+        return view('Site.welcome', compact('quemsomos', 'redes', 'noticias', 'sobre', 'fotos', 'menus'));
     }
     
     

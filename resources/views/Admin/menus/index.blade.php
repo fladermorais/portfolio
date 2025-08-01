@@ -13,6 +13,7 @@
                 <tr>
                     <th>Nome</th>
                     <th>Alias</th>
+                    <th>Status</th>
                     <th>Ações</th>
                 </tr>
             </thead>
@@ -21,6 +22,7 @@
                 <tr>
                     <td>{{$menu->nome}}</td>
                     <td>{{$menu->alias}}</td>
+                    <td>{{$menu->status}}</td>
                     <td>
                         <a class="btn btn-primary btn-sm" href="{{route('menus.edit', $menu)}}" title="Editar"><i class="fas fa-edit"></i></a>
                     </td>

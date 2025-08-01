@@ -15,7 +15,7 @@
         <div class="box-body">
             <div class="form-group">
                 <div class="form-row">
-                    <div class="col-sm-6">
+                    <div class="col-sm-5">
                         <label for="nome">Nome</label><br>
                         <input disabled class='form-control' type="text" id="nome" name="nome" value="{{ $menu->nome }}">
                         @if ($errors->has('nome'))
@@ -25,7 +25,7 @@
                         @endif
                     </div>
                     
-                    <div class="col-sm-6">
+                    <div class="col-sm-5">
                         <label for="alias">Alias</label><br>
                         <input class='form-control' type="text" id="alias" name="alias" value="{{ $menu->alias }}">
                         @if ($errors->has('alias'))
@@ -33,6 +33,14 @@
                         <span class="error">{{ $e }}</span>
                         @endforeach
                         @endif
+                    </div>
+
+                    <div class="col-sm-2">
+                        <label for="status">Status</label><br>
+                        <select name="status" id="status" class="form-control">
+                            <option {{ $menu->status == 'ativo' ? "selected" : "" }} value="ativo">Ativo</option>
+                            <option {{ $menu->status == 'inativo' ? "selected" : "" }} value="inativo">Inativo</option>
+                        </select>
                     </div>
                 </div>
             </div>

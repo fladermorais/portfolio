@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Menu extends Model
 {
-    protected $fillable = ['nome', 'alias'];
+    protected $fillable = ['nome', 'alias', 'status'];
 
     public function updateInfo($data)
     {
