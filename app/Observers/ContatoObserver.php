@@ -18,7 +18,8 @@ class ContatoObserver
     public function created(Contato $contato)
     {
         $config = Config::first();
-        Mail::to($config)->later(now()->addMinutes(1), new ContatoMail($contato));
+        Mail::to($config->email)
+            ->cc($contato->email)->later(now()->addMinutes(1), new ContatoMail($contato, $config));
     }
 
     /**
